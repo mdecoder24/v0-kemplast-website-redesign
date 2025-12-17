@@ -58,7 +58,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                <span>123 Industrial Area, Chennai, Tamil Nadu 600001</span>
+                <span>4-3-83 to 85, Laxmana Business Ctr, Hill St, Ranigunj, Secunderabad – 500003</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Phone className="w-4 h-4 text-primary flex-shrink-0" />

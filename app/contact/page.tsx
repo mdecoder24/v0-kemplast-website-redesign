@@ -14,8 +14,24 @@ import { Textarea } from "@/components/ui/textarea"
 const contactInfo = [
   {
     icon: Building2,
-    title: "Head Office",
-    details: ["123 Industrial Area", "Chennai, Tamil Nadu 600001", "India"],
+    title: "Secunderabad Office",
+    details: [
+      "Kemplast Inc",
+      "4-3-83 to 85 Laxmana Business Ctr",
+      "Hill Street, Ranigunj",
+      "Secunderabad – 500003",
+      "Telangana, India",
+    ],
+  },
+  {
+    icon: Building2,
+    title: "Bangalore Office",
+    details: [
+      "No: 41, 15th Cross,",
+      "MTS Layout,",
+      "Kengeri Satellite Town,",
+      "Bangalore - 560060, India",
+    ],
   },
   {
     icon: Phone,
