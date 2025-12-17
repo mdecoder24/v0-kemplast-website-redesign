@@ -227,7 +227,7 @@ export default function ContactPage() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Kemplast Location Map"
+                  title="Kemplast Process Solutions Location Map"
                 />
               </div>
             </div>

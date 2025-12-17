@@ -9,9 +9,9 @@ const _inter = Inter({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Kemplast Inc | Process & Instrumentation Excellence Since 1986",
+  title: "Kemplast Process Solutions | Process & Instrumentation Excellence Since 1986",
   description:
-    "Your trusted partner in process instrumentation, packing, insulation, and valve products. Serving process industries in South India since 1986.",
+    "Kemplast Process Solutions is your trusted partner in process instrumentation, packing, insulation, and valve products. Serving process industries in South India since 1986.",
   generator: "v0.app",
   icons: {
     icon: [

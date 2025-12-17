@@ -14,7 +14,7 @@ export function Footer() {
           <div>
             <Image
               src="/images/kemplast-20logo.png"
-              alt="Kemplast Inc"
+              alt="Kemplast Process Solutions"
               width={160}
               height={40}
               className="h-10 w-auto mb-4"
@@ -78,7 +78,7 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-border mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-muted-foreground">© 2025 Kemplast Inc. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">© 2025 Kemplast Process Solutions. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="#" className="text-xs text-muted-foreground hover:text-primary transition-colors">
               Privacy Policy

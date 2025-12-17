@@ -36,7 +36,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/images/kemplast-20logo.png"
-              alt="Kemplast Inc"
+              alt="Kemplast Process Solutions"
               width={180}
               height={45}
               className="h-10 w-auto"

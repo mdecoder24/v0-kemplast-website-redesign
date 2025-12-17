@@ -18,7 +18,9 @@ export function VideoSection() {
           className="text-center mb-12"
         >
           <span className="text-xs font-semibold tracking-widest text-primary uppercase">Watch</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2">Process & Instrumentation Excellence</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2">
+            Kemplast Process Solutions – Process & Instrumentation Excellence
+          </h2>
         </motion.div>
 
         {/* Video Container */}
@@ -43,7 +45,7 @@ export function VideoSection() {
           ) : (
             <iframe
               src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-              title="Kemplast Process Engineering"
+              title="Kemplast Process Solutions – Process Engineering"
               className="w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -58,7 +60,8 @@ export function VideoSection() {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto mt-10 text-center text-muted-foreground text-lg leading-relaxed"
         >
-          Kemplast Inc has been at the forefront of providing exceptional products and services to process industries.
+          Kemplast Process Solutions has been at the forefront of providing exceptional products and services to
+          process industries.
           From instrumentation to insulation, packing to valves – we are your complete solution partner.
         </motion.p>
       </div>
