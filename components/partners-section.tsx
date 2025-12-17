@@ -37,9 +37,9 @@ export function PartnersSection() {
               {[...partners, ...partners, ...partners, ...partners].map((partner, index) => (
                 <div
                   key={`${partner.name}-${index}`}
-                  className="flex-shrink-0 w-44 h-20 bg-card rounded-xl border border-border flex items-center justify-center px-6 hover:border-primary/30 transition-colors"
+                  className="flex-shrink-0 w-64 h-32 bg-card rounded-xl border border-border flex items-center justify-center px-6 hover:border-primary/30 transition-colors"
                 >
-                  <span className="text-lg font-bold text-muted-foreground">{partner.name}</span>
+                  <span className="text-2xl font-bold text-muted-foreground">{partner.name}</span>
                 </div>
               ))}
             </div>

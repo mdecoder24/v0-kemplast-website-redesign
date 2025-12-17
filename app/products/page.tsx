@@ -73,11 +73,10 @@ export default function ProductsPage() {
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`px-6 py-3 rounded-full font-medium transition-all ${
-                  activeCategory === category.id
+                className={`px-6 py-3 rounded-full font-medium transition-all ${activeCategory === category.id
                     ? "bg-primary text-primary-foreground"
                     : "bg-card border border-border text-muted-foreground hover:border-primary hover:text-primary"
-                }`}
+                  }`}
               >
                 {category.name}
               </button>
@@ -97,6 +96,8 @@ export default function ProductsPage() {
           </div>
         </div>
       </section>
+
+      <PartnersSection />
 
       <Footer />
     </main>
