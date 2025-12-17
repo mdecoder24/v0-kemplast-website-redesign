@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ProductCard } from "@/components/product-card"
+import { PartnersSection } from "@/components/partners-section"
 import { motion } from "framer-motion"
 
 const categories = [
@@ -74,8 +75,8 @@ export default function ProductsPage() {
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 className={`px-6 py-3 rounded-full font-medium transition-all ${activeCategory === category.id
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-card border border-border text-muted-foreground hover:border-primary hover:text-primary"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-card border border-border text-muted-foreground hover:border-primary hover:text-primary"
                   }`}
               >
                 {category.name}

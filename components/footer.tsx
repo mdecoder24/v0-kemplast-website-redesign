@@ -28,13 +28,26 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-foreground mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {["Home", "Products", "Our Team", "Contact"].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link href="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Products
+                </Link>
+              </li>
+              <li>
+                <Link href="/team" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Our Team
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
