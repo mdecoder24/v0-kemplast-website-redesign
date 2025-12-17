@@ -6,7 +6,7 @@ import { useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { motion } from "framer-motion"
-import { Phone, Mail, Clock, Send, Building2, Globe } from "lucide-react"
+import { Phone, Mail, Clock, Send, Building2, Globe, Smartphone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -35,8 +35,13 @@ const contactInfo = [
   },
   {
     icon: Phone,
-    title: "Phone Numbers",
-    details: ["+91 44 1234 5678", "+91 98765 43210", "Toll Free: 1800-123-4567"],
+    title: "Phone",
+    details: ["040-27711000", "040-27714090"],
+  },
+  {
+    icon: Smartphone,
+    title: "Cell",
+    details: ["+91 76740 12423", "+91 98494 24374"],
   },
   {
     icon: Mail,
