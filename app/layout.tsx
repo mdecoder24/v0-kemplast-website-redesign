@@ -4,6 +4,7 @@ import { Inter, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 
+import { GlobalBackground } from "@/components/global-background"
 import "./globals.css"
 
 const _inter = Inter({ subsets: ["latin"] })
@@ -43,6 +44,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
 
+          <GlobalBackground />
           {children}
         </ThemeProvider>
         <Analytics />
