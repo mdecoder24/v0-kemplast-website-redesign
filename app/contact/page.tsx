@@ -282,52 +282,11 @@ export default function ContactPage() {
                 </motion.div>
               ))}
 
-              <div className="bg-card border border-border rounded-2xl p-6">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
-                    <Globe className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-foreground">Follow Us</h3>
-                    <p className="text-muted-foreground text-sm">Stay connected</p>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  {["Facebook", "Twitter", "LinkedIn", "Instagram"].map((social) => (
-                    <a
-                      key={social}
-                      href="#"
-                      className="flex-1 py-2 bg-secondary rounded-lg text-center text-sm text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                    >
-                      {social.charAt(0)}
-                    </a>
-                  ))}
-                </div>
-              </div>
+
             </motion.div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-16"
-          >
-            <div className="bg-card border border-border rounded-3xl overflow-hidden">
-              <div className="aspect-[21/9] w-full">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.886539092!2d80.06892424613905!3d13.047525939454053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu%2C%20India!5e0!3m2!1sen!2sus!4v1702840000000!5m2!1sen!2sus"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Kemplast Process Solutions Location Map"
-                />
-              </div>
-            </div>
-          </motion.div>
+
         </div>
       </section >
 
