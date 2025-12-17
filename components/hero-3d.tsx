@@ -5,7 +5,7 @@ import Image from "next/image"
 import { motion, animate } from "framer-motion"
 import { ArrowRight, BookOpen, ChevronDown, Award, Users, Building2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Hero3DScene } from "@/components/hero-3d-scene"
+import { MagneticButton } from "@/components/ui/magnetic-button"
 
 function AnimatedStat({ value, label, icon: Icon }: { value: number; label: string; icon: any }) {
   const [display, setDisplay] = useState(0)
@@ -23,172 +23,149 @@ function AnimatedStat({ value, label, icon: Icon }: { value: number; label: stri
   return (
     <motion.div
       whileHover={{ y: -4, scale: 1.02 }}
-      className="bg-card border border-border rounded-2xl px-6 py-6 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all group"
+      className="bg-background/40 backdrop-blur-md border border-foreground/10 rounded-2xl px-6 py-6 shadow-2xl hover:border-primary/50 transition-all group"
     >
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-          <Icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors" />
+      <div className="flex items-center gap-4 mb-2">
+        <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
+          <Icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
         </div>
-        <div className="text-3xl sm:text-4xl font-bold text-primary">{display}+</div>
+        <div className="text-4xl lg:text-5xl font-bold text-foreground tracking-tight">{display}+</div>
       </div>
-      <div className="text-xs sm:text-sm text-muted-foreground font-medium">{label}</div>
+      <div className="text-sm font-medium text-muted-foreground pl-1">{label}</div>
     </motion.div>
   )
 }
 
 export function Hero3D() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-background">
-      {/* 3D Scene Background */}
-      <div className="absolute inset-0 z-0">
-        <Hero3DScene />
-      </div>
+    <section className="relative min-h-screen w-full overflow-hidden bg-background selection:bg-primary/30">
 
-      {/* Gradient overlay to blend 3D scene with content */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background/95 z-[1]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-background/60 z-[1]" />
-      
-      {/* Animated background elements for depth */}
-      <div className="absolute inset-0 overflow-hidden z-[1]">
-        {/* Primary color accent circles */}
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.05, 0.1, 0.05],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          className="absolute top-20 right-20 w-96 h-96 bg-primary rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.04, 0.08, 0.04],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-          className="absolute bottom-40 left-10 w-80 h-80 bg-primary rounded-full blur-3xl"
-        />
-      </div>
+      {/* Modern Grid Overlay */}
+      <div className="absolute inset-0 z-[1] bg-[linear-gradient(color-mix(in_oklch,var(--foreground),transparent_97%)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_oklch,var(--foreground),transparent_97%)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)] pointer-events-none" />
+
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background/90 z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-background/50 z-[1]" />
 
       {/* Content */}
-      <div className="relative z-[2] flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 py-20">
-        <div className="text-center max-w-5xl mx-auto">
-          {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="mb-8"
-          >
-            <div className="inline-block p-4 bg-card border border-border rounded-2xl shadow-lg mb-6">
-              <Image
-                src="/images/kemplast-20logo.png"
-                alt="Kemplast Process Solutions"
-                width={240}
-                height={60}
-                className="w-48 sm:w-60 object-contain"
-                priority
-              />
+      <div className="relative z-[10] flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 py-20">
+        <div className="w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+          {/* Left Content */}
+          <div className="text-left space-y-8">
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-foreground/5 border border-foreground/10 rounded-full backdrop-blur-sm"
+            >
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_rgb(34,197,94)]" />
+              <span className="text-xs font-semibold tracking-[0.2em] text-muted-foreground uppercase">
+                ISO 9001:2015 Certified
+              </span>
+            </motion.div>
+
+            {/* Main heading */}
+            <div className="space-y-2">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tighter text-foreground leading-[0.9]"
+              >
+                KEMPLAST
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-orange-400 to-primary bg-[length:200%_auto] animate-gradient">
+                  PROCESS SOLUTIONS
+                </span>
+              </motion.h1>
             </div>
-          </motion.div>
 
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-card border border-primary/30 rounded-full mb-6 shadow-sm"
-          >
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-xs font-semibold tracking-widest text-primary uppercase">
-              Trusted Partner Since 1986
-            </span>
-          </motion.div>
-
-          {/* Main heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight mb-6"
-          >
-            <span className="text-foreground">Engineering </span>
-            <span className="text-primary">Excellence</span>
-            <br />
-            <span className="text-foreground">in Process </span>
-            <span className="text-primary">Solutions</span>
-          </motion.h1>
-
-          {/* Subheading */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed"
-          >
-            Empowering process industries with innovative instrumentation, packing, insulation and valve solutions.
-            Your trusted partner for over three decades.
-          </motion.p>
-
-          {/* Actions */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
-          >
-            <Button
-              size="lg"
-              className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-10 h-14 text-lg font-semibold shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50 transition-all hover:-translate-y-1"
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed border-l-2 border-primary/50 pl-6"
             >
-              Get a Quote
-              <ArrowRight className="w-5 h-5" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="gap-2 rounded-full px-10 h-14 text-lg font-semibold border-2 border-border hover:border-primary hover:bg-primary/10 transition-all hover:-translate-y-1 bg-card text-foreground"
-            >
-              <BookOpen className="w-5 h-5" />
-              View Catalog
-            </Button>
-          </motion.div>
+              Pioneering process instrumentation and industrial solutions since 1986. We engineer the future of fluid control systems.
+            </motion.p>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto"
-          >
-            <AnimatedStat value={38} label="Years of Excellence" icon={Award} />
-            <AnimatedStat value={500} label="Satisfied Clients" icon={Users} />
-            <AnimatedStat value={7} label="Industries Served" icon={Building2} />
-          </motion.div>
+            {/* Actions */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex flex-wrap gap-4 pt-4"
+            >
+              <MagneticButton>
+                <Button
+                  size="lg"
+                  className="rounded-full px-8 h-14 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all shadow-[0_0_40px_-10px_rgba(var(--primary),0.5)]"
+                >
+                  Get Started
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </MagneticButton>
+
+              <MagneticButton>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-8 h-14 text-base font-semibold border-foreground/20 text-foreground hover:bg-foreground/10 hover:border-foreground/40 backdrop-blur-sm"
+                >
+                  <BookOpen className="mr-2 w-5 h-5" />
+                  Our Catalog
+                </Button>
+              </MagneticButton>
+            </motion.div>
+          </div>
+
+          {/* Right Stats (Floating) */}
+          <div className="relative hidden lg:block h-[600px]">
+            {/* This area lets the 3D scene show through more, but we float stats over it */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.8 }}
+              className="absolute top-10 right-10 z-20"
+            >
+              <AnimatedStat value={38} label="Years Experience" icon={Award} />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.9 }}
+              className="absolute top-1/2 right-0 -translate-y-1/2 z-20"
+            >
+              <AnimatedStat value={500} label="Global Clients" icon={Users} />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.0 }}
+              className="absolute bottom-10 right-20 z-20"
+            >
+              <AnimatedStat value={100} label="Quality Assurance" icon={Building2} />
+            </motion.div>
+          </div>
         </div>
 
         {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
+          <span className="text-[10px] uppercase tracking-[0.3em] text-gray-500">Scroll to explore</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-            className="text-muted-foreground"
-          >
-            <ChevronDown className="w-6 h-6" />
-          </motion.div>
+            className="w-px h-12 bg-gradient-to-b from-primary/0 via-primary to-primary/0"
+          />
         </motion.div>
       </div>
     </section>

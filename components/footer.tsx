@@ -17,7 +17,7 @@ export function Footer() {
               alt="Kemplast Process Solutions"
               width={160}
               height={40}
-              className="h-10 w-auto mb-4"
+              className="h-10 w-auto mb-4 dark:invert"
             />
             <p className="text-sm text-muted-foreground leading-relaxed">
               Your trusted partner in process instrumentation, packing, insulation, and valve products since 1986.
