@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { motion, animate } from "framer-motion"
 import { ArrowRight, BookOpen, ChevronDown, Award, Users, Building2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -36,7 +37,10 @@ function AnimatedStat({ value, label, icon: Icon }: { value: number; label: stri
   )
 }
 
+import { ComingSoonModal } from "@/components/coming-soon-modal"
+
 export function Hero3D() {
+  const [modalOpen, setModalOpen] = useState(false)
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-background selection:bg-primary/30">
 
@@ -99,13 +103,15 @@ export function Hero3D() {
               className="flex flex-wrap gap-4 pt-4"
             >
               <MagneticButton>
-                <Button
-                  size="lg"
-                  className="rounded-full px-8 h-14 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all shadow-[0_0_40px_-10px_rgba(var(--primary),0.5)]"
-                >
-                  Get Started
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
+                <Link href="/products">
+                  <Button
+                    size="lg"
+                    className="rounded-full px-8 h-14 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all shadow-[0_0_40px_-10px_rgba(var(--primary),0.5)]"
+                  >
+                    Get Started
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </Link>
               </MagneticButton>
 
               <MagneticButton>
@@ -113,6 +119,7 @@ export function Hero3D() {
                   size="lg"
                   variant="outline"
                   className="rounded-full px-8 h-14 text-base font-semibold border-foreground/20 text-foreground hover:bg-foreground/10 hover:border-foreground/40 backdrop-blur-sm"
+                  onClick={() => setModalOpen(true)}
                 >
                   <BookOpen className="mr-2 w-5 h-5" />
                   Our Catalog
@@ -168,6 +175,7 @@ export function Hero3D() {
           />
         </motion.div>
       </div>
+      <ComingSoonModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   )
 }

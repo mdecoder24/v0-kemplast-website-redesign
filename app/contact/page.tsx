@@ -51,14 +51,20 @@ const contactInfo = [
 ]
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    name: string
+    email: string
+    product: string[]
+    subject: string
+    message: string
+  }>({
     name: "",
     email: "",
-    phone: "",
-    company: "",
+    product: [],
     subject: "",
     message: "",
   })
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -87,62 +93,136 @@ export default function ContactPage() {
               className="lg:col-span-2"
             >
               <div className="bg-card border border-border rounded-3xl p-8 md:p-12">
-                <h2 className="text-2xl font-bold text-foreground mb-8">Send us a Message</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Request a Quote</h2>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-foreground font-medium mb-2">Full Name *</label>
-                      <Input
-                        type="text"
-                        placeholder="John Doe"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="bg-secondary border-border h-12"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-foreground font-medium mb-2">Email Address *</label>
-                      <Input
-                        type="email"
-                        placeholder="john@example.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="bg-secondary border-border h-12"
-                        required
-                      />
-                    </div>
+                  <div>
+                    <label className="block text-foreground font-medium mb-2">Your Name (required)</label>
+                    <Input
+                      type="text"
+                      placeholder="John Doe"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="bg-secondary border-border h-12"
+                      required
+                    />
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-foreground font-medium mb-2">Phone Number</label>
-                      <Input
-                        type="tel"
-                        placeholder="+91 98765 43210"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="bg-secondary border-border h-12"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-foreground font-medium mb-2">Company Name</label>
-                      <Input
-                        type="text"
-                        placeholder="Your Company"
-                        value={formData.company}
-                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className="bg-secondary border-border h-12"
-                      />
+                  <div>
+                    <label className="block text-foreground font-medium mb-2">Your Email (required)</label>
+                    <Input
+                      type="email"
+                      placeholder="john@example.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="bg-secondary border-border h-12"
+                      required
+                    />
+                  </div>
+
+
+
+                  <div className="relative">
+                    <label className="block text-foreground font-medium mb-2">Select Products</label>
+                    <div className="relative">
+                      {/* Trigger Area */}
+                      <div
+                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        className="min-h-12 w-full rounded-md border border-border bg-secondary px-3 py-2 text-sm cursor-pointer hover:border-primary/50 transition-colors"
+                      >
+                        <div className="flex flex-wrap gap-2">
+                          {formData.product.length > 0 ? (
+                            formData.product.map((prod) => (
+                              <span
+                                key={prod}
+                                onClick={(e) => e.stopPropagation()}
+                                className="bg-primary/20 text-primary px-2 py-1 rounded-md text-xs flex items-center gap-1 font-medium ring-1 ring-inset ring-primary/20"
+                              >
+                                {prod}
+                                <button
+                                  type="button"
+                                  onClick={(e) => {
+                                    e.stopPropagation()
+                                    setFormData({
+                                      ...formData,
+                                      product: formData.product.filter((p) => p !== prod),
+                                    })
+                                  }}
+                                  className="hover:text-foreground ml-1 p-0.5"
+                                >
+                                  ×
+                                </button>
+                              </span>
+                            ))
+                          ) : (
+                            <span className="text-muted-foreground py-1">Select products...</span>
+                          )}
+                        </div>
+                        <div className="absolute right-3 top-3 pointer-events-none">
+                          <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className={`text-muted-foreground transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}
+                          >
+                            <path
+                              d="M2.5 4.5L6 8L9.5 4.5"
+                              stroke="currentColor"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+
+                      {/* Backdrop to close dropdown on outside click */}
+                      {isDropdownOpen && (
+                        <div
+                          className="fixed inset-0 z-10"
+                          onClick={() => setIsDropdownOpen(false)}
+                        />
+                      )}
+
+                      {/* Dropdown Menu */}
+                      {isDropdownOpen && (
+                        <div className="absolute top-full left-0 right-0 mt-2 bg-card border border-border rounded-xl shadow-xl z-20 overflow-hidden py-1">
+                          {["Instrumentation", "Packing", "Insulation", "Valves", "Other"].map((option) => {
+                            const isSelected = formData.product.includes(option)
+                            return (
+                              <div
+                                key={option}
+                                onClick={() => {
+                                  if (!isSelected) {
+                                    setFormData({ ...formData, product: [...formData.product, option] })
+                                    setIsDropdownOpen(false)
+                                  }
+                                }}
+                                className={`px-4 py-3 text-sm cursor-pointer transition-colors flex items-center justify-between
+                                  ${isSelected
+                                    ? 'bg-secondary/50 text-muted-foreground cursor-default'
+                                    : 'hover:bg-primary/10 hover:text-primary text-foreground'
+                                  }`}
+                              >
+                                {option}
+                                {isSelected && (
+                                  <span className="text-xs text-primary font-medium">Selected</span>
+                                )}
+                              </div>
+                            )
+                          })}
+                        </div>
+                      )}
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-foreground font-medium mb-2">Subject *</label>
+                    <label className="block text-foreground font-medium mb-2">Subject</label>
                     <Input
                       type="text"
-                      placeholder="How can we help you?"
+                      placeholder="Brief subject of your inquiry"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       className="bg-secondary border-border h-12"
@@ -151,7 +231,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-foreground font-medium mb-2">Message *</label>
+                    <label className="block text-foreground font-medium mb-2">Your Message</label>
                     <Textarea
                       placeholder="Tell us about your requirements..."
                       value={formData.message}
@@ -166,7 +246,7 @@ export default function ContactPage() {
                     className="w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 text-lg font-semibold"
                   >
                     <Send className="w-5 h-5 mr-2" />
-                    Send Message
+                    Send Request
                   </Button>
                 </form>
               </div>
@@ -249,9 +329,9 @@ export default function ContactPage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section >
 
       <Footer />
-    </main>
+    </main >
   )
 }

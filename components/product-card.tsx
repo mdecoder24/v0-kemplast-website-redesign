@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { motion } from "framer-motion"
 import { Eye, ShoppingCart } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -46,12 +47,14 @@ export function ProductCard({ name, category, image, index }: ProductCardProps) 
           {name}
         </h3>
         <p className="text-muted-foreground text-sm mb-4">High quality industrial grade product</p>
-        <Button
-          variant="outline"
-          className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
-        >
-          Request Quote
-        </Button>
+        <Link href="/contact">
+          <Button
+            variant="outline"
+            className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+          >
+            Request Quote
+          </Button>
+        </Link>
       </div>
     </motion.div>
   )
