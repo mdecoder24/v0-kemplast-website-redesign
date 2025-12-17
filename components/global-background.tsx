@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 
 export function GlobalBackground() {
@@ -59,17 +59,27 @@ export function GlobalBackground() {
 }
 
 function Particle({ index }: { index: number }) {
-    const randomX = Math.random() * 100
-    const randomY = Math.random() * 100
-    const duration = 15 + Math.random() * 20
-    const delay = Math.random() * 5
+    const [mounted, setMounted] = useState(false)
+    const [randomValues, setRandomValues] = useState({ x: 0, y: 0, duration: 15, delay: 0 })
+
+    useEffect(() => {
+        setRandomValues({
+            x: Math.random() * 100,
+            y: Math.random() * 100,
+            duration: 15 + Math.random() * 20,
+            delay: Math.random() * 5
+        })
+        setMounted(true)
+    }, [])
+
+    if (!mounted) return null
 
     return (
         <motion.div
             className="absolute w-1 h-1 bg-white/20 rounded-full"
             style={{
-                left: `${randomX}%`,
-                top: `${randomY}%`,
+                left: `${randomValues.x}%`,
+                top: `${randomValues.y}%`,
             }}
             animate={{
                 y: [0, -100, 0],
@@ -77,9 +87,9 @@ function Particle({ index }: { index: number }) {
                 scale: [0, 1.5, 0],
             }}
             transition={{
-                duration: duration,
+                duration: randomValues.duration,
                 repeat: Infinity,
-                delay: delay,
+                delay: randomValues.delay,
                 ease: "easeInOut",
             }}
         />
