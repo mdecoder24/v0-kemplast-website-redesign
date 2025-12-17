@@ -6,7 +6,7 @@ import { useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { motion } from "framer-motion"
-import { Phone, Mail, Clock, Send, Building2, Globe, Smartphone } from "lucide-react"
+import { Phone, Mail, Send, Building2, Globe, Smartphone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -47,11 +47,6 @@ const contactInfo = [
     icon: Mail,
     title: "Email Addresses",
     details: ["info@kemplast.in", "sales@kemplast.in", "support@kemplast.in"],
-  },
-  {
-    icon: Clock,
-    title: "Business Hours",
-    details: ["Monday - Friday: 9:00 AM - 6:00 PM", "Saturday: 9:00 AM - 2:00 PM", "Sunday: Closed"],
   },
 ]
 
