@@ -25,7 +25,8 @@ export function ProductCard({ name, category, image, index }: ProductCardProps) 
         transition={{ duration: 0.4, delay: index * 0.05 }}
         viewport={{ once: true }}
         whileHover={{ y: -8 }}
-        className="group relative bg-card border border-border rounded-2xl overflow-hidden"
+        className="group relative bg-card border border-border rounded-2xl overflow-hidden cursor-pointer"
+        onClick={() => setShowDetails(true)}
       >
         <div className="relative aspect-square bg-secondary overflow-hidden">
           <img
@@ -55,7 +56,11 @@ export function ProductCard({ name, category, image, index }: ProductCardProps) 
               Get Full Details
             </Button>
 
-            <Link href={`/contact?subject=Inquiry about ${encodeURIComponent(name)}`} className="w-full">
+            <Link
+              href={`/contact?subject=Inquiry about ${encodeURIComponent(name)}`}
+              className="w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
               <Button
                 className="w-full gap-2 bg-primary hover:bg-primary/90 text-primary-foreground"
               >
