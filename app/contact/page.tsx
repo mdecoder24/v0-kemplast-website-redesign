@@ -91,6 +91,21 @@ function ContactForm() {
       if (error) throw error
 
       toast.success("Request sent successfully! We will get back to you soon.")
+
+      // Send email notification
+      try {
+        await fetch("/api/send", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        })
+      } catch (err) {
+        console.error("Failed to send email notification:", err)
+        // Don't show error to user if only email fails but db succeeds
+      }
+
       setFormData({
         name: "",
         email: "",
