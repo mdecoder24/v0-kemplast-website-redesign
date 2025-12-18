@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 
 import { GlobalBackground } from "@/components/global-background"
+import { Toaster } from "sonner"
 import "./globals.css"
 
 const _inter = Inter({ subsets: ["latin"] })
@@ -34,6 +35,7 @@ export default function RootLayout({
 
           <GlobalBackground />
           {children}
+          <Toaster />
         </ThemeProvider>
         <Analytics />
       </body>

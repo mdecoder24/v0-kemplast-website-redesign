@@ -6,9 +6,11 @@ import { X, Hammer, Construction } from "lucide-react"
 interface ComingSoonModalProps {
     isOpen: boolean
     onClose: () => void
+    title?: string
+    description?: string
 }
 
-export function ComingSoonModal({ isOpen, onClose }: ComingSoonModalProps) {
+export function ComingSoonModal({ isOpen, onClose, title = "Catalog Updating", description = "We are currently working on our new comprehensive catalog. It will be updated soon with our latest products!" }: ComingSoonModalProps) {
     return (
         <AnimatePresence>
             {isOpen && (
@@ -66,7 +68,7 @@ export function ComingSoonModal({ isOpen, onClose }: ComingSoonModalProps) {
                                 transition={{ delay: 0.1 }}
                                 className="text-2xl font-bold text-foreground mb-3"
                             >
-                                Catalog Updating
+                                {title}
                             </motion.h3>
 
                             <motion.p
@@ -75,7 +77,7 @@ export function ComingSoonModal({ isOpen, onClose }: ComingSoonModalProps) {
                                 transition={{ delay: 0.2 }}
                                 className="text-muted-foreground leading-relaxed"
                             >
-                                We are currently working on our new comprehensive catalog. It will be updated soon with our latest products!
+                                {description}
                             </motion.p>
 
                             {/* Progress Bar (Decorative) */}

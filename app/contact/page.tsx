@@ -2,7 +2,8 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect, Suspense } from "react"
+import { useSearchParams } from "next/navigation"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { motion } from "framer-motion"
@@ -10,6 +11,8 @@ import { Phone, Mail, Send, Building2, Globe, Smartphone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { supabase } from "@/lib/supabase"
+import { toast } from "sonner"
 
 const contactInfo = [
   {
@@ -50,7 +53,10 @@ const contactInfo = [
   },
 ]
 
-export default function ContactPage() {
+function ContactForm() {
+  const searchParams = useSearchParams()
+  const initialSubject = searchParams.get("subject") || ""
+
   const [formData, setFormData] = useState<{
     name: string
     email: string
@@ -61,14 +67,43 @@ export default function ContactPage() {
     name: "",
     email: "",
     product: [],
-    subject: "",
+    subject: initialSubject,
     message: "",
   })
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
+    setIsSubmitting(true)
+
+    try {
+      const { error } = await supabase.from("quotes").insert([
+        {
+          name: formData.name,
+          email: formData.email,
+          product: formData.product,
+          subject: formData.subject,
+          message: formData.message,
+        },
+      ])
+
+      if (error) throw error
+
+      toast.success("Request sent successfully! We will get back to you soon.")
+      setFormData({
+        name: "",
+        email: "",
+        product: [],
+        subject: "",
+        message: "",
+      })
+    } catch (error) {
+      console.error("Error submitting form:", error)
+      toast.error("Failed to send request. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -243,10 +278,20 @@ export default function ContactPage() {
 
                   <Button
                     type="submit"
+                    disabled={isSubmitting}
                     className="w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 text-lg font-semibold"
                   >
-                    <Send className="w-5 h-5 mr-2" />
-                    Send Request
+                    {isSubmitting ? (
+                      <span className="flex items-center gap-2">
+                        <span className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></span>
+                        Sending...
+                      </span>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5 mr-2" />
+                        Send Request
+                      </>
+                    )}
                   </Button>
                 </form>
               </div>
@@ -292,5 +337,13 @@ export default function ContactPage() {
 
       <Footer />
     </main >
+  )
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-background" />}>
+      <ContactForm />
+    </Suspense>
   )
 }
