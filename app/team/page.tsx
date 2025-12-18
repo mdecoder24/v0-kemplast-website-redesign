@@ -26,7 +26,9 @@ export default function TeamPage() {
       <section className="pt-32 pb-24 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
-            <span className="text-primary font-semibold tracking-wider text-sm">OUR PEOPLE</span>
+            <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xl font-bold tracking-widest uppercase shadow-[0_0_15px_-5px_hsl(var(--primary))] backdrop-blur-sm mb-4">
+              OUR PEOPLE
+            </span>
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mt-4 mb-6">Meet Our Team</h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               The dedicated professionals behind Kemplast&apos;s success, committed to delivering excellence in every

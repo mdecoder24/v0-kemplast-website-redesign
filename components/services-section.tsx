@@ -44,7 +44,9 @@ export function ServicesSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-bold tracking-[0.2em] text-primary uppercase">Our Expertise</span>
+          <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xl font-bold tracking-widest uppercase shadow-[0_0_15px_-5px_hsl(var(--primary))] backdrop-blur-sm mb-4">
+            Our Expertise
+          </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-foreground mt-4 tracking-tight">
             Comprehensive <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">Services</span>
           </h2>

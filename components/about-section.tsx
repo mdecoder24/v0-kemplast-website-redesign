@@ -37,8 +37,10 @@ export function AboutSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-xs font-semibold tracking-widest text-primary uppercase">About Us</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2">Trusted Partner Since 1986</h2>
+          <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xl font-bold tracking-widest uppercase shadow-[0_0_15px_-5px_hsl(var(--primary))] backdrop-blur-sm mb-4">
+            About Us
+          </span>
+          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mt-4">Trusted Partner Since 1986</h2>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">

@@ -17,7 +17,9 @@ export function VideoSection() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="text-xs font-semibold tracking-widest text-primary uppercase">Watch</span>
+          <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xl font-bold tracking-widest uppercase shadow-[0_0_15px_-5px_hsl(var(--primary))] backdrop-blur-sm mb-4">
+            Watch
+          </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2">
             Kemplast Process Solutions – Process & Instrumentation Excellence
           </h2>

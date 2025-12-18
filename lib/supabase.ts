@@ -5,7 +5,11 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
 if (!supabaseUrl || !supabaseAnonKey) {
-    throw new Error('Missing Supabase environment variables')
+    console.warn('Missing Supabase environment variables: NEXT_PUBLIC_SUPABASE_URL and/or NEXT_PUBLIC_SUPABASE_ANON_KEY')
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+// Fallback to empty strings to prevent build/runtime crash, requests will just fail if keys are missing
+export const supabase = createClient(
+    supabaseUrl || 'https://placeholder.supabase.co',
+    supabaseAnonKey || 'placeholder'
+)

@@ -62,7 +62,9 @@ export default function ProductsPage() {
       <section className="pt-32 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
-            <span className="text-primary font-semibold tracking-wider text-sm">OUR PRODUCTS</span>
+            <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xl font-bold tracking-widest uppercase shadow-[0_0_15px_-5px_hsl(var(--primary))] backdrop-blur-sm mb-4">
+              OUR PRODUCTS
+            </span>
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mt-4 mb-6">Industrial Excellence</h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Discover our comprehensive range of high-quality instrumentation, packing, insulation, and valve products.
