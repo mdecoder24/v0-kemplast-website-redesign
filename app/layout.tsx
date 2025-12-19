@@ -5,7 +5,6 @@ import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 
 import { GlobalBackground } from "@/components/global-background"
-import { CustomCursor } from "@/components/ui/custom-cursor"
 import { Toaster } from "sonner"
 import "./globals.css"
 
@@ -35,7 +34,6 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
 
           <GlobalBackground />
-          <CustomCursor />
           {children}
           <Toaster />
         </ThemeProvider>
