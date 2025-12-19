@@ -57,18 +57,9 @@ export function Hero3D() {
 
           {/* Left Content */}
           <div className="text-left space-y-8">
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-foreground/5 border border-foreground/10 rounded-full backdrop-blur-sm"
-            >
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_rgb(34,197,94)]" />
-              <span className="text-xs font-semibold tracking-[0.2em] text-muted-foreground uppercase">
-                ISO 9001:2015 Certified
-              </span>
-            </motion.div>
+
+
+
 
             {/* Main heading */}
             <div className="space-y-2">

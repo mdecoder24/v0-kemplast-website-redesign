@@ -13,11 +13,11 @@ export function Footer() {
           {/* Brand */}
           <div>
             <Image
-              src="/images/kemplast-20logo.png"
+              src="/images/kemplast-logo-updated.png"
               alt="Kemplast Process Solutions"
-              width={160}
-              height={40}
-              className="h-10 w-auto mb-4 dark:invert"
+              width={480}
+              height={128}
+              className="h-32 w-auto mb-6"
             />
             <p className="text-sm text-muted-foreground leading-relaxed">
               Your trusted partner in process instrumentation, packing, insulation, and valve products since 1986.

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
+import { motion, useMotionValue, useSpring } from "framer-motion"
 
 export function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false)
@@ -12,52 +12,10 @@ export function CustomCursor() {
   const mouseY = useMotionValue(0)
 
   // Smooth follower logic
-  // Damping/stiffness adjusted for a floaty yet responsive feel
-  const springConfig = { damping: 20, stiffness: 150, mass: 0.5 }
+  // Damping: 30, Stiffness: 200 -> Snappy but smooth, no wobble/elasticity
+  const springConfig = { damping: 30, stiffness: 200, mass: 0.8 }
   const cursorX = useSpring(mouseX, springConfig)
   const cursorY = useSpring(mouseY, springConfig)
-
-  // Transformation values for the elasticity effect
-  const rotate = useMotionValue(0)
-  const scaleX = useMotionValue(1)
-  const scaleY = useMotionValue(1)
-
-  useEffect(() => {
-    // Calculate rotation and stretch based on the lag between mouse and cursor
-    const handleMotion = () => {
-      const mx = mouseX.get()
-      const my = mouseY.get()
-      const cx = cursorX.get()
-      const cy = cursorY.get()
-
-      const dx = mx - cx
-      const dy = my - cy
-
-      const distance = Math.sqrt(dx * dx + dy * dy)
-
-      // Only rotate if there is significant movement to avoid jitter at rest
-      if (distance > 0.1) {
-        const angle = Math.atan2(dy, dx) * (180 / Math.PI)
-        rotate.set(angle)
-      }
-
-      // Elastic stretch effect: elongated in direction of movement
-      // We cap the stretch to avoid it looking too distorted
-      const stretchFactor = Math.min(1.3, 1 + distance / 250)
-      const squeezeFactor = Math.max(0.7, 1 - distance / 250)
-
-      scaleX.set(stretchFactor)
-      scaleY.set(squeezeFactor)
-    }
-
-    const unsubX = cursorX.on("change", handleMotion)
-    const unsubY = cursorY.on("change", handleMotion)
-
-    return () => {
-      unsubX()
-      unsubY()
-    }
-  }, [cursorX, cursorY, mouseX, mouseY, rotate, scaleX, scaleY])
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
@@ -68,6 +26,7 @@ export function CustomCursor() {
 
     const checkHover = (e: MouseEvent) => {
       const target = e.target as HTMLElement
+      // Check if hovering over clickable elements
       const isClickable =
         target.tagName.toLowerCase() === 'a' ||
         target.tagName.toLowerCase() === 'button' ||
@@ -101,9 +60,9 @@ export function CustomCursor() {
 
   return (
     <>
-      {/* Main Dot - Stays completely synced with mouse for precision */}
+      {/* Main Dot - The precise pointer */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[9999]"
+        className="fixed top-0 left-0 w-2.5 h-2.5 bg-primary rounded-full pointer-events-none z-[9999] mix-blend-difference"
         style={{
           x: mouseX,
           y: mouseY,
@@ -113,7 +72,7 @@ export function CustomCursor() {
         }}
       />
 
-      {/* Elastic Ring - Follows with physics and stretches */}
+      {/* Trailing Ring - The smooth follower */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9998] mix-blend-difference"
         style={{
@@ -121,19 +80,18 @@ export function CustomCursor() {
           y: cursorY,
           translateX: "-50%",
           translateY: "-50%",
-          rotate: rotate,
-          scaleX: scaleX,
-          scaleY: scaleY,
           opacity: isVisible ? 1 : 0,
         }}
       >
         <motion.div
-          className="w-10 h-10 rounded-full border border-white"
+          className="rounded-full border border-primary/50"
           animate={{
-            scale: isHovering ? 0.5 : 1, // Shrinks slightly on hover for focus, or could grow
-            backgroundColor: isHovering ? "rgba(255, 255, 255, 1)" : "rgba(255, 255, 255, 0)",
+            height: isHovering ? 50 : 20,
+            width: isHovering ? 50 : 20,
+            backgroundColor: isHovering ? "rgba(var(--primary), 0.1)" : "transparent",
+            borderColor: isHovering ? "rgba(var(--primary), 0.8)" : "rgba(var(--primary), 0.5)",
           }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
         />
       </motion.div>
     </>
