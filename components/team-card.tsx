@@ -65,6 +65,27 @@ export function TeamCard({ name, role, image, index }: TeamCardProps) {
               {name}
             </h3>
             <p className="text-muted-foreground">{role}</p>
+            {/* Mobile Actions */}
+            <div className="flex justify-center gap-4 mt-4 lg:hidden">
+              <a
+                href="#"
+                className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground shadow-lg transition-transform hover:scale-110"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground shadow-lg transition-transform hover:scale-110"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground shadow-lg transition-transform hover:scale-110"
+              >
+                <Phone className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
