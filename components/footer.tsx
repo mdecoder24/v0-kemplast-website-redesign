@@ -15,9 +15,9 @@ export function Footer() {
             <Image
               src="/images/kemplast-logo-updated.png"
               alt="Kemplast Process Solutions"
-              width={480}
-              height={128}
-              className="h-32 w-auto mb-6"
+              width={400}
+              height={100}
+              className="w-full max-w-[280px] h-auto mb-6"
             />
             <p className="text-sm text-muted-foreground leading-relaxed">
               Your trusted partner in process instrumentation, packing, insulation, and valve products since 1986.
