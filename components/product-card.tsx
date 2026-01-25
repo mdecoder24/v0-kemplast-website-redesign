@@ -70,7 +70,7 @@ export function ProductCard({
           <div className="flex flex-col gap-2">
             <Button
               variant="outline"
-              className="w-full gap-2 hover:text-orange-500"
+              className="w-full gap-2 hover:text-orange-500 hover:bg-transparent hover:border-border"
               onClick={() => setShowDetails(true)}
             >
               <Info className="w-4 h-4" />

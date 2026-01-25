@@ -119,7 +119,7 @@ export function ComingSoonModal({
                     {benefits.map((benefit, idx) => (
                       <li
                         key={idx}
-                        className="text-muted-foreground leading-relaxed text-base marker:text-white"
+                        className="text-muted-foreground leading-relaxed text-base marker:text-black dark:marker:text-white"
                       >
                         {benefit}
                       </li>
@@ -146,7 +146,7 @@ export function ComingSoonModal({
                     {applications.map((app, idx) => (
                       <li
                         key={idx}
-                        className="text-muted-foreground leading-relaxed text-base marker:text-white"
+                        className="text-muted-foreground leading-relaxed text-base marker:text-black dark:marker:text-white"
                       >
                         {app}
                       </li>
