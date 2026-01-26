@@ -15,17 +15,17 @@ const teamMembers = [
   },
   {
     id: 2,
-    position: "Director",
-    name: "Badri",
-    phone: "-",
-    email: "-",
-  },
-  {
-    id: 3,
     position: "M.D",
     name: "Guru. P",
     phone: "7674012423",
     email: "Sales@kemplast.in",
+  },
+  {
+    id: 3,
+    position: "Director",
+    name: "Badri",
+    phone: "-",
+    email: "-",
   },
   {
     id: 4,
