@@ -3,7 +3,8 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { motion } from "framer-motion"
-import { Mail, Phone, User } from "lucide-react"
+import { Mail, Phone, User, CheckCircle2 } from "lucide-react"
+import { JoinTeamForm } from "@/components/join-team-form"
 
 const teamMembers = [
   {
@@ -121,7 +122,7 @@ export default function TeamPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="rounded-3xl border border-border bg-card/50 backdrop-blur-sm overflow-hidden shadow-2xl"
+            className="rounded-3xl border border-border bg-card/50 backdrop-blur-sm overflow-hidden shadow-2xl mb-24"
           >
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
@@ -186,21 +187,52 @@ export default function TeamPage() {
             </div>
           </motion.div>
 
+          {/* Join Team Section with Form */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-24 text-center"
+            className="mt-24"
           >
-            <div className="bg-card border border-border rounded-3xl p-12 max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-foreground mb-4">Join Our Team</h2>
-              <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-                We&apos;re always looking for talented individuals who share our passion for excellence. Explore career
-                opportunities at Kemplast.
-              </p>
-              <button className="px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all">
-                View Open Positions
-              </button>
+            <div className="bg-card border border-border rounded-3xl p-8 md:p-12 max-w-6xl mx-auto shadow-2xl relative overflow-hidden">
+              {/* Decorative background element */}
+              <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+
+              <div className="grid lg:grid-cols-2 gap-12 items-start relative z-10">
+                <div className="text-left space-y-8">
+                  <div>
+                    <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Join Our Growing Team</h2>
+                    <p className="text-muted-foreground text-lg">
+                      We&apos;re always looking for talented individuals who share our passion for excellence and innovation.
+                      If you want to be part of a dynamic team at Kemplast, apply now!
+                    </p>
+                  </div>
+
+                  <div className="space-y-6">
+                    <h3 className="text-xl font-semibold text-foreground">Why Work With Us?</h3>
+                    <ul className="space-y-4">
+                      {[
+                        "Opportunity to work on cutting-edge industrial solutions",
+                        "Collaborative and inclusive work environment",
+                        "Continuous learning and professional growth",
+                        "Competitive compensation and benefits"
+                      ].map((item, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <div className="mt-1 min-w-[24px] min-h-[24px] rounded-full bg-primary/20 text-primary flex items-center justify-center">
+                            <CheckCircle2 className="w-4 h-4" />
+                          </div>
+                          <span className="text-foreground/80">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-background/40 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-border/50 shadow-lg">
+                  <h3 className="text-2xl font-semibold text-foreground mb-6">Application Form</h3>
+                  <JoinTeamForm />
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
