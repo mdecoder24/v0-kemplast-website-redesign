@@ -240,8 +240,18 @@ function ContactForm() {
 
                       {/* Dropdown Menu */}
                       {isDropdownOpen && (
-                        <div className="absolute top-full left-0 right-0 mt-2 bg-card border border-border rounded-xl shadow-xl z-20 overflow-hidden py-1">
-                          {["Instrumentation", "Packing", "Insulation", "Valves", "Other"].map((option) => {
+                        <div className="absolute top-full left-0 right-0 mt-2 bg-card border border-border rounded-xl shadow-xl z-20 overflow-hidden py-1 h-60 overflow-y-auto custom-scrollbar">
+                          {[
+                            "Pressure Instruments",
+                            "Level Instruments",
+                            "Flow Instruments",
+                            "Temperature Instruments",
+                            "Safety Instruments",
+                            "Valve Positioners",
+                            "Packing",
+                            "Insulation",
+                            "Other"
+                          ].map((option) => {
                             const isSelected = formData.product.includes(option)
                             return (
                               <div
