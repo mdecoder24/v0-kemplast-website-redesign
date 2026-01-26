@@ -49,7 +49,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Addresses",
-    details: ["info@kemplast.in", "sales@kemplast.in", "support@kemplast.in"],
+    details: ["sales@kemplast.in", "support@kemplast.in"],
   },
 ]
 

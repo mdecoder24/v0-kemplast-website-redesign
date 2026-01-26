@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
 
     const data = await resend.emails.send({
       from: "Kemplast Website <onboarding@resend.dev>", // Change this to your verified domain later
-      to: ["info@kemplast.in"], // Replace with the admin email where you want to receive quotes
+      to: ["sales@kemplast.in"], // Replace with the admin email where you want to receive quotes
       replyTo: email,
       subject: `New Quote Request: ${subject}`,
       html: `
