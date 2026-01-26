@@ -1554,29 +1554,23 @@ export default function ProductsPage() {
 
           {/* PRODUCT GRID */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredProducts.length > 0 ? (
-              filteredProducts.map((product, index) => (
-                <ProductCard
-                  key={product.name}
-                  name={product.name}
-                  category={
-                    categories.find((c) => c.id === product.category)?.name ||
-                    product.category
-                  }
-                  image={product.image}
-                  description={product.description}
-                  introduction={product.introduction}
-                  benefits={product.benefits}
-                  technicalSpecs={product.technicalSpecs}
-                  applications={product.applications}
-                  index={index}
-                />
-              ))
-            ) : (
-              <div className="col-span-full text-center py-12 text-muted-foreground">
-                <p className="text-xl">No products found matching "{searchQuery}"</p>
-              </div>
-            )}
+            {filteredProducts.map((product, index) => (
+              <ProductCard
+                key={product.name}
+                name={product.name}
+                category={
+                  categories.find((c) => c.id === product.category)?.name ||
+                  product.category
+                }
+                image={product.image}
+                description={product.description}
+                introduction={product.introduction}
+                benefits={product.benefits}
+                technicalSpecs={product.technicalSpecs}
+                applications={product.applications}
+                index={index}
+              />
+            ))}
           </div>
         </div>
       </section>
