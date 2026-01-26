@@ -1471,8 +1471,10 @@ const products: ProductDetail[] = [
 ];
 
 export default function ProductsPage() {
+
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeSubCategory, setActiveSubCategory] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleCategoryChange = (id: string) => {
     setActiveCategory(id);
@@ -1480,10 +1482,21 @@ export default function ProductsPage() {
   };
 
   const filteredProducts = products.filter((product) => {
-    if (activeCategory === "all") return true;
-    if (product.category !== activeCategory) return false;
-    if (activeSubCategory === "all") return true;
-    return product.subCategory === activeSubCategory;
+    const matchesCategory =
+      activeCategory === "all" ? true : product.category === activeCategory;
+
+    const matchesSubCategory =
+      activeSubCategory === "all"
+        ? true
+        : product.subCategory === activeSubCategory;
+
+    const matchesSearch =
+      product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.introduction?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      false;
+
+    return matchesCategory && matchesSubCategory && matchesSearch;
   });
 
   return (
@@ -1505,10 +1518,35 @@ export default function ProductsPage() {
               Industrial Excellence
             </h1>
 
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
               Discover our comprehensive range of high-quality instrumentation,
               packing, insulation, and valve products.
             </p>
+
+            {/* SEARCH BAR */}
+            <div className="max-w-md mx-auto relative mb-12">
+              <input
+                type="text"
+                placeholder="Search products..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full px-6 py-3 rounded-full bg-card border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all pl-12"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
           </motion.div>
 
           {/* MAIN CATEGORIES */}
@@ -1517,11 +1555,10 @@ export default function ProductsPage() {
               <button
                 key={category.id}
                 onClick={() => handleCategoryChange(category.id)}
-                className={`px-4 py-2 rounded-full font-medium whitespace-nowrap transition-all flex-shrink-0 ${
-                  activeCategory === category.id
+                className={`px-4 py-2 rounded-full font-medium whitespace-nowrap transition-all flex-shrink-0 ${activeCategory === category.id
                     ? "bg-primary text-primary-foreground"
                     : "bg-card border border-border text-muted-foreground hover:border-primary hover:text-primary"
-                }`}
+                  }`}
               >
                 {category.name}
               </button>
@@ -1532,18 +1569,19 @@ export default function ProductsPage() {
           {(activeCategory === "pressure" ||
             activeCategory === "level" ||
             activeCategory === "flow" ||
-            activeCategory === "temperature") &&
+            activeCategory === "temperature" ||
+            activeCategory === "safety" ||
+            activeCategory === "valve") &&
             subCategoriesMap[activeCategory] && (
               <div className="flex flex-wrap justify-center gap-3 mb-12">
                 {subCategoriesMap[activeCategory].map((sub) => (
                   <button
                     key={sub.id}
                     onClick={() => setActiveSubCategory(sub.id)}
-                    className={`px-5 py-2 rounded-full text-sm transition-all ${
-                      activeSubCategory === sub.id
+                    className={`px-5 py-2 rounded-full text-sm transition-all ${activeSubCategory === sub.id
                         ? "bg-primary text-primary-foreground"
                         : "bg-card border border-border text-muted-foreground hover:border-primary hover:text-primary"
-                    }`}
+                      }`}
                   >
                     {sub.name}
                   </button>
@@ -1553,23 +1591,29 @@ export default function ProductsPage() {
 
           {/* PRODUCT GRID */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredProducts.map((product, index) => (
-              <ProductCard
-                key={product.name}
-                name={product.name}
-                category={
-                  categories.find((c) => c.id === product.category)?.name ||
-                  product.category
-                }
-                image={product.image}
-                description={product.description}
-                introduction={product.introduction}
-                benefits={product.benefits}
-                technicalSpecs={product.technicalSpecs}
-                applications={product.applications}
-                index={index}
-              />
-            ))}
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((product, index) => (
+                <ProductCard
+                  key={product.name}
+                  name={product.name}
+                  category={
+                    categories.find((c) => c.id === product.category)?.name ||
+                    product.category
+                  }
+                  image={product.image}
+                  description={product.description}
+                  introduction={product.introduction}
+                  benefits={product.benefits}
+                  technicalSpecs={product.technicalSpecs}
+                  applications={product.applications}
+                  index={index}
+                />
+              ))
+            ) : (
+              <div className="col-span-full text-center py-12 text-muted-foreground">
+                <p className="text-xl">No products found matching "{searchQuery}"</p>
+              </div>
+            )}
           </div>
         </div>
       </section>
