@@ -1474,7 +1474,6 @@ export default function ProductsPage() {
 
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeSubCategory, setActiveSubCategory] = useState("all");
-  const [searchQuery, setSearchQuery] = useState("");
 
   const handleCategoryChange = (id: string) => {
     setActiveCategory(id);
@@ -1482,21 +1481,10 @@ export default function ProductsPage() {
   };
 
   const filteredProducts = products.filter((product) => {
-    const matchesCategory =
-      activeCategory === "all" ? true : product.category === activeCategory;
-
-    const matchesSubCategory =
-      activeSubCategory === "all"
-        ? true
-        : product.subCategory === activeSubCategory;
-
-    const matchesSearch =
-      product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.introduction?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      false;
-
-    return matchesCategory && matchesSubCategory && matchesSearch;
+    if (activeCategory === "all") return true;
+    if (product.category !== activeCategory) return false;
+    if (activeSubCategory === "all") return true;
+    return product.subCategory === activeSubCategory;
   });
 
   return (
@@ -1522,31 +1510,6 @@ export default function ProductsPage() {
               Discover our comprehensive range of high-quality instrumentation,
               packing, insulation, and valve products.
             </p>
-
-            {/* SEARCH BAR */}
-            <div className="max-w-md mx-auto relative mb-12">
-              <input
-                type="text"
-                placeholder="Search products..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-6 py-3 rounded-full bg-card border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all pl-12"
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </div>
           </motion.div>
 
           {/* MAIN CATEGORIES */}
@@ -1556,8 +1519,8 @@ export default function ProductsPage() {
                 key={category.id}
                 onClick={() => handleCategoryChange(category.id)}
                 className={`px-4 py-2 rounded-full font-medium whitespace-nowrap transition-all flex-shrink-0 ${activeCategory === category.id
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-card border border-border text-muted-foreground hover:border-primary hover:text-primary"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-card border border-border text-muted-foreground hover:border-primary hover:text-primary"
                   }`}
               >
                 {category.name}
@@ -1579,8 +1542,8 @@ export default function ProductsPage() {
                     key={sub.id}
                     onClick={() => setActiveSubCategory(sub.id)}
                     className={`px-5 py-2 rounded-full text-sm transition-all ${activeSubCategory === sub.id
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-card border border-border text-muted-foreground hover:border-primary hover:text-primary"
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-card border border-border text-muted-foreground hover:border-primary hover:text-primary"
                       }`}
                   >
                     {sub.name}

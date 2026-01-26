@@ -40,11 +40,11 @@ export function ProductCard({
         transition={{ duration: 0.4, delay: index * 0.05 }}
         viewport={{ once: true }}
         whileHover={{ y: -8 }}
-        className="group relative bg-card border border-border rounded-2xl overflow-hidden cursor-pointer h-full flex flex-col"
+        className="group relative bg-card border border-border rounded-2xl overflow-hidden cursor-pointer"
         onClick={() => setShowDetails(true)}
       >
         {/* ✅ FIXED IMAGE CONTAINER */}
-        <div className="relative aspect-[4/3] bg-white flex items-center justify-center overflow-hidden">
+        <div className="relative aspect-[4/3] bg-secondary flex items-center justify-center overflow-hidden">
           <img
             src={image || "/placeholder.svg"}
             alt={name}
@@ -52,29 +52,26 @@ export function ProductCard({
           />
 
           <div className="absolute top-3 left-3">
-            <span className="px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-semibold rounded-full shadow-sm">
+            <span className="px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-semibold rounded-full">
               {category}
             </span>
           </div>
         </div>
 
-        <div className="p-5 flex flex-col flex-1">
-          <h3 className="font-bold text-foreground text-lg mb-2 group-hover:text-primary transition-colors line-clamp-2 min-h-[3.5rem]">
+        <div className="p-5">
+          <h3 className="font-semibold text-foreground text-lg mb-2 group-hover:text-primary transition-colors">
             {name}
           </h3>
 
-          <p className="text-muted-foreground text-sm mb-6 line-clamp-2">
+          <p className="text-muted-foreground text-sm mb-4">
             High quality industrial grade product
           </p>
 
-          <div className="flex flex-col gap-3 mt-auto">
+          <div className="flex flex-col gap-2">
             <Button
               variant="outline"
-              className="w-full gap-2 hover:bg-secondary/50 border-input"
-              onClick={(e) => {
-                e.stopPropagation();
-                setShowDetails(true);
-              }}
+              className="w-full gap-2 hover:text-orange-500 hover:bg-transparent hover:border-border"
+              onClick={() => setShowDetails(true)}
             >
               <Info className="w-4 h-4" />
               Get Full Details
@@ -85,7 +82,7 @@ export function ProductCard({
               className="w-full"
               onClick={(e) => e.stopPropagation()}
             >
-              <Button className="w-full gap-2 bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm">
+              <Button className="w-full gap-2 bg-primary hover:bg-primary/90 text-primary-foreground">
                 Request Quote
                 <ArrowRight className="w-4 h-4" />
               </Button>
