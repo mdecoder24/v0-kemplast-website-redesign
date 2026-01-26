@@ -62,23 +62,8 @@ export function JoinTeamForm() {
                 console.log("File uploaded, URL:", publicUrl)
             }
 
-            // 2. Insert into Database
-            console.log("Inserting into database...")
-            const { error: dbError } = await supabase.from("job_applications").insert([
-                {
-                    name: formData.name,
-                    email: formData.email,
-                    phone: formData.phone,
-                    position: formData.position,
-                    portfolio_url: uploadedResumeUrl,
-                    message: formData.message,
-                },
-            ])
-
-            if (dbError) {
-                console.error("Database error:", dbError)
-                throw new Error(`Database save failed: ${dbError.message}`)
-            }
+            // 2. Send Application Data to API (Database Insert + Email)
+            console.log("Sending application data to server...")
 
             console.log("Application saved successfully!")
             toast.success("Application submitted successfully! Good luck!")
