@@ -118,11 +118,12 @@ export default function TeamPage() {
             </p>
           </motion.div>
 
+          {/* Desktop Table View */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="rounded-3xl border border-border bg-card/50 backdrop-blur-sm overflow-hidden shadow-2xl mb-24"
+            className="hidden md:block rounded-3xl border border-border bg-card/50 backdrop-blur-sm overflow-hidden shadow-2xl mb-24"
           >
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
@@ -186,6 +187,66 @@ export default function TeamPage() {
               </table>
             </div>
           </motion.div>
+
+          {/* Mobile Card View */}
+          <div className="md:hidden grid gap-6 mb-24">
+            {teamMembers.map((member, index) => (
+              <motion.div
+                key={member.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * index }}
+                className="bg-card border border-border rounded-2xl p-5 shadow-sm"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                      <User className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg text-foreground">{member.name}</h3>
+                      <p className="text-primary font-medium text-sm">{member.position}</p>
+                    </div>
+                  </div>
+                  <span className="text-xs text-muted-foreground font-mono bg-muted px-2 py-1 rounded">
+                    #{member.id}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 mt-4">
+                  {member.phone !== "-" ? (
+                    <a
+                      href={`tel:${member.phone}`}
+                      className="flex items-center justify-center gap-2 bg-secondary hover:bg-secondary/80 text-foreground py-3 rounded-xl transition-colors font-medium text-sm"
+                    >
+                      <Phone className="w-4 h-4 text-primary" />
+                      Call
+                    </a>
+                  ) : (
+                    <div className="flex items-center justify-center gap-2 bg-secondary/50 text-muted-foreground py-3 rounded-xl font-medium text-sm cursor-not-allowed opacity-70">
+                      <Phone className="w-4 h-4" />
+                      N/A
+                    </div>
+                  )}
+
+                  {member.email !== "-" ? (
+                    <a
+                      href={`mailto:${member.email}`}
+                      className="flex items-center justify-center gap-2 bg-secondary hover:bg-secondary/80 text-foreground py-3 rounded-xl transition-colors font-medium text-sm"
+                    >
+                      <Mail className="w-4 h-4 text-primary" />
+                      Email
+                    </a>
+                  ) : (
+                    <div className="flex items-center justify-center gap-2 bg-secondary/50 text-muted-foreground py-3 rounded-xl font-medium text-sm cursor-not-allowed opacity-70">
+                      <Mail className="w-4 h-4" />
+                      N/A
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
           {/* Join Team Section with Form */}
           <motion.div
