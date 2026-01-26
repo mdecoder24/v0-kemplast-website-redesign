@@ -96,7 +96,7 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-border mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-muted-foreground">© 2025 Kemplast Process Solutions. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">© 2026 Kemplast Process Solutions. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="#" className="text-xs text-muted-foreground hover:text-primary transition-colors">
               Privacy Policy
