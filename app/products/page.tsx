@@ -1474,6 +1474,7 @@ export default function ProductsPage() {
 
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeSubCategory, setActiveSubCategory] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleCategoryChange = (id: string) => {
     setActiveCategory(id);
@@ -1481,10 +1482,21 @@ export default function ProductsPage() {
   };
 
   const filteredProducts = products.filter((product) => {
-    if (activeCategory === "all") return true;
-    if (product.category !== activeCategory) return false;
-    if (activeSubCategory === "all") return true;
-    return product.subCategory === activeSubCategory;
+    const matchesCategory =
+      activeCategory === "all" ? true : product.category === activeCategory;
+
+    const matchesSubCategory =
+      activeSubCategory === "all"
+        ? true
+        : product.subCategory === activeSubCategory;
+
+    const matchesSearch =
+      product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.introduction?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      false;
+
+    return matchesCategory && matchesSubCategory && matchesSearch;
   });
 
   return (
@@ -1510,10 +1522,35 @@ export default function ProductsPage() {
               Discover our comprehensive range of high-quality instrumentation,
               packing, insulation, and valve products.
             </p>
+
+            {/* SEARCH BAR */}
+            <div className="max-w-md mx-auto relative mb-12 px-4 sm:px-0">
+              <input
+                type="text"
+                placeholder="Search products..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full px-6 py-3 rounded-full bg-card border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all pl-12 shadow-sm"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 absolute left-8 sm:left-4 top-1/2 -translate-y-1/2 text-muted-foreground"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
           </motion.div>
 
           {/* MAIN CATEGORIES */}
-          <div className="flex justify-center gap-2 mb-8 overflow-x-auto pb-4">
+          <div className="flex justify-start sm:justify-center gap-2 mb-8 overflow-x-auto pb-4 px-4 sm:px-0 no-scrollbar">
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -1536,7 +1573,7 @@ export default function ProductsPage() {
             activeCategory === "safety" ||
             activeCategory === "valve") &&
             subCategoriesMap[activeCategory] && (
-              <div className="flex flex-wrap justify-center gap-3 mb-12">
+              <div className="flex flex-wrap justify-center gap-3 mb-12 px-4">
                 {subCategoriesMap[activeCategory].map((sub) => (
                   <button
                     key={sub.id}
@@ -1553,24 +1590,31 @@ export default function ProductsPage() {
             )}
 
           {/* PRODUCT GRID */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredProducts.map((product, index) => (
-              <ProductCard
-                key={product.name}
-                name={product.name}
-                category={
-                  categories.find((c) => c.id === product.category)?.name ||
-                  product.category
-                }
-                image={product.image}
-                description={product.description}
-                introduction={product.introduction}
-                benefits={product.benefits}
-                technicalSpecs={product.technicalSpecs}
-                applications={product.applications}
-                index={index}
-              />
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 sm:px-0">
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((product, index) => (
+                <ProductCard
+                  key={product.name}
+                  name={product.name}
+                  category={
+                    categories.find((c) => c.id === product.category)?.name ||
+                    product.category
+                  }
+                  image={product.image}
+                  description={product.description}
+                  introduction={product.introduction}
+                  benefits={product.benefits}
+                  technicalSpecs={product.technicalSpecs}
+                  applications={product.applications}
+                  index={index}
+                />
+              ))
+            ) : (
+              <div className="col-span-full text-center py-12 text-muted-foreground bg-card/50 rounded-2xl border border-border/50 border-dashed">
+                <p className="text-xl font-medium mb-2">No products found</p>
+                <p className="text-sm opacity-70">Try adjusting your search or filter criteria</p>
+              </div>
+            )}
           </div>
         </div>
       </section>
