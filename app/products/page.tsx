@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { ProductCard } from "@/components/product-card";
@@ -1470,11 +1471,19 @@ const products: ProductDetail[] = [
   productDetailsMap["Smart Electro Pneumatic Valve Positioner"],
 ];
 
-export default function ProductsPage() {
-
+function ProductsContent() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeSubCategory, setActiveSubCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const category = searchParams.get("category");
+    if (category) {
+      setActiveCategory(category);
+    }
+  }, [searchParams]);
 
   const handleCategoryChange = (id: string) => {
     setActiveCategory(id);
@@ -1622,5 +1631,13 @@ export default function ProductsPage() {
       <PartnersSection />
       <Footer />
     </main>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ProductsContent />
+    </Suspense>
   );
 }

@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/navbar"
 import { Hero3D } from "@/components/hero-3d"
 import { AboutSection } from "@/components/about-section"
+import { ProductExplorer } from "@/components/product-explorer"
 import { ServicesSection } from "@/components/services-section"
 import { PartnersSection } from "@/components/partners-section"
 import { Footer } from "@/components/footer"
@@ -11,6 +12,7 @@ export default function HomePage() {
       <Navbar />
       <Hero3D />
       <AboutSection />
+      <ProductExplorer />
       <ServicesSection />
       <PartnersSection />
       <Footer />
