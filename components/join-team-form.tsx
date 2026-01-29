@@ -65,21 +65,21 @@ export function JoinTeamForm() {
             // 2. Send Application Data to API (Database Insert + Email)
             console.log("Sending application data to server...")
 
-            console.log("Application saved successfully!")
-            toast.success("Application submitted successfully! Good luck!")
+            const response = await fetch("/api/send-application", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ ...formData, portfolio: uploadedResumeUrl }),
+            })
 
-            // 3. Send Email Notification
-            try {
-                await fetch("/api/send-application", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ ...formData, portfolio: uploadedResumeUrl }),
-                })
-            } catch (err) {
-                console.error("Failed to send email notification:", err)
+            if (!response.ok) {
+                const errorData = await response.json()
+                throw new Error(errorData.error || "Failed to submit application to server")
             }
+
+            console.log("Application processing completed!")
+            toast.success("Application submitted successfully! Good luck!")
 
             // Reset form
             setFormData({

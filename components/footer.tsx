@@ -44,11 +44,6 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Gallery
-                </Link>
-              </li>
-              <li>
                 <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   Contact
                 </Link>
