@@ -1039,7 +1039,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "RESISTANCE TEMPERATURE DETECTORS": {
     name: "RESISTANCE TEMPERATURE DETECTORS ",
     category: "temperature",
-    image: "/images/TEMP%20IMAGES/RESISTANCE%20TEMPERATURE%20DETECTORS.png",
+    image: "/images/temp-images/resistance-temperature-detectors.png",
     introduction:
       "Resistance Temperature Detectors (RTDs) measure temperature by correlating the change in electrical resistance of a metal, typically platinum, with temperature. As temperature increases, the resistance of the sensing element increases in a predictable manner, enabling accurate and stable temperature measurement over a wide range.",
 
@@ -1073,7 +1073,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   THERMOCOUPLES: {
     name: "THERMOCOUPLES",
     category: "temperature",
-    image: "/images/TEMP%20IMAGES/THERMOCOUPLES.jpg",
+    image: "/images/temp-images/thermocouples.jpg",
     introduction:
       "Thermocouples measure temperature based on the voltage generated when two dissimilar metals are joined at one end and exposed to temperature changes. The generated voltage varies with temperature, allowing measurement over a very wide range with fast response and robust performance.",
 
@@ -1106,7 +1106,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "HEAD MOUNTED TRANSMITTERS": {
     name: "HEAD MOUNTED TRANSMITTERS",
     category: "temperature",
-    image: "/images/TEMP%20IMAGES/HEAD%20MOUNT.png",
+    image: "/images/temp-images/head-mount.png",
     introduction:
       "Head mounted transmitters are compact two-wire temperature transmitters designed for RTDs and thermocouples. They convert sensor signals into a standardized 4–20 mA output proportional to temperature. Their compact design allows installation directly inside DIN connection heads, providing a cost-effective and reliable solution for industrial temperature measurement, with optional isolation, HART communication, and explosion protection.",
 
@@ -1151,7 +1151,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "FIELD MOUNT TEMPERATURE TRANSMITTER": {
     name: "FIELD MOUNT TEMPERATURE TRANSMITTER",
     category: "temperature",
-    image: "/images/TEMP%20IMAGES/FIELD%20MOUNT.png",
+    image: "/images/temp-images/field-mount.png",
     introduction:
       "A field mount temperature transmitter is used in industrial applications to measure temperature and transmit the signal to control systems such as PLCs or DCS. It converts input signals from RTDs or thermocouples into standardized outputs like 4–20 mA or HART, enabling accurate and reliable temperature measurement over long distances. The rugged field-mounted design allows installation directly at the measurement point.",
 
@@ -1200,7 +1200,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "RAIL MOUNT TEMPERATURE TRANSMITTER": {
     name: "RAIL MOUNT TEMPERATURE TRANSMITTER",
     category: "temperature",
-    image: "/images/TEMP%20IMAGES/RAIL%20MOUNT.png",
+    image: "/images/temp-images/rail-mount.png",
     introduction:
       "A rail mount temperature transmitter is designed for DIN rail installation inside control panels and cabinets. It converts signals from temperature sensors such as RTDs and thermocouples into standardized output signals like 4–20 mA or HART for use in automation and control systems. Its compact design allows space-saving installation and easy integration into centralized control architectures.",
 
@@ -1418,7 +1418,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
     name: "Loose Glass Wool",
     category: "insulation",
     subCategory: "all",
-    image: "/loose glass wool.png",
+    image: "/loose-glass-wool.png",
     imageFit: "contain",
     introduction:
       "By utilizing skills of our dexterous workforce, we are offering a comprehensive assortment of Loose Glass Wool. Our professionals developed this glass wool by employing optimum quality raw material and sophisticated technology in adherence to the set industry standards. Owing to features like precise design, and easy to use, our offered product has been able to earn a lot of popularity in the market. Moreover, our valuable clients can avail this glass wool from us at market leading prices.",
@@ -1432,7 +1432,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
     name: "Polybond Mineralwool Thermal Insulation Wool",
     category: "insulation",
     subCategory: "all",
-    image: "/Polybond  Mineralwool.png",
+    image: "/polybond-mineralwool.png",
     introduction:
       "Polybond Mineralwool is a premium quality white mineral wool insulation known for its excellent thermal properties and high rebound capacity. It is designed to meet rigorous industrial standards, providing effective insulation with a density range suitable for diverse applications.",
     technicalSpecs: {
@@ -1448,7 +1448,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
     name: "Ceramic Fiber Wool",
     category: "insulation",
     subCategory: "all",
-    image: "/ceramic fiber wool.png",
+    image: "/ceramic-fiber-wool.png",
     imageFit: "contain",
     introduction:
       "With our experienced professionals, we are engaged in offering a wide range of Ceramic Fiber Wool to our most valued clients. Normally it is used in Packing & Filling, Expansion Joints and Secondary Processing. This product is manufactured by vendors using high grade material and latest technology used in this domain. Moreover, our offered range is checked against various parameters under the vigilance of our quality controllers to deliver a flawless range at the client’s end. Apart from this, we avail offered fiber wools at market leading price.",
@@ -1462,7 +1462,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
     name: "Lightly Resin Bonded Mattress",
     category: "insulation",
     subCategory: "all",
-    image: "/Lightly Resin Bonded Mattress.png",
+    image: "/lightly-resin-bonded-mattress.png",
     introduction:
       "Polybond Rockwool LRB Mattresses are recommended for use in the thermal insulation of large vessels, boilers, machinery, equipments, ducts, flanges, values and plates operating at high temperatures. These mattresses are excusively suited for wrapping curved surfaces or for cutting to fit over irregular shapes.",
     benefits: [
@@ -1484,7 +1484,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
     name: "Ceramic Fibre Board",
     category: "insulation",
     subCategory: "all",
-    image: "/Ceramic Fibre Board.png",
+    image: "/ceramic-fibre-board.png",
     introduction:
       "Ceramic Fiber Board is made from refractory fibers and binders which have low organic content, the mixture is vacuum processed into boards that imparts good mechanical strength even after heating. Boards are manufactured in various densities and temperature grades to suit application requirements.",
     benefits: [
@@ -1511,7 +1511,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
     name: "Ceramic Fiber Blanket",
     category: "insulation",
     subCategory: "all",
-    image: "/Ceramic Fiber Blanket.png",
+    image: "/ceramic-fiber-blanket.png",
     introduction:
       "Blanket is a light weight needled blanket, provides effective solution to a wide range of thermal insulation applications. Manufactured using state of the art spinning and double needling technique, these blankets offer low thermal conductivity and superior insulation performance.\n\nBlanket is made from high purity Alumina, Silica and Zirconia. It is highly efficient insulator with extremely low shrinkage characteristics.",
     benefits: [
@@ -1542,7 +1542,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
     name: "Acoustic Insulation Slab",
     category: "insulation",
     subCategory: "all",
-    image: "/Acoustic Insulation Slab.png",
+    image: "/acoustic-insulation-slab.png",
     introduction:
       "Mineralwool slab is used for building application like wall insulation and sound proofing of partitions and false celling’s, air-conditioning duct insulation and industrials insulation like chimney insulation, furnaces insulation, industrials ovens etc. Mineralwool RB slabs are used in acoustic insulation work for auditorium, theatres, public place and industrial areas where noise reduction is required. Mineralwool RB slab is used in DG canopy and compression canopy, using Mineralwool RB slabs dampens the sound and provide much clean & silent work place.",
     technicalSpecs: {
@@ -1561,7 +1561,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
     name: "Thermal Insulation Slab",
     category: "insulation",
     subCategory: "all",
-    image: "/Thermal Insulation Slab.png",
+    image: "/thermal-insulation-slab.png",
     introduction:
       "Polybond’s Mineralwool Resin Bonded Slabs provide the best combination of thermal insulation, fire protection and sound absorption properties conforming to standards IS: 8183:93, ASTM C 612 and BS-3958B-5.\n\nMineralwool slab is made of fine fibers spun from selected rocks melted at high temperature and bonded with a thermosetting resin. The uniform distribution, the fine diameter, fiber lay pattern and flexibility of fiber are the unique features of ‘Polybond’ Mineralwool Resin Bonded Slabs. The properties are controlled to form slabs of predetermined density and thickness. These are quite versatile, easy to transport and easy to cut, fit and handle.",
     technicalSpecs: {
