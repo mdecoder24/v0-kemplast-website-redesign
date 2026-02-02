@@ -57,13 +57,13 @@ export function ServicesSection() {
           {services.map((service, index) => (
             <TiltCard key={service.title} className="h-full">
               <div
-                className="group h-full p-8 bg-foreground/5 backdrop-blur-md rounded-2xl border border-foreground/10 hover:border-primary/50 transition-all duration-500 shadow-xl"
+                className="group h-full p-8 bg-foreground/5 backdrop-blur-md rounded-2xl border border-foreground/10 hover:border-primary/50 transition-all duration-500 shadow-xl flex flex-col"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 border border-primary/20 group-hover:border-primary">
+                <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 border border-primary/20 group-hover:border-primary flex-shrink-0">
                   <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors">{service.description}</p>
+                <h3 className="text-xl font-bold text-foreground mb-3 flex-shrink-0">{service.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors flex-grow">{service.description}</p>
               </div>
             </TiltCard>
           ))}

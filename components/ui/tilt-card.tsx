@@ -50,7 +50,7 @@ export function TiltCard({ children, className = "" }: { children: React.ReactNo
             }}
             className={`relative ${className}`}
         >
-            <div style={{ transform: "translateZ(75px)", transformStyle: "preserve-3d" }}>
+            <div className="h-full" style={{ transform: "translateZ(75px)", transformStyle: "preserve-3d" }}>
                 {children}
             </div>
         </motion.div>
