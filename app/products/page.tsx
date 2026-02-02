@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer";
 import { ProductCard } from "@/components/product-card";
 import { PartnersSection } from "@/components/partners-section";
 import { motion } from "framer-motion";
+import { ChevronRight } from "lucide-react";
 
 /* ------------------ MAIN CATEGORIES ------------------ */
 const categories = [
@@ -17,6 +18,7 @@ const categories = [
   { id: "temperature", name: "Temperature Instruments" },
   { id: "safety", name: "Safety Instruments" },
   { id: "valve", name: "Valve Positioners" },
+  { id: "insulation", name: "Insulation Products" },
 ];
 
 /* ------------------ SUB CATEGORIES ------------------ */
@@ -59,6 +61,7 @@ interface ProductDetail {
   technicalSpecs?: Record<string, string>;
   benefits?: string[];
   applications?: string[];
+  imageFit?: "cover" | "contain";
 }
 
 /* ------------------ PRODUCT DETAILS MAP ------------------ */
@@ -831,7 +834,6 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "ELECTROMAGNETIC FLOWMETER": {
     name: "ELECTROMAGNETIC FLOWMETER",
     category: "flow",
-    subCategory: "all",
     image: "/images/flow%20images/ELECTROMAGNETIC%20FLOWMETER.png",
     introduction:
       "An electromagnetic flowmeter measures the flow rate of electrically conductive liquids using Faraday’s Law of electromagnetic induction. When a conductive fluid passes through a magnetic field, a voltage proportional to the flow velocity is generated and converted into a flow signal. These flowmeters are widely used for accurate and reliable flow measurement in industrial applications.",
@@ -879,7 +881,6 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "VORTEX FLOWMETER": {
     name: "VORTEX FLOWMETER",
     category: "flow",
-    subCategory: "all",
     image: "/images/flow%20images/VORTEX%20FLOWMETER.png",
     introduction:
       "A vortex flowmeter measures the flow of liquids, gases, and steam using the vortex shedding principle. It is highly accurate, reliable, and unaffected by changes in conductivity, viscosity, temperature, or pressure. These flowmeters are widely used in industrial utility and auxiliary systems, particularly for steam, gas, and energy monitoring applications.",
@@ -928,7 +929,6 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "TURBINE FLOWMETER": {
     name: "TURBINE FLOWMETER",
     category: "flow",
-    subCategory: "all",
     image: "/images/flow%20images/turbine.png",
     introduction:
       "A turbine flowmeter measures the flow of liquids and gases by converting the kinetic energy of the flowing medium into rotational motion of a turbine rotor. The rotor speed is directly proportional to the flow rate and is detected by a pickup coil, producing an electrical signal that represents flow rate and totalized flow. These meters are known for high accuracy, reliability, and suitability for hygienic and general industrial applications.",
@@ -973,7 +973,6 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "ORIFICE TYPE DP FLOW METER": {
     name: "ORIFICE TYPE DP FLOW METER",
     category: "flow",
-    subCategory: "all",
     image: "/images/flow%20images/orifice%20tube.png",
     introduction:
       "An orifice type differential pressure (DP) flow transmitter measures fluid flow by creating a pressure drop across an orifice plate installed in a pipeline. The resulting differential pressure is measured by a transmitter and converted into a standardized electrical signal, such as 4–20 mA, proportional to the flow rate. This method is widely used due to its simplicity, reliability, and compliance with international standards.",
@@ -1003,7 +1002,6 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "PITOT TUBE TYPE DP FLOW METER": {
     name: "PITOT TUBE TYPE DP FLOW METER",
     category: "flow",
-    subCategory: "all",
     image: "/images/flow%20images/pitot%20tube.png",
     introduction:
       "A pitot tube type differential pressure (DP) flow meter measures fluid velocity by comparing stagnation pressure and static pressure in a flowing medium. The resulting differential pressure is used to determine flow velocity and flow rate. This method is widely used for air, gas, and liquid flow measurement in ducts, stacks, pipelines, and open or closed channels.",
@@ -1041,7 +1039,6 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "RESISTANCE TEMPERATURE DETECTORS": {
     name: "RESISTANCE TEMPERATURE DETECTORS ",
     category: "temperature",
-    subCategory: "all",
     image: "/images/TEMP%20IMAGES/RESISTANCE%20TEMPERATURE%20DETECTORS.png",
     introduction:
       "Resistance Temperature Detectors (RTDs) measure temperature by correlating the change in electrical resistance of a metal, typically platinum, with temperature. As temperature increases, the resistance of the sensing element increases in a predictable manner, enabling accurate and stable temperature measurement over a wide range.",
@@ -1076,7 +1073,6 @@ const productDetailsMap: Record<string, ProductDetail> = {
   THERMOCOUPLES: {
     name: "THERMOCOUPLES",
     category: "temperature",
-    subCategory: "all",
     image: "/images/TEMP%20IMAGES/THERMOCOUPLES.jpg",
     introduction:
       "Thermocouples measure temperature based on the voltage generated when two dissimilar metals are joined at one end and exposed to temperature changes. The generated voltage varies with temperature, allowing measurement over a very wide range with fast response and robust performance.",
@@ -1110,7 +1106,6 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "HEAD MOUNTED TRANSMITTERS": {
     name: "HEAD MOUNTED TRANSMITTERS",
     category: "temperature",
-    subCategory: "all",
     image: "/images/TEMP%20IMAGES/HEAD%20MOUNT.png",
     introduction:
       "Head mounted transmitters are compact two-wire temperature transmitters designed for RTDs and thermocouples. They convert sensor signals into a standardized 4–20 mA output proportional to temperature. Their compact design allows installation directly inside DIN connection heads, providing a cost-effective and reliable solution for industrial temperature measurement, with optional isolation, HART communication, and explosion protection.",
@@ -1156,7 +1151,6 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "FIELD MOUNT TEMPERATURE TRANSMITTER": {
     name: "FIELD MOUNT TEMPERATURE TRANSMITTER",
     category: "temperature",
-    subCategory: "all",
     image: "/images/TEMP%20IMAGES/FIELD%20MOUNT.png",
     introduction:
       "A field mount temperature transmitter is used in industrial applications to measure temperature and transmit the signal to control systems such as PLCs or DCS. It converts input signals from RTDs or thermocouples into standardized outputs like 4–20 mA or HART, enabling accurate and reliable temperature measurement over long distances. The rugged field-mounted design allows installation directly at the measurement point.",
@@ -1206,7 +1200,6 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "RAIL MOUNT TEMPERATURE TRANSMITTER": {
     name: "RAIL MOUNT TEMPERATURE TRANSMITTER",
     category: "temperature",
-    subCategory: "all",
     image: "/images/TEMP%20IMAGES/RAIL%20MOUNT.png",
     introduction:
       "A rail mount temperature transmitter is designed for DIN rail installation inside control panels and cabinets. It converts signals from temperature sensors such as RTDs and thermocouples into standardized output signals like 4–20 mA or HART for use in automation and control systems. Its compact design allows space-saving installation and easy integration into centralized control architectures.",
@@ -1419,6 +1412,169 @@ const productDetailsMap: Record<string, ProductDetail> = {
       "Paper, pharma, food & beverage industries",
     ],
   },
+
+  /* ------------------ INSULATION PRODUCTS ------------------ */
+  "Loose Glass Wool": {
+    name: "Loose Glass Wool",
+    category: "insulation",
+    subCategory: "all",
+    image: "/loose glass wool.png",
+    imageFit: "contain",
+    introduction:
+      "By utilizing skills of our dexterous workforce, we are offering a comprehensive assortment of Loose Glass Wool. Our professionals developed this glass wool by employing optimum quality raw material and sophisticated technology in adherence to the set industry standards. Owing to features like precise design, and easy to use, our offered product has been able to earn a lot of popularity in the market. Moreover, our valuable clients can avail this glass wool from us at market leading prices.",
+    benefits: [
+      "Sturdiness",
+      "High performance",
+      "Long service life",
+    ],
+  },
+  "Polybond Mineralwool Thermal Insulation Wool": {
+    name: "Polybond Mineralwool Thermal Insulation Wool",
+    category: "insulation",
+    subCategory: "all",
+    image: "/Polybond  Mineralwool.png",
+    introduction:
+      "Polybond Mineralwool is a premium quality white mineral wool insulation known for its excellent thermal properties and high rebound capacity. It is designed to meet rigorous industrial standards, providing effective insulation with a density range suitable for diverse applications.",
+    technicalSpecs: {
+      Brand: "Polybond",
+      Color: "White",
+      Material: "Mineralwool",
+      Density: "60-200 kg per cubic metre",
+      Rebound: "99.8%",
+      "Minimum Order Quantity": "7000 Kilogram",
+    },
+  },
+  "Ceramic Fiber Wool": {
+    name: "Ceramic Fiber Wool",
+    category: "insulation",
+    subCategory: "all",
+    image: "/ceramic fiber wool.png",
+    imageFit: "contain",
+    introduction:
+      "With our experienced professionals, we are engaged in offering a wide range of Ceramic Fiber Wool to our most valued clients. Normally it is used in Packing & Filling, Expansion Joints and Secondary Processing. This product is manufactured by vendors using high grade material and latest technology used in this domain. Moreover, our offered range is checked against various parameters under the vigilance of our quality controllers to deliver a flawless range at the client’s end. Apart from this, we avail offered fiber wools at market leading price.",
+    benefits: [
+      "Excellent thermal insulation",
+      "Developed by professionals",
+      "Smooth finish",
+    ],
+  },
+  "Lightly Resin Bonded Mattress": {
+    name: "Lightly Resin Bonded Mattress",
+    category: "insulation",
+    subCategory: "all",
+    image: "/Lightly Resin Bonded Mattress.png",
+    introduction:
+      "Polybond Rockwool LRB Mattresses are recommended for use in the thermal insulation of large vessels, boilers, machinery, equipments, ducts, flanges, values and plates operating at high temperatures. These mattresses are excusively suited for wrapping curved surfaces or for cutting to fit over irregular shapes.",
+    benefits: [
+      "Excellent stability due to uniform thickness and density",
+      "Prevention of heat losses",
+      "Suited for wrapping curved surfaces",
+      "Easy to cut and fit over irregular shapes",
+    ],
+    technicalSpecs: {
+      Thickness: "25-100 mm",
+      Density: "80 to 150 kg/m3",
+      Brand: "Polybond",
+      Material: "Mineralwool",
+      Color: "Yellow",
+      "Packaging Type": "HDPE Bag & LD Plastic",
+    },
+  },
+  "Ceramic Fibre Board": {
+    name: "Ceramic Fibre Board",
+    category: "insulation",
+    subCategory: "all",
+    image: "/Ceramic Fibre Board.png",
+    introduction:
+      "Ceramic Fiber Board is made from refractory fibers and binders which have low organic content, the mixture is vacuum processed into boards that imparts good mechanical strength even after heating. Boards are manufactured in various densities and temperature grades to suit application requirements.",
+    benefits: [
+      "Low thermal conductivity",
+      "Resistant to thermal shock",
+      "Great Mechanical Strength",
+      "Even density and thickness",
+      "Able to withstand gas flow velocity of 30 m/sec",
+      "Easy to cut and install",
+      "Good erosion resistance",
+      "Short heat up and cool down time",
+      "Asbestos free",
+    ],
+    applications: [
+      "Hot face lining of ceramic fibre kiln",
+      "Insulation for kiln car",
+      "Furnace door insulation",
+      "Duct insulation",
+      "General thermal barrier",
+      "High temperature insulation",
+    ],
+  },
+  "Ceramic Fiber Blanket": {
+    name: "Ceramic Fiber Blanket",
+    category: "insulation",
+    subCategory: "all",
+    image: "/Ceramic Fiber Blanket.png",
+    introduction:
+      "Blanket is a light weight needled blanket, provides effective solution to a wide range of thermal insulation applications. Manufactured using state of the art spinning and double needling technique, these blankets offer low thermal conductivity and superior insulation performance.\n\nBlanket is made from high purity Alumina, Silica and Zirconia. It is highly efficient insulator with extremely low shrinkage characteristics.",
+    benefits: [
+      "Smoke free Inorganic",
+      "High temperature durability",
+      "Excellent thermal insulation",
+      "High temperature stability",
+      "Resist to thermal shock",
+      "Light weight and low heat storage",
+      "Chemical stability",
+      "Low thermal conductivity",
+      "Good sound absorption",
+      "Good confrontation to tearing",
+    ],
+    applications: [
+      "Fire protection",
+      "Process heater lining",
+      "Boiler and turbine insulation linings",
+      "Fuel cell insulation",
+      "Chimney insulation",
+      "Storage heater tank insulation",
+      "Aluminium transfer conveyor",
+      "Heat shielding for automotive parts",
+      "Furnace and kiln sealing, packing and back-up insulation",
+    ],
+  },
+  "Acoustic Insulation Slab": {
+    name: "Acoustic Insulation Slab",
+    category: "insulation",
+    subCategory: "all",
+    image: "/Acoustic Insulation Slab.png",
+    introduction:
+      "Mineralwool slab is used for building application like wall insulation and sound proofing of partitions and false celling’s, air-conditioning duct insulation and industrials insulation like chimney insulation, furnaces insulation, industrials ovens etc. Mineralwool RB slabs are used in acoustic insulation work for auditorium, theatres, public place and industrial areas where noise reduction is required. Mineralwool RB slab is used in DG canopy and compression canopy, using Mineralwool RB slabs dampens the sound and provide much clean & silent work place.",
+    technicalSpecs: {
+      Thickness: "25 mm – 100 mm",
+      "Packaging Type": "HDPE Bag",
+      Brand: "Polybond",
+      Color: "Yellow",
+      Material: "Mineralwool",
+      Application: "General Building",
+      Width: "600mm",
+      Densities: "40 kg/m3 to 150 kg/m3",
+      "Minimum Order Quantity": "1200 Square Meter",
+    },
+  },
+  "Thermal Insulation Slab": {
+    name: "Thermal Insulation Slab",
+    category: "insulation",
+    subCategory: "all",
+    image: "/Thermal Insulation Slab.png",
+    introduction:
+      "Polybond’s Mineralwool Resin Bonded Slabs provide the best combination of thermal insulation, fire protection and sound absorption properties conforming to standards IS: 8183:93, ASTM C 612 and BS-3958B-5.\n\nMineralwool slab is made of fine fibers spun from selected rocks melted at high temperature and bonded with a thermosetting resin. The uniform distribution, the fine diameter, fiber lay pattern and flexibility of fiber are the unique features of ‘Polybond’ Mineralwool Resin Bonded Slabs. The properties are controlled to form slabs of predetermined density and thickness. These are quite versatile, easy to transport and easy to cut, fit and handle.",
+    technicalSpecs: {
+      Brand: "Polybond",
+      Thickness: "25mm to 100mm",
+      Color: "Yellow",
+      Material: "Mineralwool",
+      Density: "40 kg/m3 to 150 kg/m3",
+      Temperature: "750 deg C",
+      "Minimum Order Quantity": "100 Square Meter",
+      "Service Temperature": "Up to 750° C (and down to -50° C)",
+    },
+  },
 };
 
 /* ------------------ PRODUCTS ------------------ */
@@ -1479,6 +1635,16 @@ const products: ProductDetail[] = [
   productDetailsMap["Siemens Positioner"],
   productDetailsMap["Accessories"],
   productDetailsMap["Smart Electro Pneumatic Valve Positioner"],
+
+  // Insulation
+  productDetailsMap["Loose Glass Wool"],
+  productDetailsMap["Polybond Mineralwool Thermal Insulation Wool"],
+  productDetailsMap["Ceramic Fiber Wool"],
+  productDetailsMap["Lightly Resin Bonded Mattress"],
+  productDetailsMap["Ceramic Fibre Board"],
+  productDetailsMap["Ceramic Fiber Blanket"],
+  productDetailsMap["Acoustic Insulation Slab"],
+  productDetailsMap["Thermal Insulation Slab"],
 ];
 
 function ProductsContent() {
@@ -1568,8 +1734,43 @@ function ProductsContent() {
             </div>
           </motion.div>
 
+          {/* BREADCRUMBS */}
+          <div className="max-w-md mx-auto px-4 sm:px-0 mb-12 flex items-center justify-center gap-2 text-sm text-muted-foreground overflow-x-auto whitespace-nowrap">
+            <button
+              onClick={() => { setActiveCategory("all"); setActiveSubCategory("all"); }}
+              className="hover:text-primary transition-colors font-medium flex-shrink-0"
+            >
+              Home
+            </button>
+
+            {(activeCategory !== "all" || activeSubCategory !== "all") && (
+              <>
+                <ChevronRight className="w-4 h-4 flex-shrink-0" />
+                <button
+                  onClick={() => {
+                    if (activeSubCategory !== "all") {
+                      setActiveSubCategory("all");
+                    }
+                  }}
+                  className={`hover:text-primary transition-colors font-medium flex-shrink-0 ${activeSubCategory === "all" ? "text-foreground font-bold" : ""}`}
+                >
+                  {categories.find(c => c.id === activeCategory)?.name || "Products"}
+                </button>
+              </>
+            )}
+
+            {activeSubCategory !== "all" && subCategoriesMap[activeCategory] && (
+              <>
+                <ChevronRight className="w-4 h-4 flex-shrink-0" />
+                <span className="text-foreground font-bold flex-shrink-0">
+                  {subCategoriesMap[activeCategory].find(s => s.id === activeSubCategory)?.name || activeSubCategory}
+                </span>
+              </>
+            )}
+          </div>
+
           {/* MAIN CATEGORIES */}
-          <div className="flex justify-start sm:justify-center gap-2 mb-8 overflow-x-auto pb-4 px-4 sm:px-0 no-scrollbar">
+          <div className="flex flex-wrap justify-center gap-3 mb-8 px-4 sm:px-0">
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -1608,6 +1809,8 @@ function ProductsContent() {
               </div>
             )}
 
+
+
           {/* PRODUCT GRID */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 sm:px-0">
             {filteredProducts.length > 0 ? (
@@ -1625,6 +1828,7 @@ function ProductsContent() {
                   benefits={product.benefits}
                   technicalSpecs={product.technicalSpecs}
                   applications={product.applications}
+                  imageFit={product.imageFit}
                   index={index}
                 />
               ))
@@ -1640,7 +1844,7 @@ function ProductsContent() {
 
       <PartnersSection />
       <Footer />
-    </main>
+    </main >
   );
 }
 

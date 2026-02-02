@@ -16,6 +16,7 @@ interface ProductCardProps {
   benefits?: string[];
   technicalSpecs?: Record<string, string>;
   applications?: string[];
+  imageFit?: "cover" | "contain";
   index: number;
 }
 
@@ -28,9 +29,29 @@ export function ProductCard({
   benefits,
   technicalSpecs,
   applications,
+  imageFit,
   index,
 }: ProductCardProps) {
   const [showDetails, setShowDetails] = useState(false);
+
+  // Determine the object-fit style
+  // Priority: 1. imageFit prop, 2. Category specific, 3. Default (contain)
+  const isInsulation = category === "Insulation Products" || category === "insulation";
+  const defaultFit = isInsulation ? "object-cover" : "object-contain p-4";
+
+  // If specific imageFit is provided, we might need to adjust padding too
+  // Typically 'cover' needs no padding, 'contain' might want padding.
+  // But for the specific case of 'contain' requested by user for zoomed images,
+  // let's assume they want it contained but maybe full size? Or with padding?
+  // Let's stick to the previous 'p-4' for contain, and no padding for cover.
+
+  let fitClass = "";
+  if (imageFit) {
+    if (imageFit === "cover") fitClass = "object-cover";
+    else fitClass = "object-contain p-4";
+  } else {
+    fitClass = defaultFit;
+  }
 
   return (
     <>
@@ -48,7 +69,7 @@ export function ProductCard({
           <img
             src={image || "/placeholder.svg"}
             alt={name}
-            className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+            className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${fitClass}`}
           />
 
           <div className="absolute top-3 left-3">
