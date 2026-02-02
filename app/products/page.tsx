@@ -831,6 +831,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "ELECTROMAGNETIC FLOWMETER": {
     name: "ELECTROMAGNETIC FLOWMETER",
     category: "flow",
+    subCategory: "all",
     image: "/images/flow%20images/ELECTROMAGNETIC%20FLOWMETER.png",
     introduction:
       "An electromagnetic flowmeter measures the flow rate of electrically conductive liquids using Faraday’s Law of electromagnetic induction. When a conductive fluid passes through a magnetic field, a voltage proportional to the flow velocity is generated and converted into a flow signal. These flowmeters are widely used for accurate and reliable flow measurement in industrial applications.",
@@ -878,6 +879,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "VORTEX FLOWMETER": {
     name: "VORTEX FLOWMETER",
     category: "flow",
+    subCategory: "all",
     image: "/images/flow%20images/VORTEX%20FLOWMETER.png",
     introduction:
       "A vortex flowmeter measures the flow of liquids, gases, and steam using the vortex shedding principle. It is highly accurate, reliable, and unaffected by changes in conductivity, viscosity, temperature, or pressure. These flowmeters are widely used in industrial utility and auxiliary systems, particularly for steam, gas, and energy monitoring applications.",
@@ -926,6 +928,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "TURBINE FLOWMETER": {
     name: "TURBINE FLOWMETER",
     category: "flow",
+    subCategory: "all",
     image: "/images/flow%20images/turbine.png",
     introduction:
       "A turbine flowmeter measures the flow of liquids and gases by converting the kinetic energy of the flowing medium into rotational motion of a turbine rotor. The rotor speed is directly proportional to the flow rate and is detected by a pickup coil, producing an electrical signal that represents flow rate and totalized flow. These meters are known for high accuracy, reliability, and suitability for hygienic and general industrial applications.",
@@ -970,6 +973,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "ORIFICE TYPE DP FLOW METER": {
     name: "ORIFICE TYPE DP FLOW METER",
     category: "flow",
+    subCategory: "all",
     image: "/images/flow%20images/orifice%20tube.png",
     introduction:
       "An orifice type differential pressure (DP) flow transmitter measures fluid flow by creating a pressure drop across an orifice plate installed in a pipeline. The resulting differential pressure is measured by a transmitter and converted into a standardized electrical signal, such as 4–20 mA, proportional to the flow rate. This method is widely used due to its simplicity, reliability, and compliance with international standards.",
@@ -999,6 +1003,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "PITOT TUBE TYPE DP FLOW METER": {
     name: "PITOT TUBE TYPE DP FLOW METER",
     category: "flow",
+    subCategory: "all",
     image: "/images/flow%20images/pitot%20tube.png",
     introduction:
       "A pitot tube type differential pressure (DP) flow meter measures fluid velocity by comparing stagnation pressure and static pressure in a flowing medium. The resulting differential pressure is used to determine flow velocity and flow rate. This method is widely used for air, gas, and liquid flow measurement in ducts, stacks, pipelines, and open or closed channels.",
@@ -1036,6 +1041,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "RESISTANCE TEMPERATURE DETECTORS": {
     name: "RESISTANCE TEMPERATURE DETECTORS ",
     category: "temperature",
+    subCategory: "all",
     image: "/images/TEMP%20IMAGES/RESISTANCE%20TEMPERATURE%20DETECTORS.png",
     introduction:
       "Resistance Temperature Detectors (RTDs) measure temperature by correlating the change in electrical resistance of a metal, typically platinum, with temperature. As temperature increases, the resistance of the sensing element increases in a predictable manner, enabling accurate and stable temperature measurement over a wide range.",
@@ -1070,6 +1076,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   THERMOCOUPLES: {
     name: "THERMOCOUPLES",
     category: "temperature",
+    subCategory: "all",
     image: "/images/TEMP%20IMAGES/THERMOCOUPLES.jpg",
     introduction:
       "Thermocouples measure temperature based on the voltage generated when two dissimilar metals are joined at one end and exposed to temperature changes. The generated voltage varies with temperature, allowing measurement over a very wide range with fast response and robust performance.",
@@ -1103,6 +1110,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "HEAD MOUNTED TRANSMITTERS": {
     name: "HEAD MOUNTED TRANSMITTERS",
     category: "temperature",
+    subCategory: "all",
     image: "/images/TEMP%20IMAGES/HEAD%20MOUNT.png",
     introduction:
       "Head mounted transmitters are compact two-wire temperature transmitters designed for RTDs and thermocouples. They convert sensor signals into a standardized 4–20 mA output proportional to temperature. Their compact design allows installation directly inside DIN connection heads, providing a cost-effective and reliable solution for industrial temperature measurement, with optional isolation, HART communication, and explosion protection.",
@@ -1148,6 +1156,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "FIELD MOUNT TEMPERATURE TRANSMITTER": {
     name: "FIELD MOUNT TEMPERATURE TRANSMITTER",
     category: "temperature",
+    subCategory: "all",
     image: "/images/TEMP%20IMAGES/FIELD%20MOUNT.png",
     introduction:
       "A field mount temperature transmitter is used in industrial applications to measure temperature and transmit the signal to control systems such as PLCs or DCS. It converts input signals from RTDs or thermocouples into standardized outputs like 4–20 mA or HART, enabling accurate and reliable temperature measurement over long distances. The rugged field-mounted design allows installation directly at the measurement point.",
@@ -1197,6 +1206,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "RAIL MOUNT TEMPERATURE TRANSMITTER": {
     name: "RAIL MOUNT TEMPERATURE TRANSMITTER",
     category: "temperature",
+    subCategory: "all",
     image: "/images/TEMP%20IMAGES/RAIL%20MOUNT.png",
     introduction:
       "A rail mount temperature transmitter is designed for DIN rail installation inside control panels and cabinets. It converts signals from temperature sensors such as RTDs and thermocouples into standardized output signals like 4–20 mA or HART for use in automation and control systems. Its compact design allows space-saving installation and easy integration into centralized control architectures.",
