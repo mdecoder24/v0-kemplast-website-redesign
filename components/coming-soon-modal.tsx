@@ -95,7 +95,7 @@ export function ComingSoonModal({
                         <span className="font-bold text-foreground">
                           {key}:
                         </span>
-                        <span className="text-muted-foreground ml-2">
+                        <span className="text-muted-foreground ml-2 whitespace-pre-wrap block sm:inline">
                           {value}
                         </span>
                       </div>
