@@ -12,6 +12,7 @@ import { ComingSoonModal } from "@/components/coming-soon-modal"
 const navItems = [
   { name: "Home", href: "/" },
   { name: "Products", href: "/products" },
+  { name: "Services", href: "/services" },
   { name: "Our Team", href: "/team" },
   { name: "Contact", href: "/contact" },
 ]
