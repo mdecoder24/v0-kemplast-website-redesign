@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect, Suspense, Fragment } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { ProductCard } from "@/components/product-card";
 import { PartnersSection } from "@/components/partners-section";
 import { motion } from "framer-motion";
+import { ChevronRight } from "lucide-react";
 
 /* ------------------ MAIN CATEGORIES ------------------ */
 const categories = [
@@ -17,7 +18,7 @@ const categories = [
   { id: "temperature", name: "Temperature Instruments" },
   { id: "safety", name: "Safety Instruments" },
   { id: "valve", name: "Valve Positioners" },
-  { id: "packing", name: "Packing Products" },
+  { id: "insulation", name: "Insulation Products" },
 ];
 
 /* ------------------ SUB CATEGORIES ------------------ */
@@ -46,14 +47,6 @@ const subCategoriesMap: Record<string, { id: string; name: string }[]> = {
     { id: "accessories", name: "Accessories" },
     { id: "sepv", name: "Smart Electro Pneumatic Valve Positioner" },
   ],
-  packing: [
-    { id: "all", name: "All Packing Products" },
-    { id: "fibre", name: "Fibre Packing Sheets" },
-    { id: "gland", name: "Gland Packings" },
-    { id: "flange", name: "Flange Gaskets" },
-    { id: "ceramic", name: "Ceramic Packing" },
-    { id: "ptfe", name: "PTFE Components" },
-  ],
 };
 
 /* ------------------ PRODUCT DETAILS TYPE ------------------ */
@@ -68,6 +61,7 @@ interface ProductDetail {
   technicalSpecs?: Record<string, string>;
   benefits?: string[];
   applications?: string[];
+  imageFit?: "cover" | "contain";
 }
 
 /* ------------------ PRODUCT DETAILS MAP ------------------ */
@@ -1045,7 +1039,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "RESISTANCE TEMPERATURE DETECTORS": {
     name: "RESISTANCE TEMPERATURE DETECTORS ",
     category: "temperature",
-    image: "/images/temp-images/resistance-temperature-detectors.png",
+    image: "/images/TEMP%20IMAGES/RESISTANCE%20TEMPERATURE%20DETECTORS.png",
     introduction:
       "Resistance Temperature Detectors (RTDs) measure temperature by correlating the change in electrical resistance of a metal, typically platinum, with temperature. As temperature increases, the resistance of the sensing element increases in a predictable manner, enabling accurate and stable temperature measurement over a wide range.",
 
@@ -1079,7 +1073,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   THERMOCOUPLES: {
     name: "THERMOCOUPLES",
     category: "temperature",
-    image: "/images/temp-images/thermocouples.jpg",
+    image: "/images/TEMP%20IMAGES/THERMOCOUPLES.jpg",
     introduction:
       "Thermocouples measure temperature based on the voltage generated when two dissimilar metals are joined at one end and exposed to temperature changes. The generated voltage varies with temperature, allowing measurement over a very wide range with fast response and robust performance.",
 
@@ -1112,7 +1106,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "HEAD MOUNTED TRANSMITTERS": {
     name: "HEAD MOUNTED TRANSMITTERS",
     category: "temperature",
-    image: "/images/temp-images/head-mount.png",
+    image: "/images/TEMP%20IMAGES/HEAD%20MOUNT.png",
     introduction:
       "Head mounted transmitters are compact two-wire temperature transmitters designed for RTDs and thermocouples. They convert sensor signals into a standardized 4–20 mA output proportional to temperature. Their compact design allows installation directly inside DIN connection heads, providing a cost-effective and reliable solution for industrial temperature measurement, with optional isolation, HART communication, and explosion protection.",
 
@@ -1157,7 +1151,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "FIELD MOUNT TEMPERATURE TRANSMITTER": {
     name: "FIELD MOUNT TEMPERATURE TRANSMITTER",
     category: "temperature",
-    image: "/images/temp-images/field-mount.png",
+    image: "/images/TEMP%20IMAGES/FIELD%20MOUNT.png",
     introduction:
       "A field mount temperature transmitter is used in industrial applications to measure temperature and transmit the signal to control systems such as PLCs or DCS. It converts input signals from RTDs or thermocouples into standardized outputs like 4–20 mA or HART, enabling accurate and reliable temperature measurement over long distances. The rugged field-mounted design allows installation directly at the measurement point.",
 
@@ -1206,7 +1200,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "RAIL MOUNT TEMPERATURE TRANSMITTER": {
     name: "RAIL MOUNT TEMPERATURE TRANSMITTER",
     category: "temperature",
-    image: "/images/temp-images/rail-mount.png",
+    image: "/images/TEMP%20IMAGES/RAIL%20MOUNT.png",
     introduction:
       "A rail mount temperature transmitter is designed for DIN rail installation inside control panels and cabinets. It converts signals from temperature sensors such as RTDs and thermocouples into standardized output signals like 4–20 mA or HART for use in automation and control systems. Its compact design allows space-saving installation and easy integration into centralized control architectures.",
 
@@ -1440,13 +1434,14 @@ const productDetailsMap: Record<string, ProductDetail> = {
     subCategory: "all",
     image: "/Polybond  Mineralwool.png",
     introduction:
-      "ANTI ABRASIVE PACKING Duplex Plaited Non-Asbestos Synthetic Fibre product which is as strong as steel, as smooth as silk, most flexible and treated with high temperature resisting lubricants, under controlled conditions. Well suited for pumping granular and viscous fluids even under high pressure conditions. This packing has a high degree of resiliency and consistency of volume and hence avoids frequent gland adjustments. Low thermal expansion characteristics under actual operating conditions reduce mechanical pressure against shaft sleeves to minimize abrasion effect.",
+      "Polybond Mineralwool is a premium quality white mineral wool insulation known for its excellent thermal properties and high rebound capacity. It is designed to meet rigorous industrial standards, providing effective insulation with a density range suitable for diverse applications.",
     technicalSpecs: {
-      Temperature: "-200°C to 300°C",
-      Pressure: "upto 280 Bar",
-      PH: "3 -12",
-      Packaging:
-        "1. Sizes 3 mm to 5 mm in spools of 10 mtrs\n2. Sizes above 5 mm in Boxes/Kgs\n3. Also available in accurate cut rings.",
+      Brand: "Polybond",
+      Color: "White",
+      Material: "Mineralwool",
+      Density: "60-200 kg per cubic metre",
+      Rebound: "99.8%",
+      "Minimum Order Quantity": "7000 Kilogram",
     },
   },
   "Ceramic Fiber Wool": {
@@ -1456,17 +1451,12 @@ const productDetailsMap: Record<string, ProductDetail> = {
     image: "/ceramic fiber wool.png",
     imageFit: "contain",
     introduction:
-      "Asbestos PTFE packing is made of white asbestos fiber cords impregnated with PTFE dispersion. Soft in texture, this material is suitable for sealing pumps for various chemicals. However, packing impregnated with lubricants is recommended for use with reciprocating pumps or for sealing in places where high linear velocity.",
-    technicalSpecs: {
-      "Max. working temperature": "-75°C ~ 260°C",
-      "Max. working pressure":
-        "2 Mpa (rotary pump) / 10 Mpa (reciprocating pump) / 15 Mpa (valve)",
-      "PH value": "2-12",
-      "Linear speed":
-        "0–10 m/s (rotary pump) / 0–2 m/s (reciprocating pump) / 0–2 m/s (valve)",
-      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
-      Density: "1.35 ~ 1.45 g/cc",
-    },
+      "With our experienced professionals, we are engaged in offering a wide range of Ceramic Fiber Wool to our most valued clients. Normally it is used in Packing & Filling, Expansion Joints and Secondary Processing. This product is manufactured by vendors using high grade material and latest technology used in this domain. Moreover, our offered range is checked against various parameters under the vigilance of our quality controllers to deliver a flawless range at the client’s end. Apart from this, we avail offered fiber wools at market leading price.",
+    benefits: [
+      "Excellent thermal insulation",
+      "Developed by professionals",
+      "Smooth finish",
+    ],
   },
   "Lightly Resin Bonded Mattress": {
     name: "Lightly Resin Bonded Mattress",
@@ -1474,18 +1464,20 @@ const productDetailsMap: Record<string, ProductDetail> = {
     subCategory: "all",
     image: "/Lightly Resin Bonded Mattress.png",
     introduction:
-      "Carbon fiber packing with graphite is woven of strong carbon fiber after softening treatment and impregnation with a mixture latex of fine graphite powder, PTFE dispersion and lubricant. It is chemical resistant, heat conductive and with high strength, so this item is widely used with revolving and reciprocating pumps in which chemical corrosive media and particle grains exist. The successful test result in application of high pressure ammonium and liquid ammonia pumps proved it’s the best sealing material for high pressure, high temperature and corrosion.",
+      "Polybond Rockwool LRB Mattresses are recommended for use in the thermal insulation of large vessels, boilers, machinery, equipments, ducts, flanges, values and plates operating at high temperatures. These mattresses are excusively suited for wrapping curved surfaces or for cutting to fit over irregular shapes.",
+    benefits: [
+      "Excellent stability due to uniform thickness and density",
+      "Prevention of heat losses",
+      "Suited for wrapping curved surfaces",
+      "Easy to cut and fit over irregular shapes",
+    ],
     technicalSpecs: {
-      "Max. working temperature":
-        "-200°C ~ +650°C (STEAM) / -200°C ~ +565°C (ATMOSPHERE)",
-      "Max. working pressure":
-        "5 Mpa (rotary pump) / 15 Mpa (reciprocating pump) / 25 Mpa (valve)",
-      "PH value": "0-14",
-      "Linear speed":
-        "0–20 M/S (rotary pump) / 0–2 M/S (reciprocating pump) / 0–2 M/S (valve)",
-      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
-      Density: "1.35 ~ 1.45 g/cc",
-      "Regular package": "5 or 10 kg/roll",
+      Thickness: "25-100 mm",
+      Density: "80 to 150 kg/m3",
+      Brand: "Polybond",
+      Material: "Mineralwool",
+      Color: "Yellow",
+      "Packaging Type": "HDPE Bag & LD Plastic",
     },
   },
   "Ceramic Fibre Board": {
@@ -1494,17 +1486,26 @@ const productDetailsMap: Record<string, ProductDetail> = {
     subCategory: "all",
     image: "/Ceramic Fibre Board.png",
     introduction:
-      "Carbonized fiber packing is manufactured by heating polyacrylonitrile fiber into carbonized fiber, which is then braided into packing after impregnation in PTFE dispersion. This item has good heat conduction and low corrosion rate, and the price is relatively lower, so it’s generally used in dynamic sealing in the presence of weak acid or alkaline media, or media that contains few solid particle grains.",
-    technicalSpecs: {
-      "Max. working temperature": "-100°C ~ +260°C",
-      "Max. working pressure":
-        "3.5 Mpa (rotary pump) / 12 Mpa (reciprocating pump) / 15 Mpa (valve)",
-      "PH value": "2-12",
-      "Linear speed":
-        "15 M/S (rotary pump) / 2 M/S (reciprocating pump) / 2 M/S (valve)",
-      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
-      Density: "1.20 ~ 1.35 g/cc",
-    },
+      "Ceramic Fiber Board is made from refractory fibers and binders which have low organic content, the mixture is vacuum processed into boards that imparts good mechanical strength even after heating. Boards are manufactured in various densities and temperature grades to suit application requirements.",
+    benefits: [
+      "Low thermal conductivity",
+      "Resistant to thermal shock",
+      "Great Mechanical Strength",
+      "Even density and thickness",
+      "Able to withstand gas flow velocity of 30 m/sec",
+      "Easy to cut and install",
+      "Good erosion resistance",
+      "Short heat up and cool down time",
+      "Asbestos free",
+    ],
+    applications: [
+      "Hot face lining of ceramic fibre kiln",
+      "Insulation for kiln car",
+      "Furnace door insulation",
+      "Duct insulation",
+      "General thermal barrier",
+      "High temperature insulation",
+    ],
   },
   "Ceramic Fiber Blanket": {
     name: "Ceramic Fiber Blanket",
@@ -1512,17 +1513,30 @@ const productDetailsMap: Record<string, ProductDetail> = {
     subCategory: "all",
     image: "/Ceramic Fiber Blanket.png",
     introduction:
-      "Composite aramid fiber packing is made from imported aramid short fiber which is twisted in advanced technology and impregnated with PTFE latex and high-temperature lubricated. It’s softer than common aramid fiber packing and has more content of PTFE and lubricant to make sure its fibers closer to each other to supply high lubricant and low abrasion of shaft, especially suitable for reciprocating pumps with small grains, high pressure and high line speed.",
-    technicalSpecs: {
-      "Working temperature": "-100°C – +260°C",
-      "Max. working pressure":
-        "5 Mpa (rotary pump) / 10 Mpa (reciprocating pump) / 20 Mpa (valve)",
-      "PH value": "2-12",
-      "Linear speed":
-        "15 M/S (rotary pump) / 2 M/S (reciprocating pump) / 2 M/S (valve)",
-      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
-      Density: "1.50 ~ 1.65 g/cc",
-    },
+      "Blanket is a light weight needled blanket, provides effective solution to a wide range of thermal insulation applications. Manufactured using state of the art spinning and double needling technique, these blankets offer low thermal conductivity and superior insulation performance.\n\nBlanket is made from high purity Alumina, Silica and Zirconia. It is highly efficient insulator with extremely low shrinkage characteristics.",
+    benefits: [
+      "Smoke free Inorganic",
+      "High temperature durability",
+      "Excellent thermal insulation",
+      "High temperature stability",
+      "Resist to thermal shock",
+      "Light weight and low heat storage",
+      "Chemical stability",
+      "Low thermal conductivity",
+      "Good sound absorption",
+      "Good confrontation to tearing",
+    ],
+    applications: [
+      "Fire protection",
+      "Process heater lining",
+      "Boiler and turbine insulation linings",
+      "Fuel cell insulation",
+      "Chimney insulation",
+      "Storage heater tank insulation",
+      "Aluminium transfer conveyor",
+      "Heat shielding for automotive parts",
+      "Furnace and kiln sealing, packing and back-up insulation",
+    ],
   },
   "Acoustic Insulation Slab": {
     name: "Acoustic Insulation Slab",
@@ -1530,16 +1544,17 @@ const productDetailsMap: Record<string, ProductDetail> = {
     subCategory: "all",
     image: "/Acoustic Insulation Slab.png",
     introduction:
-      "Expanded graphite packing is braided from high-grade low sulphur expanded graphite yarn. This item has superior resistance from high temperature and chemical corrosion, as well as other special sealing effects. It’s widely used in steam valves of power station, static sealing with high temperature, high pressure and chemical corrosion.",
+      "Mineralwool slab is used for building application like wall insulation and sound proofing of partitions and false celling’s, air-conditioning duct insulation and industrials insulation like chimney insulation, furnaces insulation, industrials ovens etc. Mineralwool RB slabs are used in acoustic insulation work for auditorium, theatres, public place and industrial areas where noise reduction is required. Mineralwool RB slab is used in DG canopy and compression canopy, using Mineralwool RB slabs dampens the sound and provide much clean & silent work place.",
     technicalSpecs: {
-      "Max. working temperature":
-        "-200°C ~ +650°C (STEAM) / -200°C ~ +565°C (ATMOSPHERE)",
-      "Max. working pressure":
-        "25 Mpa (static) / 35 Mpa (with carbon fiber/wire) / 40 Mpa (inconel jacketed)",
-      "PH value": "0 – 14",
-      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
-      Density:
-        "1.10 ~ 1.35 g/cc (standard) / 1.50 ~ 1.60 g/cc (inconel jacketed)",
+      Thickness: "25 mm – 100 mm",
+      "Packaging Type": "HDPE Bag",
+      Brand: "Polybond",
+      Color: "Yellow",
+      Material: "Mineralwool",
+      Application: "General Building",
+      Width: "600mm",
+      Densities: "40 kg/m3 to 150 kg/m3",
+      "Minimum Order Quantity": "1200 Square Meter",
     },
   },
   "Thermal Insulation Slab": {
@@ -1548,145 +1563,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
     subCategory: "all",
     image: "/Thermal Insulation Slab.png",
     introduction:
-      "Graphite gland packing with carbon fiber corner is braided from expanded graphite yarn, which can withstand high temperature and carbon fiber with superior corrosion resistance. The carbon fiber in four corners provides higher resistance to extrusion and attrition. This packing can effectively avoid leakage, especially suitable in application of power station valve with high temperature and pressure.",
-    technicalSpecs: {
-      "Working temperature":
-        "-200°C ~ 650°C (STEAM) / -200°C ~ 565°C (ATMOSPHERE)",
-      "Max. working pressure": "35 Mpa (static sealing)",
-      "PH value": "0-14",
-      "Linear speed": "0-2 M/S (valve)",
-      "Cross Section": '1/4" ~ 1-1/2" (6X6-38X38mm)',
-      Density: "1.10 ~ 1.20 g/cc",
-    },
-  },
-  "Fibre Packing Sheets": {
-    name: "Fibre Packing Sheets",
-    category: "packing",
-    subCategory: "fibre",
-    image: "/fibre-packing-sheets.png",
-    introduction:
-      "We are authorized stockist for SPITMAAN industries. We stock a wide range of compressed fibre gasket sheets which can be cut as per your specifications for more details contact us.",
-  },
-
-  "Aramid Packing": {
-    name: "Aramid Packing",
-    category: "packing",
-    subCategory: "gland",
-    image: "/Aramid-Packing.jpg",
-    introduction:
-      "ANTI ABRASIVE PACKING Duplex Plaited Non-Asbestos Synthetic Fibre product which is as strong as steel, as smooth as silk, most flexible and treated with high temperature resisting lubricants, under controlled conditions. Well suited for pumping granular and viscous fluids even under high pressure conditions. This packing has a high degree of resiliency and consistency of volume and hence avoids frequent gland adjustments. Low thermal expansion characteristics under actual operating conditions reduce mechanical pressure against shaft sleeves to minimize abrasion effect.",
-    technicalSpecs: {
-      Temperature: "-200°C to 300°C",
-      Pressure: "upto 280 Bar",
-      PH: "3 -12",
-      Packaging:
-        "1. Sizes 3 mm to 5 mm in spools of 10 mtrs\n2. Sizes above 5 mm in Boxes/Kgs\n3. Also available in accurate cut rings.",
-    },
-  },
-
-  "Asbestos PTFE Packing": {
-    name: "Asbestos PTFE Packing",
-    category: "packing",
-    subCategory: "gland",
-    image: "/asbestos-ptfe-packing.jpg",
-    introduction:
-      "Asbestos PTFE packing is made of white asbestos fiber cords impregnated with PTFE dispersion. Soft in texture, this material is suitable for sealing pumps for various chemicals. However, packing impregnated with lubricants is recommended for use with reciprocating pumps or for sealing in places where high linear velocity.",
-    technicalSpecs: {
-      "Max. working temperature": "-75°C ~ 260°C",
-      "Max. working pressure":
-        "2 Mpa (rotary pump) / 10 Mpa (reciprocating pump) / 15 Mpa (valve)",
-      "PH value": "2-12",
-      "Linear speed":
-        "0–10 m/s (rotary pump) / 0–2 m/s (reciprocating pump) / 0–2 m/s (valve)",
-      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
-      Density: "1.35 ~ 1.45 g/cc",
-    },
-  },
-
-  "Carbon Fiber Packing": {
-    name: "Carbon Fiber Packing",
-    category: "packing",
-    subCategory: "gland",
-    image: "/carbon-fiber-packing.jpg",
-    introduction:
-      "Carbon fiber packing with graphite is woven of strong carbon fiber after softening treatment and impregnation with a mixture latex of fine graphite powder, PTFE dispersion and lubricant. It is chemical resistant, heat conductive and with high strength, so this item is widely used with revolving and reciprocating pumps in which chemical corrosive media and particle grains exist. The successful test result in application of high pressure ammonium and liquid ammonia pumps proved it’s the best sealing material for high pressure, high temperature and corrosion.",
-    technicalSpecs: {
-      "Max. working temperature":
-        "-200°C ~ +650°C (STEAM) / -200°C ~ +565°C (ATMOSPHERE)",
-      "Max. working pressure":
-        "5 Mpa (rotary pump) / 15 Mpa (reciprocating pump) / 25 Mpa (valve)",
-      "PH value": "0-14",
-      "Linear speed":
-        "0–20 M/S (rotary pump) / 0–2 M/S (reciprocating pump) / 0–2 M/S (valve)",
-      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
-      Density: "1.35 ~ 1.45 g/cc",
-      "Regular package": "5 or 10 kg/roll",
-    },
-  },
-
-  "Carbonized Fiber Packing": {
-    name: "Carbonized Fiber Packing",
-    category: "packing",
-    subCategory: "gland",
-    image: "/carbonized-fiber-packing.webp",
-    introduction:
-      "Carbonized fiber packing is manufactured by heating polyacrylonitrile fiber into carbonized fiber, which is then braided into packing after impregnation in PTFE dispersion. This item has good heat conduction and low corrosion rate, and the price is relatively lower, so it’s generally used in dynamic sealing in the presence of weak acid or alkaline media, or media that contains few solid particle grains.",
-    technicalSpecs: {
-      "Max. working temperature": "-100°C ~ +260°C",
-      "Max. working pressure":
-        "3.5 Mpa (rotary pump) / 12 Mpa (reciprocating pump) / 15 Mpa (valve)",
-      "PH value": "2-12",
-      "Linear speed":
-        "15 M/S (rotary pump) / 2 M/S (reciprocating pump) / 2 M/S (valve)",
-      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
-      Density: "1.20 ~ 1.35 g/cc",
-    },
-  },
-
-  "Composite Aramid Fiber Packing": {
-    name: "Composite Aramid Fiber Packing",
-    category: "packing",
-    subCategory: "gland",
-    image: "/composite-aramid-fiber-packing.webp",
-    introduction:
-      "Composite aramid fiber packing is made from imported aramid short fiber which is twisted in advanced technology and impregnated with PTFE latex and high-temperature lubricated. It’s softer than common aramid fiber packing and has more content of PTFE and lubricant to make sure its fibers closer to each other to supply high lubricant and low abrasion of shaft, especially suitable for reciprocating pumps with small grains, high pressure and high line speed.",
-    technicalSpecs: {
-      "Working temperature": "-100°C – +260°C",
-      "Max. working pressure":
-        "5 Mpa (rotary pump) / 10 Mpa (reciprocating pump) / 20 Mpa (valve)",
-      "PH value": "2-12",
-      "Linear speed":
-        "15 M/S (rotary pump) / 2 M/S (reciprocating pump) / 2 M/S (valve)",
-      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
-      Density: "1.50 ~ 1.65 g/cc",
-    },
-  },
-
-  "Expanded Graphite Packing": {
-    name: "Expanded Graphite Packing",
-    category: "packing",
-    subCategory: "gland",
-    image: "/expanded-graphite-packing.webp",
-    introduction:
-      "Expanded graphite packing is braided from high-grade low sulphur expanded graphite yarn. This item has superior resistance from high temperature and chemical corrosion, as well as other special sealing effects. It’s widely used in steam valves of power station, static sealing with high temperature, high pressure and chemical corrosion.",
-    technicalSpecs: {
-      "Max. working temperature":
-        "-200°C ~ +650°C (STEAM) / -200°C ~ +565°C (ATMOSPHERE)",
-      "Max. working pressure":
-        "25 Mpa (static) / 35 Mpa (with carbon fiber/wire) / 40 Mpa (inconel jacketed)",
-      "PH value": "0 – 14",
-      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
-      Density:
-        "1.10 ~ 1.35 g/cc (standard) / 1.50 ~ 1.60 g/cc (inconel jacketed)",
-    },
-  },
-  "Graphite Packing With Carbon Fiber": {
-    name: "Graphite Packing With Carbon Fiber",
-    category: "packing",
-    subCategory: "gland",
-    image: "/graphite-packing-with-carbon-fiber.webp",
-    introduction:
-      "Graphite gland packing with carbon fiber corner is braided from expanded graphite yarn, which can withstand high temperature and carbon fiber with superior corrosion resistance. The carbon fiber in four corners provides higher resistance to extrusion and attrition. This packing can effectively avoid leakage, especially suitable in application of power station valve with high temperature and pressure.",
+      "Polybond’s Mineralwool Resin Bonded Slabs provide the best combination of thermal insulation, fire protection and sound absorption properties conforming to standards IS: 8183:93, ASTM C 612 and BS-3958B-5.\n\nMineralwool slab is made of fine fibers spun from selected rocks melted at high temperature and bonded with a thermosetting resin. The uniform distribution, the fine diameter, fiber lay pattern and flexibility of fiber are the unique features of ‘Polybond’ Mineralwool Resin Bonded Slabs. The properties are controlled to form slabs of predetermined density and thickness. These are quite versatile, easy to transport and easy to cut, fit and handle.",
     technicalSpecs: {
       "Working temperature":
         "-200°C ~ 650°C (STEAM) / -200°C ~ 565°C (ATMOSPHERE)",
@@ -2121,44 +1998,20 @@ const products: ProductDetail[] = [
   productDetailsMap["End of Line Flame Arrestor"],
   productDetailsMap["Explosion Vents"],
 
-  // Packing
-  productDetailsMap["Fibre Packing Sheets"],
-  productDetailsMap["Aramid Packing"],
-  productDetailsMap["Asbestos PTFE Packing"],
-  productDetailsMap["Carbon Fiber Packing"],
-  productDetailsMap["Carbonized Fiber Packing"],
-  productDetailsMap["Composite Aramid Fiber Packing"],
-  productDetailsMap["Expanded Graphite Packing"],
-  productDetailsMap["Graphite Packing With Carbon Fiber"],
-  productDetailsMap["PTFE Packing With Graphite"],
-  productDetailsMap["PTFE Pure PTFE packing"],
-  productDetailsMap["Ramie Graphite Packing"],
-  productDetailsMap["Ramie PTFE Packing"],
-  productDetailsMap["Style 165: Ceramic"],
-  productDetailsMap["Style 168: Ceramic"],
-  productDetailsMap["Style 2222 : Aqua Special"],
-  productDetailsMap["Style 374: Hydroflon"],
-  productDetailsMap["Style 376: Hydraulic Shipping"],
-  productDetailsMap["STYLE-1100 Graphite Rope"],
-  productDetailsMap["White Asbestos Rope style 1000"],
-  productDetailsMap["Cut Fiber Gaskets"],
-  productDetailsMap["Spiral Wound Gaskets"],
-  productDetailsMap["Expanded Teflon (PTFE) Gasket"],
-  productDetailsMap["Teflon (PTFE) Envelope Gasket"],
-  productDetailsMap["Teflon (PTFE) Ring Gasket"],
-  productDetailsMap["Ceramic Cloth"],
-  productDetailsMap["Ceramic Tape"],
-  productDetailsMap["Ceramic Rope"],
-  productDetailsMap["PTFE Sheets"],
-  productDetailsMap["Teflon Rods, Bushes & Tubes"],
-  productDetailsMap["Teflon Belows"],
-  productDetailsMap["Teflon Universal Rope"],
-  productDetailsMap["Teflon Diaphragms with Neoprene Rubber Pad"],
-
   // Valve Positioners
   productDetailsMap["Siemens Positioner"],
   productDetailsMap["Accessories"],
   productDetailsMap["Smart Electro Pneumatic Valve Positioner"],
+
+  // Insulation
+  productDetailsMap["Loose Glass Wool"],
+  productDetailsMap["Polybond Mineralwool Thermal Insulation Wool"],
+  productDetailsMap["Ceramic Fiber Wool"],
+  productDetailsMap["Lightly Resin Bonded Mattress"],
+  productDetailsMap["Ceramic Fibre Board"],
+  productDetailsMap["Ceramic Fiber Blanket"],
+  productDetailsMap["Acoustic Insulation Slab"],
+  productDetailsMap["Thermal Insulation Slab"],
 ];
 
 function ProductsContent() {
@@ -2253,23 +2106,54 @@ function ProductsContent() {
             </div>
           </motion.div>
 
-          {/* MAIN CATEGORIES */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8 px-4 sm:px-0">
-            {categories.map((category) => (
-              <Fragment key={category.id}>
-                {category.id === "valve" && (
-                  <div className="w-full basis-full h-0"></div>
-                )}
+          {/* BREADCRUMBS */}
+          <div className="max-w-md mx-auto px-4 sm:px-0 mb-12 flex items-center justify-center gap-2 text-sm text-muted-foreground overflow-x-auto whitespace-nowrap">
+            <button
+              onClick={() => { setActiveCategory("all"); setActiveSubCategory("all"); }}
+              className="hover:text-primary transition-colors font-medium flex-shrink-0"
+            >
+              Home
+            </button>
+
+            {(activeCategory !== "all" || activeSubCategory !== "all") && (
+              <>
+                <ChevronRight className="w-4 h-4 flex-shrink-0" />
                 <button
-                  onClick={() => handleCategoryChange(category.id)}
-                  className={`px-4 py-2 rounded-full font-medium transition-all ${activeCategory === category.id
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-card border border-border text-muted-foreground hover:border-primary hover:text-primary"
-                    }`}
+                  onClick={() => {
+                    if (activeSubCategory !== "all") {
+                      setActiveSubCategory("all");
+                    }
+                  }}
+                  className={`hover:text-primary transition-colors font-medium flex-shrink-0 ${activeSubCategory === "all" ? "text-foreground font-bold" : ""}`}
                 >
-                  {category.name}
+                  {categories.find(c => c.id === activeCategory)?.name || "Products"}
                 </button>
-              </Fragment>
+              </>
+            )}
+
+            {activeSubCategory !== "all" && subCategoriesMap[activeCategory] && (
+              <>
+                <ChevronRight className="w-4 h-4 flex-shrink-0" />
+                <span className="text-foreground font-bold flex-shrink-0">
+                  {subCategoriesMap[activeCategory].find(s => s.id === activeSubCategory)?.name || activeSubCategory}
+                </span>
+              </>
+            )}
+          </div>
+
+          {/* MAIN CATEGORIES */}
+          <div className="flex flex-wrap justify-center gap-3 mb-8 px-4 sm:px-0">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => handleCategoryChange(category.id)}
+                className={`px-4 py-2 rounded-full font-medium whitespace-nowrap transition-all flex-shrink-0 ${activeCategory === category.id
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-card border border-border text-muted-foreground hover:border-primary hover:text-primary"
+                  }`}
+              >
+                {category.name}
+              </button>
             ))}
           </div>
 
@@ -2279,8 +2163,7 @@ function ProductsContent() {
             activeCategory === "flow" ||
             activeCategory === "temperature" ||
             activeCategory === "safety" ||
-            activeCategory === "valve" ||
-            activeCategory === "packing") &&
+            activeCategory === "valve") &&
             subCategoriesMap[activeCategory] && (
               <div className="flex flex-wrap justify-center gap-3 mb-12 px-4">
                 {subCategoriesMap[activeCategory].map((sub) => (
@@ -2288,8 +2171,8 @@ function ProductsContent() {
                     key={sub.id}
                     onClick={() => setActiveSubCategory(sub.id)}
                     className={`px-5 py-2 rounded-full text-sm transition-all ${activeSubCategory === sub.id
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-card border border-border text-muted-foreground hover:border-primary hover:text-primary"
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-card border border-border text-muted-foreground hover:border-primary hover:text-primary"
                       }`}
                   >
                     {sub.name}
@@ -2297,6 +2180,8 @@ function ProductsContent() {
                 ))}
               </div>
             )}
+
+
 
           {/* PRODUCT GRID */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 sm:px-0">
@@ -2315,15 +2200,14 @@ function ProductsContent() {
                   benefits={product.benefits}
                   technicalSpecs={product.technicalSpecs}
                   applications={product.applications}
+                  imageFit={product.imageFit}
                   index={index}
                 />
               ))
             ) : (
               <div className="col-span-full text-center py-12 text-muted-foreground bg-card/50 rounded-2xl border border-border/50 border-dashed">
                 <p className="text-xl font-medium mb-2">No products found</p>
-                <p className="text-sm opacity-70">
-                  Try adjusting your search or filter criteria
-                </p>
+                <p className="text-sm opacity-70">Try adjusting your search or filter criteria</p>
               </div>
             )}
           </div>
@@ -2332,7 +2216,7 @@ function ProductsContent() {
 
       <PartnersSection />
       <Footer />
-    </main>
+    </main >
   );
 }
 
