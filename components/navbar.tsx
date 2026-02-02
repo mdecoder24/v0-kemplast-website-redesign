@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import Image from "next/image"
 import { Menu, X, ArrowRight, BookOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -21,6 +22,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -50,16 +52,21 @@ export function Navbar() {
 
             {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="relative px-4 py-2 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors group"
-                >
-                  {item.name}
-                  <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`relative px-4 py-2 text-sm font-medium transition-colors group ${isActive ? "text-primary" : "text-foreground/70 hover:text-foreground"
+                      }`}
+                  >
+                    {item.name}
+                    <span className={`absolute bottom-0 left-4 right-4 h-0.5 bg-primary transition-transform origin-left ${isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      }`} />
+                  </Link>
+                )
+              })}
             </div>
 
             {/* Desktop Actions */}
@@ -102,16 +109,22 @@ export function Navbar() {
         {isOpen && (
           <div className="lg:hidden bg-background/95 backdrop-blur-xl border-t border-border">
             <div className="px-4 py-6 space-y-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-4 py-3 text-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors"
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`block px-4 py-3 rounded-lg transition-colors ${isActive
+                        ? "text-primary bg-primary/10 border-l-2 border-primary"
+                        : "text-foreground hover:text-primary hover:bg-muted"
+                      }`}
+                  >
+                    {item.name}
+                  </Link>
+                )
+              })}
               <div className="pt-4 flex flex-col gap-2 border-t border-border mt-4">
                 <Button
                   variant="outline"
