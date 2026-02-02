@@ -1045,7 +1045,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "RESISTANCE TEMPERATURE DETECTORS": {
     name: "RESISTANCE TEMPERATURE DETECTORS ",
     category: "temperature",
-    image: "/images/TEMP%20IMAGES/RESISTANCE%20TEMPERATURE%20DETECTORS.png",
+    image: "/images/temp-images/resistance-temperature-detectors.png",
     introduction:
       "Resistance Temperature Detectors (RTDs) measure temperature by correlating the change in electrical resistance of a metal, typically platinum, with temperature. As temperature increases, the resistance of the sensing element increases in a predictable manner, enabling accurate and stable temperature measurement over a wide range.",
 
@@ -1079,7 +1079,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   THERMOCOUPLES: {
     name: "THERMOCOUPLES",
     category: "temperature",
-    image: "/images/TEMP%20IMAGES/THERMOCOUPLES.jpg",
+    image: "/images/temp-images/thermocouples.jpg",
     introduction:
       "Thermocouples measure temperature based on the voltage generated when two dissimilar metals are joined at one end and exposed to temperature changes. The generated voltage varies with temperature, allowing measurement over a very wide range with fast response and robust performance.",
 
@@ -1112,7 +1112,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "HEAD MOUNTED TRANSMITTERS": {
     name: "HEAD MOUNTED TRANSMITTERS",
     category: "temperature",
-    image: "/images/TEMP%20IMAGES/HEAD%20MOUNT.png",
+    image: "/images/temp-images/head-mount.png",
     introduction:
       "Head mounted transmitters are compact two-wire temperature transmitters designed for RTDs and thermocouples. They convert sensor signals into a standardized 4–20 mA output proportional to temperature. Their compact design allows installation directly inside DIN connection heads, providing a cost-effective and reliable solution for industrial temperature measurement, with optional isolation, HART communication, and explosion protection.",
 
@@ -1157,7 +1157,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "FIELD MOUNT TEMPERATURE TRANSMITTER": {
     name: "FIELD MOUNT TEMPERATURE TRANSMITTER",
     category: "temperature",
-    image: "/images/TEMP%20IMAGES/FIELD%20MOUNT.png",
+    image: "/images/temp-images/field-mount.png",
     introduction:
       "A field mount temperature transmitter is used in industrial applications to measure temperature and transmit the signal to control systems such as PLCs or DCS. It converts input signals from RTDs or thermocouples into standardized outputs like 4–20 mA or HART, enabling accurate and reliable temperature measurement over long distances. The rugged field-mounted design allows installation directly at the measurement point.",
 
@@ -1206,7 +1206,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "RAIL MOUNT TEMPERATURE TRANSMITTER": {
     name: "RAIL MOUNT TEMPERATURE TRANSMITTER",
     category: "temperature",
-    image: "/images/TEMP%20IMAGES/RAIL%20MOUNT.png",
+    image: "/images/temp-images/rail-mount.png",
     introduction:
       "A rail mount temperature transmitter is designed for DIN rail installation inside control panels and cabinets. It converts signals from temperature sensors such as RTDs and thermocouples into standardized output signals like 4–20 mA or HART for use in automation and control systems. Its compact design allows space-saving installation and easy integration into centralized control architectures.",
 
@@ -1419,21 +1419,26 @@ const productDetailsMap: Record<string, ProductDetail> = {
     ],
   },
 
-  // packing products
-  "Fibre Packing Sheets": {
-    name: "Fibre Packing Sheets",
-    category: "packing",
-    subCategory: "fibre",
-    image: "/fibre-packing-sheets.png",
+  /* ------------------ INSULATION PRODUCTS ------------------ */
+  "Loose Glass Wool": {
+    name: "Loose Glass Wool",
+    category: "insulation",
+    subCategory: "all",
+    image: "/loose glass wool.png",
+    imageFit: "contain",
     introduction:
-      "We are authorized stockist for SPITMAAN industries. We stock a wide range of compressed fibre gasket sheets which can be cut as per your specifications for more details contact us.",
+      "By utilizing skills of our dexterous workforce, we are offering a comprehensive assortment of Loose Glass Wool. Our professionals developed this glass wool by employing optimum quality raw material and sophisticated technology in adherence to the set industry standards. Owing to features like precise design, and easy to use, our offered product has been able to earn a lot of popularity in the market. Moreover, our valuable clients can avail this glass wool from us at market leading prices.",
+    benefits: [
+      "Sturdiness",
+      "High performance",
+      "Long service life",
+    ],
   },
-
-  "Aramid Packing": {
-    name: "Aramid Packing",
-    category: "packing",
-    subCategory: "gland",
-    image: "/Aramid-Packing.jpg",
+  "Polybond Mineralwool Thermal Insulation Wool": {
+    name: "Polybond Mineralwool Thermal Insulation Wool",
+    category: "insulation",
+    subCategory: "all",
+    image: "/Polybond  Mineralwool.png",
     introduction:
       "ANTI ABRASIVE PACKING Duplex Plaited Non-Asbestos Synthetic Fibre product which is as strong as steel, as smooth as silk, most flexible and treated with high temperature resisting lubricants, under controlled conditions. Well suited for pumping granular and viscous fluids even under high pressure conditions. This packing has a high degree of resiliency and consistency of volume and hence avoids frequent gland adjustments. Low thermal expansion characteristics under actual operating conditions reduce mechanical pressure against shaft sleeves to minimize abrasion effect.",
     technicalSpecs: {
@@ -1444,12 +1449,12 @@ const productDetailsMap: Record<string, ProductDetail> = {
         "1. Sizes 3 mm to 5 mm in spools of 10 mtrs\n2. Sizes above 5 mm in Boxes/Kgs\n3. Also available in accurate cut rings.",
     },
   },
-
-  "Asbestos PTFE Packing": {
-    name: "Asbestos PTFE Packing",
-    category: "packing",
-    subCategory: "gland",
-    image: "/asbestos-ptfe-packing.jpg",
+  "Ceramic Fiber Wool": {
+    name: "Ceramic Fiber Wool",
+    category: "insulation",
+    subCategory: "all",
+    image: "/ceramic fiber wool.png",
+    imageFit: "contain",
     introduction:
       "Asbestos PTFE packing is made of white asbestos fiber cords impregnated with PTFE dispersion. Soft in texture, this material is suitable for sealing pumps for various chemicals. However, packing impregnated with lubricants is recommended for use with reciprocating pumps or for sealing in places where high linear velocity.",
     technicalSpecs: {
@@ -1463,12 +1468,11 @@ const productDetailsMap: Record<string, ProductDetail> = {
       Density: "1.35 ~ 1.45 g/cc",
     },
   },
-
-  "Carbon Fiber Packing": {
-    name: "Carbon Fiber Packing",
-    category: "packing",
-    subCategory: "gland",
-    image: "/carbon-fiber-packing.jpg",
+  "Lightly Resin Bonded Mattress": {
+    name: "Lightly Resin Bonded Mattress",
+    category: "insulation",
+    subCategory: "all",
+    image: "/Lightly Resin Bonded Mattress.png",
     introduction:
       "Carbon fiber packing with graphite is woven of strong carbon fiber after softening treatment and impregnation with a mixture latex of fine graphite powder, PTFE dispersion and lubricant. It is chemical resistant, heat conductive and with high strength, so this item is widely used with revolving and reciprocating pumps in which chemical corrosive media and particle grains exist. The successful test result in application of high pressure ammonium and liquid ammonia pumps proved it’s the best sealing material for high pressure, high temperature and corrosion.",
     technicalSpecs: {
@@ -1484,12 +1488,11 @@ const productDetailsMap: Record<string, ProductDetail> = {
       "Regular package": "5 or 10 kg/roll",
     },
   },
-
-  "Carbonized Fiber Packing": {
-    name: "Carbonized Fiber Packing",
-    category: "packing",
-    subCategory: "gland",
-    image: "/carbonized-fiber-packing.webp",
+  "Ceramic Fibre Board": {
+    name: "Ceramic Fibre Board",
+    category: "insulation",
+    subCategory: "all",
+    image: "/Ceramic Fibre Board.png",
     introduction:
       "Carbonized fiber packing is manufactured by heating polyacrylonitrile fiber into carbonized fiber, which is then braided into packing after impregnation in PTFE dispersion. This item has good heat conduction and low corrosion rate, and the price is relatively lower, so it’s generally used in dynamic sealing in the presence of weak acid or alkaline media, or media that contains few solid particle grains.",
     technicalSpecs: {
@@ -1503,12 +1506,11 @@ const productDetailsMap: Record<string, ProductDetail> = {
       Density: "1.20 ~ 1.35 g/cc",
     },
   },
-
-  "Composite Aramid Fiber Packing": {
-    name: "Composite Aramid Fiber Packing",
-    category: "packing",
-    subCategory: "gland",
-    image: "/composite-aramid-fiber-packing.webp",
+  "Ceramic Fiber Blanket": {
+    name: "Ceramic Fiber Blanket",
+    category: "insulation",
+    subCategory: "all",
+    image: "/Ceramic Fiber Blanket.png",
     introduction:
       "Composite aramid fiber packing is made from imported aramid short fiber which is twisted in advanced technology and impregnated with PTFE latex and high-temperature lubricated. It’s softer than common aramid fiber packing and has more content of PTFE and lubricant to make sure its fibers closer to each other to supply high lubricant and low abrasion of shaft, especially suitable for reciprocating pumps with small grains, high pressure and high line speed.",
     technicalSpecs: {
@@ -1522,12 +1524,11 @@ const productDetailsMap: Record<string, ProductDetail> = {
       Density: "1.50 ~ 1.65 g/cc",
     },
   },
-
-  "Expanded Graphite Packing": {
-    name: "Expanded Graphite Packing",
-    category: "packing",
-    subCategory: "gland",
-    image: "/expanded-graphite-packing.webp",
+  "Acoustic Insulation Slab": {
+    name: "Acoustic Insulation Slab",
+    category: "insulation",
+    subCategory: "all",
+    image: "/Acoustic Insulation Slab.png",
     introduction:
       "Expanded graphite packing is braided from high-grade low sulphur expanded graphite yarn. This item has superior resistance from high temperature and chemical corrosion, as well as other special sealing effects. It’s widely used in steam valves of power station, static sealing with high temperature, high pressure and chemical corrosion.",
     technicalSpecs: {
@@ -1541,11 +1542,11 @@ const productDetailsMap: Record<string, ProductDetail> = {
         "1.10 ~ 1.35 g/cc (standard) / 1.50 ~ 1.60 g/cc (inconel jacketed)",
     },
   },
-  "Graphite Packing With Carbon Fiber": {
-    name: "Graphite Packing With Carbon Fiber",
-    category: "packing",
-    subCategory: "gland",
-    image: "/graphite-packing-with-carbon-fiber.webp",
+  "Thermal Insulation Slab": {
+    name: "Thermal Insulation Slab",
+    category: "insulation",
+    subCategory: "all",
+    image: "/Thermal Insulation Slab.png",
     introduction:
       "Graphite gland packing with carbon fiber corner is braided from expanded graphite yarn, which can withstand high temperature and carbon fiber with superior corrosion resistance. The carbon fiber in four corners provides higher resistance to extrusion and attrition. This packing can effectively avoid leakage, especially suitable in application of power station valve with high temperature and pressure.",
     technicalSpecs: {
@@ -2118,11 +2119,10 @@ function ProductsContent() {
                 )}
                 <button
                   onClick={() => handleCategoryChange(category.id)}
-                  className={`px-4 py-2 rounded-full font-medium transition-all ${
-                    activeCategory === category.id
+                  className={`px-4 py-2 rounded-full font-medium transition-all ${activeCategory === category.id
                       ? "bg-primary text-primary-foreground"
                       : "bg-card border border-border text-muted-foreground hover:border-primary hover:text-primary"
-                  }`}
+                    }`}
                 >
                   {category.name}
                 </button>
@@ -2144,11 +2144,10 @@ function ProductsContent() {
                   <button
                     key={sub.id}
                     onClick={() => setActiveSubCategory(sub.id)}
-                    className={`px-5 py-2 rounded-full text-sm transition-all ${
-                      activeSubCategory === sub.id
+                    className={`px-5 py-2 rounded-full text-sm transition-all ${activeSubCategory === sub.id
                         ? "bg-primary text-primary-foreground"
                         : "bg-card border border-border text-muted-foreground hover:border-primary hover:text-primary"
-                    }`}
+                      }`}
                   >
                     {sub.name}
                   </button>
