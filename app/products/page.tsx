@@ -19,6 +19,7 @@ const categories = [
   { id: "safety", name: "Safety Instruments" },
   { id: "valve", name: "Valve Positioners" },
   { id: "insulation", name: "Insulation Products" },
+  { id: "packing", name: "Packing Products" },
 ];
 
 /* ------------------ SUB CATEGORIES ------------------ */
@@ -46,6 +47,14 @@ const subCategoriesMap: Record<string, { id: string; name: string }[]> = {
     { id: "siemens", name: "Siemens" },
     { id: "accessories", name: "Accessories" },
     { id: "sepv", name: "Smart Electro Pneumatic Valve Positioner" },
+  ],
+  packing: [
+    { id: "all", name: "All Packing Products" },
+    { id: "fibre", name: "Fibre Packing Sheets" },
+    { id: "gland", name: "Gland Packings" },
+    { id: "flange", name: "Flange Gaskets" },
+    { id: "ceramic", name: "Ceramic Packing" },
+    { id: "ptfe", name: "PTFE Components" },
   ],
 };
 
@@ -1574,6 +1583,146 @@ const productDetailsMap: Record<string, ProductDetail> = {
       Density: "1.10 ~ 1.20 g/cc",
     },
   },
+
+  // packing products
+  "Fibre Packing Sheets": {
+    name: "Fibre Packing Sheets",
+    category: "packing",
+    subCategory: "fibre",
+    image: "/fibre-packing-sheets.png",
+    introduction:
+      "We are authorized stockist for SPITMAAN industries. We stock a wide range of compressed fibre gasket sheets which can be cut as per your specifications for more details contact us.",
+  },
+
+  "Aramid Packing": {
+    name: "Aramid Packing",
+    category: "packing",
+    subCategory: "gland",
+    image: "/Aramid-Packing.jpg",
+    introduction:
+      "ANTI ABRASIVE PACKING Duplex Plaited Non-Asbestos Synthetic Fibre product which is as strong as steel, as smooth as silk, most flexible and treated with high temperature resisting lubricants, under controlled conditions. Well suited for pumping granular and viscous fluids even under high pressure conditions. This packing has a high degree of resiliency and consistency of volume and hence avoids frequent gland adjustments. Low thermal expansion characteristics under actual operating conditions reduce mechanical pressure against shaft sleeves to minimize abrasion effect.",
+    technicalSpecs: {
+      Temperature: "-200°C to 300°C",
+      Pressure: "upto 280 Bar",
+      PH: "3 -12",
+      Packaging:
+        "1. Sizes 3 mm to 5 mm in spools of 10 mtrs\n2. Sizes above 5 mm in Boxes/Kgs\n3. Also available in accurate cut rings.",
+    },
+  },
+
+  "Asbestos PTFE Packing": {
+    name: "Asbestos PTFE Packing",
+    category: "packing",
+    subCategory: "gland",
+    image: "/asbestos-ptfe-packing.jpg",
+    introduction:
+      "Asbestos PTFE packing is made of white asbestos fiber cords impregnated with PTFE dispersion. Soft in texture, this material is suitable for sealing pumps for various chemicals. However, packing impregnated with lubricants is recommended for use with reciprocating pumps or for sealing in places where high linear velocity.",
+    technicalSpecs: {
+      "Max. working temperature": "-75°C ~ 260°C",
+      "Max. working pressure":
+        "2 Mpa (rotary pump) / 10 Mpa (reciprocating pump) / 15 Mpa (valve)",
+      "PH value": "2-12",
+      "Linear speed":
+        "0–10 m/s (rotary pump) / 0–2 m/s (reciprocating pump) / 0–2 m/s (valve)",
+      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
+      Density: "1.35 ~ 1.45 g/cc",
+    },
+  },
+
+  "Carbon Fiber Packing": {
+    name: "Carbon Fiber Packing",
+    category: "packing",
+    subCategory: "gland",
+    image: "/carbon-fiber-packing.jpg",
+    introduction:
+      "Carbon fiber packing with graphite is woven of strong carbon fiber after softening treatment and impregnation with a mixture latex of fine graphite powder, PTFE dispersion and lubricant. It is chemical resistant, heat conductive and with high strength, so this item is widely used with revolving and reciprocating pumps in which chemical corrosive media and particle grains exist. The successful test result in application of high pressure ammonium and liquid ammonia pumps proved it’s the best sealing material for high pressure, high temperature and corrosion.",
+    technicalSpecs: {
+      "Max. working temperature":
+        "-200°C ~ +650°C (STEAM) / -200°C ~ +565°C (ATMOSPHERE)",
+      "Max. working pressure":
+        "5 Mpa (rotary pump) / 15 Mpa (reciprocating pump) / 25 Mpa (valve)",
+      "PH value": "0-14",
+      "Linear speed":
+        "0–20 M/S (rotary pump) / 0–2 M/S (reciprocating pump) / 0–2 M/S (valve)",
+      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
+      Density: "1.35 ~ 1.45 g/cc",
+      "Regular package": "5 or 10 kg/roll",
+    },
+  },
+
+  "Carbonized Fiber Packing": {
+    name: "Carbonized Fiber Packing",
+    category: "packing",
+    subCategory: "gland",
+    image: "/carbonized-fiber-packing.webp",
+    introduction:
+      "Carbonized fiber packing is manufactured by heating polyacrylonitrile fiber into carbonized fiber, which is then braided into packing after impregnation in PTFE dispersion. This item has good heat conduction and low corrosion rate, and the price is relatively lower, so it’s generally used in dynamic sealing in the presence of weak acid or alkaline media, or media that contains few solid particle grains.",
+    technicalSpecs: {
+      "Max. working temperature": "-100°C ~ +260°C",
+      "Max. working pressure":
+        "3.5 Mpa (rotary pump) / 12 Mpa (reciprocating pump) / 15 Mpa (valve)",
+      "PH value": "2-12",
+      "Linear speed":
+        "15 M/S (rotary pump) / 2 M/S (reciprocating pump) / 2 M/S (valve)",
+      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
+      Density: "1.20 ~ 1.35 g/cc",
+    },
+  },
+
+  "Composite Aramid Fiber Packing": {
+    name: "Composite Aramid Fiber Packing",
+    category: "packing",
+    subCategory: "gland",
+    image: "/composite-aramid-fiber-packing.webp",
+    introduction:
+      "Composite aramid fiber packing is made from imported aramid short fiber which is twisted in advanced technology and impregnated with PTFE latex and high-temperature lubricated. It’s softer than common aramid fiber packing and has more content of PTFE and lubricant to make sure its fibers closer to each other to supply high lubricant and low abrasion of shaft, especially suitable for reciprocating pumps with small grains, high pressure and high line speed.",
+    technicalSpecs: {
+      "Working temperature": "-100°C – +260°C",
+      "Max. working pressure":
+        "5 Mpa (rotary pump) / 10 Mpa (reciprocating pump) / 20 Mpa (valve)",
+      "PH value": "2-12",
+      "Linear speed":
+        "15 M/S (rotary pump) / 2 M/S (reciprocating pump) / 2 M/S (valve)",
+      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
+      Density: "1.50 ~ 1.65 g/cc",
+    },
+  },
+
+  "Expanded Graphite Packing": {
+    name: "Expanded Graphite Packing",
+    category: "packing",
+    subCategory: "gland",
+    image: "/expanded-graphite-packing.webp",
+    introduction:
+      "Expanded graphite packing is braided from high-grade low sulphur expanded graphite yarn. This item has superior resistance from high temperature and chemical corrosion, as well as other special sealing effects. It’s widely used in steam valves of power station, static sealing with high temperature, high pressure and chemical corrosion.",
+    technicalSpecs: {
+      "Max. working temperature":
+        "-200°C ~ +650°C (STEAM) / -200°C ~ +565°C (ATMOSPHERE)",
+      "Max. working pressure":
+        "25 Mpa (static) / 35 Mpa (with carbon fiber/wire) / 40 Mpa (inconel jacketed)",
+      "PH value": "0 – 14",
+      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
+      Density:
+        "1.10 ~ 1.35 g/cc (standard) / 1.50 ~ 1.60 g/cc (inconel jacketed)",
+    },
+  },
+  "Graphite Packing With Carbon Fiber": {
+    name: "Graphite Packing With Carbon Fiber",
+    category: "packing",
+    subCategory: "gland",
+    image: "/graphite-packing-with-carbon-fiber.webp",
+    introduction:
+      "Graphite gland packing with carbon fiber corner is braided from expanded graphite yarn, which can withstand high temperature and carbon fiber with superior corrosion resistance. The carbon fiber in four corners provides higher resistance to extrusion and attrition. This packing can effectively avoid leakage, especially suitable in application of power station valve with high temperature and pressure.",
+    technicalSpecs: {
+      "Working temperature":
+        "-200°C ~ 650°C (STEAM) / -200°C ~ 565°C (ATMOSPHERE)",
+      "Max. working pressure": "35 Mpa (static sealing)",
+      "PH value": "0-14",
+      "Linear speed": "0-2 M/S (valve)",
+      "Cross Section": '1/4" ~ 1-1/2" (6X6-38X38mm)',
+      Density: "1.10 ~ 1.20 g/cc",
+    },
+  },
   "PTFE Packing With Graphite": {
     name: "PTFE Packing With Graphite",
     category: "packing",
@@ -2012,6 +2161,40 @@ const products: ProductDetail[] = [
   productDetailsMap["Ceramic Fiber Blanket"],
   productDetailsMap["Acoustic Insulation Slab"],
   productDetailsMap["Thermal Insulation Slab"],
+
+  // Packing
+  productDetailsMap["Fibre Packing Sheets"],
+  productDetailsMap["Aramid Packing"],
+  productDetailsMap["Asbestos PTFE Packing"],
+  productDetailsMap["Carbon Fiber Packing"],
+  productDetailsMap["Carbonized Fiber Packing"],
+  productDetailsMap["Composite Aramid Fiber Packing"],
+  productDetailsMap["Expanded Graphite Packing"],
+  productDetailsMap["Graphite Packing With Carbon Fiber"],
+  productDetailsMap["PTFE Packing With Graphite"],
+  productDetailsMap["PTFE Pure PTFE packing"],
+  productDetailsMap["Ramie Graphite Packing"],
+  productDetailsMap["Ramie PTFE Packing"],
+  productDetailsMap["Style 165: Ceramic"],
+  productDetailsMap["Style 168: Ceramic"],
+  productDetailsMap["Style 2222 : Aqua Special"],
+  productDetailsMap["Style 374: Hydroflon"],
+  productDetailsMap["Style 376: Hydraulic Shipping"],
+  productDetailsMap["STYLE-1100 Graphite Rope"],
+  productDetailsMap["White Asbestos Rope style 1000"],
+  productDetailsMap["Cut Fiber Gaskets"],
+  productDetailsMap["Spiral Wound Gaskets"],
+  productDetailsMap["Expanded Teflon (PTFE) Gasket"],
+  productDetailsMap["Teflon (PTFE) Envelope Gasket"],
+  productDetailsMap["Teflon (PTFE) Ring Gasket"],
+  productDetailsMap["Ceramic Cloth"],
+  productDetailsMap["Ceramic Tape"],
+  productDetailsMap["Ceramic Rope"],
+  productDetailsMap["PTFE Sheets"],
+  productDetailsMap["Teflon Rods, Bushes & Tubes"],
+  productDetailsMap["Teflon Belows"],
+  productDetailsMap["Teflon Universal Rope"],
+  productDetailsMap["Teflon Diaphragms with Neoprene Rubber Pad"],
 ];
 
 function ProductsContent() {
@@ -2035,8 +2218,8 @@ function ProductsContent() {
 
   const filteredProducts = products.filter((product, index) => {
     if (!product) {
-       console.error(`Product at index ${index} is undefined in products array.`);
-       return false;
+      console.error(`Product at index ${index} is undefined in products array.`);
+      return false;
     }
 
     const matchesCategory =
@@ -2109,24 +2292,41 @@ function ProductsContent() {
           {/* BREADCRUMBS */}
           <div className="max-w-md mx-auto px-4 sm:px-0 mb-12 flex items-center justify-center gap-2 text-sm text-muted-foreground overflow-x-auto whitespace-nowrap">
             <button
-              onClick={() => { setActiveCategory("all"); setActiveSubCategory("all"); }}
+              onClick={() => {
+                // If we are deep in the hierarchy, go back to just "Products" view (reset to all)
+                setActiveCategory("all");
+                setActiveSubCategory("all");
+              }}
               className="hover:text-primary transition-colors font-medium flex-shrink-0"
             >
               Home
             </button>
 
-            {(activeCategory !== "all" || activeSubCategory !== "all") && (
+            <ChevronRight className="w-4 h-4 flex-shrink-0" />
+
+            <button
+              onClick={() => {
+                setActiveCategory("all");
+                setActiveSubCategory("all");
+              }}
+              className={`hover:text-primary transition-colors font-medium flex-shrink-0 ${activeCategory === "all" ? "text-foreground font-bold" : ""}`}
+            >
+              Products
+            </button>
+
+            {activeCategory !== "all" && (
               <>
                 <ChevronRight className="w-4 h-4 flex-shrink-0" />
                 <button
                   onClick={() => {
+                    // If we are in a subcategory, clicking the category name should reset subcategory
                     if (activeSubCategory !== "all") {
                       setActiveSubCategory("all");
                     }
                   }}
                   className={`hover:text-primary transition-colors font-medium flex-shrink-0 ${activeSubCategory === "all" ? "text-foreground font-bold" : ""}`}
                 >
-                  {categories.find(c => c.id === activeCategory)?.name || "Products"}
+                  {categories.find(c => c.id === activeCategory)?.name || activeCategory}
                 </button>
               </>
             )}
@@ -2163,7 +2363,8 @@ function ProductsContent() {
             activeCategory === "flow" ||
             activeCategory === "temperature" ||
             activeCategory === "safety" ||
-            activeCategory === "valve") &&
+            activeCategory === "valve" ||
+            activeCategory === "packing") &&
             subCategoriesMap[activeCategory] && (
               <div className="flex flex-wrap justify-center gap-3 mb-12 px-4">
                 {subCategoriesMap[activeCategory].map((sub) => (
