@@ -29,25 +29,14 @@ const subCategoriesMap: Record<string, { id: string; name: string }[]> = {
     { id: "gauge", name: "Pressure Gauge" },
     { id: "transmitter", name: "Pressure Transmitters" },
   ],
-  safety: [
-    { id: "all", name: "All Safety Products" },
-    { id: "r-disc", name: "Rupture Disc" },
-    { id: "srv", name: "SRV" },
-    { id: "arrestor", name: "Flame Arrestor" },
-    { id: "vents", name: "Explosion Vents" },
-  ],
+
   level: [
     { id: "all", name: "All Level Instruments" },
     { id: "ultra-sonic", name: "Ultrasonic Level" },
     { id: "radar", name: "Radar Level" },
     { id: "switches", name: "Level Switches" },
   ],
-  valve: [
-    { id: "all", name: "All Valve Products" },
-    { id: "siemens", name: "Siemens" },
-    { id: "accessories", name: "Accessories" },
-    { id: "sepv", name: "Smart Electro Pneumatic Valve Positioner" },
-  ],
+
   packing: [
     { id: "all", name: "All Packing Products" },
     { id: "fibre", name: "Fibre Packing Sheets" },
@@ -1259,7 +1248,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "Control Valve": {
     name: "Control Valve",
     category: "valve",
-    subCategory: "control",
+    subCategory: "all",
     image: "/placeholder.svg?height=400&width=400",
     introduction: "Industrial control valve for flow regulation",
     description: "Precision control valve system",
@@ -1267,7 +1256,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "Relief Valve": {
     name: "Relief Valve",
     category: "valve",
-    subCategory: "relief",
+    subCategory: "all",
     image: "/placeholder.svg?height=400&width=400",
     introduction: "Pressure relief valve for system protection",
     description: "Safety relief valve solution",
@@ -1277,7 +1266,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "Safety Relief Valve": {
     name: "Safety Relief Valve",
     category: "safety",
-    subCategory: "srv",
+    subCategory: "all",
     image: "/srv.png",
     introduction:
       "The Safety Relief valves are spring-loaded closed bonnet and designed as per API standards. We machine the valves from solid bar to have better material compatibility. The Safety valves are designed in soft seat as well as metal to metal seat. The valves are pressure tested with Nitrogen. The valves provide highly effective solution for various industrial applications in Refineries, Chemicals, Pharmaceutical, Fertilizers, Storage tanks systems etc.",
@@ -1294,7 +1283,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "Inline Flame Arrestor": {
     name: "Inline Flame Arrestor",
     category: "safety",
-    subCategory: "arrestor",
+    subCategory: "all",
     image: "/arrestor.png",
     introduction:
       "Protect your operations with our In-Line Flame Arrestor, designed for maximum safety and reliability. This advanced device effectively stops flames from traveling through pipelines while allowing normal gas flow. With ATEX certification and a durable design, our flame arrestors seamlessly integrate into your existing systems. Plus, we offer customized options to meet your specific needs, ensuring peace of mind in handling flammable materials.",
@@ -1308,7 +1297,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "End of Line Flame Arrestor": {
     name: "End of Line Flame Arrestor",
     category: "safety",
-    subCategory: "arrestor",
+    subCategory: "all",
     image: "/endofline.png",
     introduction:
       "Our End of Line Flame Arrestors provide critical protection by preventing flame propagation in pipelines. Designed for reliable performance, these devices allow safe gas flow while effectively stopping flames at the end of your system. With durable construction and ATEX certification, our flame Arrestor are built to enhance safety in hazardous environments.",
@@ -1322,7 +1311,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "Explosion Vents": {
     name: "Explosion Vents",
     category: "safety",
-    subCategory: "vents",
+    subCategory: "all",
     image: "/vents.png",
     introduction:
       "An explosion vent, also called a rupture panel, is a pressure relief device designed to protect buildings or equipment by releasing an explosion through the non-fragmenting vent thus eliminating any catastrophic overpressure. In addition to their safety functionality, they are popular because they are cost-effective, easy to install and require no maintenance.",
@@ -1338,7 +1327,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "Rupture Disc": {
     name: "Rupture Disc",
     category: "safety",
-    subCategory: "r-disc",
+    subCategory: "all",
     image: "/r-disc.png",
     introduction:
       "A rupture disc is a multi-layer pressure relief device designed to burst at a specific pressure to protect systems from overpressure conditions. Constructed with layers of different materials, the RD offers enhanced durability, precise burst control, and versatility for various industrial applications.",
@@ -1363,7 +1352,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "Siemens Positioner": {
     name: "Siemens Positioner",
     category: "valve",
-    subCategory: "siemens",
+    subCategory: "all",
     image: "/siemens.webp",
     introduction:
       "The Siemens SIPART PS2 is currently the most widely used positioner for linear and part-turn actuators in a wide range of process industries. This is not without reason. The proven all-rounder offers comprehensive functionality and diagnostics capability, controls a wide range of valves both safely and dependably and also fulfils a multitude of specific requirements optimally. For reliable control of final control elements in chemical or oil and gas sectors, or for precise control of valves in the pharmaceutical or food industry: SIPART PS2 provides the right solution for every valve. Another point in favour of the PS2 positioner is the low consumption of compressed air. SIPART PS2 minimizes it as well as the CO₂ emission which is caused by the compressors. This means our positioner offers savings of up to 90 percent compared to conventional devices.",
@@ -1382,7 +1371,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   Accessories: {
     name: "Accessories",
     category: "valve",
-    subCategory: "accessories",
+    subCategory: "all",
     image: "/access.webp",
     introduction:
       "This bracket kit is for mounting a SMC 8100 Rotary Type Pneumatic Positioner to a F79U Actuator. This kit does not include a feedback arm (Purchase Separately). Please feel free to discuss with us about your product requirement. Instrowest can help you with product Supply, Installation and Calibration.\n\nIf out of stock, Typical Lead Time: 1 Week",
@@ -1390,7 +1379,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "Smart Electro Pneumatic Valve Positioner": {
     name: "Smart Electro Pneumatic Valve Positioner",
     category: "valve",
-    subCategory: "sepv",
+    subCategory: "all",
     image: "/sepv.png",
     introduction:
       "A positioner is an electro pneumatic device that controls and regulates the flow of a medium in control valves at various types of the process industries. Valve positioner provides a signal to the valve actuator until the valve stem reaches a position of opening or closing. A smart positioner is an advanced type of valve positioner used to precisely control valve position in response to a control signal — but with built-in intelligence, diagnostics, and digital communication capabilities.",
