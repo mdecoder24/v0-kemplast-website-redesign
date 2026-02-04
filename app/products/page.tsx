@@ -2279,7 +2279,7 @@ function ProductsContent() {
           </motion.div>
 
           {/* BREADCRUMBS */}
-          <div className="max-w-md mx-auto px-4 sm:px-0 mb-12 flex items-center justify-center gap-2 text-sm text-muted-foreground overflow-x-auto whitespace-nowrap">
+          <div className="w-full mx-auto px-4 sm:px-0 mb-12 flex flex-wrap items-center justify-center gap-2 text-sm text-muted-foreground">
             <button
               onClick={() => {
                 // If we are deep in the hierarchy, go back to just "Products" view (reset to all)
