@@ -19,6 +19,7 @@ const categories = [
   { id: "safety", name: "Safety Instruments" },
   { id: "valve", name: "Valve Positioners" },
   { id: "insulation", name: "Insulation Products" },
+  { id: "packing", name: "Packing Products" },
 ];
 
 /* ------------------ SUB CATEGORIES ------------------ */
@@ -28,24 +29,21 @@ const subCategoriesMap: Record<string, { id: string; name: string }[]> = {
     { id: "gauge", name: "Pressure Gauge" },
     { id: "transmitter", name: "Pressure Transmitters" },
   ],
-  safety: [
-    { id: "all", name: "All Safety Products" },
-    { id: "r-disc", name: "Rupture Disc" },
-    { id: "srv", name: "SRV" },
-    { id: "arrestor", name: "Flame Arrestor" },
-    { id: "vents", name: "Explosion Vents" },
-  ],
+
   level: [
     { id: "all", name: "All Level Instruments" },
     { id: "ultra-sonic", name: "Ultrasonic Level" },
     { id: "radar", name: "Radar Level" },
     { id: "switches", name: "Level Switches" },
   ],
-  valve: [
-    { id: "all", name: "All Valve Products" },
-    { id: "siemens", name: "Siemens" },
-    { id: "accessories", name: "Accessories" },
-    { id: "sepv", name: "Smart Electro Pneumatic Valve Positioner" },
+
+  packing: [
+    { id: "all", name: "All Packing Products" },
+    { id: "fibre", name: "Fibre Packing Sheets" },
+    { id: "gland", name: "Gland Packings" },
+    { id: "flange", name: "Flange Gaskets" },
+    { id: "ceramic", name: "Ceramic Packing" },
+    { id: "ptfe", name: "PTFE Components" },
   ],
 };
 
@@ -1250,7 +1248,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "Control Valve": {
     name: "Control Valve",
     category: "valve",
-    subCategory: "control",
+    subCategory: "all",
     image: "/placeholder.svg?height=400&width=400",
     introduction: "Industrial control valve for flow regulation",
     description: "Precision control valve system",
@@ -1258,7 +1256,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "Relief Valve": {
     name: "Relief Valve",
     category: "valve",
-    subCategory: "relief",
+    subCategory: "all",
     image: "/placeholder.svg?height=400&width=400",
     introduction: "Pressure relief valve for system protection",
     description: "Safety relief valve solution",
@@ -1268,7 +1266,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "Safety Relief Valve": {
     name: "Safety Relief Valve",
     category: "safety",
-    subCategory: "srv",
+    subCategory: "all",
     image: "/srv.png",
     introduction:
       "The Safety Relief valves are spring-loaded closed bonnet and designed as per API standards. We machine the valves from solid bar to have better material compatibility. The Safety valves are designed in soft seat as well as metal to metal seat. The valves are pressure tested with Nitrogen. The valves provide highly effective solution for various industrial applications in Refineries, Chemicals, Pharmaceutical, Fertilizers, Storage tanks systems etc.",
@@ -1285,7 +1283,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "Inline Flame Arrestor": {
     name: "Inline Flame Arrestor",
     category: "safety",
-    subCategory: "arrestor",
+    subCategory: "all",
     image: "/arrestor.png",
     introduction:
       "Protect your operations with our In-Line Flame Arrestor, designed for maximum safety and reliability. This advanced device effectively stops flames from traveling through pipelines while allowing normal gas flow. With ATEX certification and a durable design, our flame arrestors seamlessly integrate into your existing systems. Plus, we offer customized options to meet your specific needs, ensuring peace of mind in handling flammable materials.",
@@ -1299,7 +1297,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "End of Line Flame Arrestor": {
     name: "End of Line Flame Arrestor",
     category: "safety",
-    subCategory: "arrestor",
+    subCategory: "all",
     image: "/endofline.png",
     introduction:
       "Our End of Line Flame Arrestors provide critical protection by preventing flame propagation in pipelines. Designed for reliable performance, these devices allow safe gas flow while effectively stopping flames at the end of your system. With durable construction and ATEX certification, our flame Arrestor are built to enhance safety in hazardous environments.",
@@ -1313,7 +1311,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "Explosion Vents": {
     name: "Explosion Vents",
     category: "safety",
-    subCategory: "vents",
+    subCategory: "all",
     image: "/vents.png",
     introduction:
       "An explosion vent, also called a rupture panel, is a pressure relief device designed to protect buildings or equipment by releasing an explosion through the non-fragmenting vent thus eliminating any catastrophic overpressure. In addition to their safety functionality, they are popular because they are cost-effective, easy to install and require no maintenance.",
@@ -1329,7 +1327,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "Rupture Disc": {
     name: "Rupture Disc",
     category: "safety",
-    subCategory: "r-disc",
+    subCategory: "all",
     image: "/r-disc.png",
     introduction:
       "A rupture disc is a multi-layer pressure relief device designed to burst at a specific pressure to protect systems from overpressure conditions. Constructed with layers of different materials, the RD offers enhanced durability, precise burst control, and versatility for various industrial applications.",
@@ -1354,7 +1352,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "Siemens Positioner": {
     name: "Siemens Positioner",
     category: "valve",
-    subCategory: "siemens",
+    subCategory: "all",
     image: "/siemens.webp",
     introduction:
       "The Siemens SIPART PS2 is currently the most widely used positioner for linear and part-turn actuators in a wide range of process industries. This is not without reason. The proven all-rounder offers comprehensive functionality and diagnostics capability, controls a wide range of valves both safely and dependably and also fulfils a multitude of specific requirements optimally. For reliable control of final control elements in chemical or oil and gas sectors, or for precise control of valves in the pharmaceutical or food industry: SIPART PS2 provides the right solution for every valve. Another point in favour of the PS2 positioner is the low consumption of compressed air. SIPART PS2 minimizes it as well as the CO₂ emission which is caused by the compressors. This means our positioner offers savings of up to 90 percent compared to conventional devices.",
@@ -1373,7 +1371,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   Accessories: {
     name: "Accessories",
     category: "valve",
-    subCategory: "accessories",
+    subCategory: "all",
     image: "/access.webp",
     introduction:
       "This bracket kit is for mounting a SMC 8100 Rotary Type Pneumatic Positioner to a F79U Actuator. This kit does not include a feedback arm (Purchase Separately). Please feel free to discuss with us about your product requirement. Instrowest can help you with product Supply, Installation and Calibration.\n\nIf out of stock, Typical Lead Time: 1 Week",
@@ -1381,7 +1379,7 @@ const productDetailsMap: Record<string, ProductDetail> = {
   "Smart Electro Pneumatic Valve Positioner": {
     name: "Smart Electro Pneumatic Valve Positioner",
     category: "valve",
-    subCategory: "sepv",
+    subCategory: "all",
     image: "/sepv.png",
     introduction:
       "A positioner is an electro pneumatic device that controls and regulates the flow of a medium in control valves at various types of the process industries. Valve positioner provides a signal to the valve actuator until the valve stem reaches a position of opening or closing. A smart positioner is an advanced type of valve positioner used to precisely control valve position in response to a control signal — but with built-in intelligence, diagnostics, and digital communication capabilities.",
@@ -1564,6 +1562,146 @@ const productDetailsMap: Record<string, ProductDetail> = {
     image: "/Thermal Insulation Slab.png",
     introduction:
       "Polybond’s Mineralwool Resin Bonded Slabs provide the best combination of thermal insulation, fire protection and sound absorption properties conforming to standards IS: 8183:93, ASTM C 612 and BS-3958B-5.\n\nMineralwool slab is made of fine fibers spun from selected rocks melted at high temperature and bonded with a thermosetting resin. The uniform distribution, the fine diameter, fiber lay pattern and flexibility of fiber are the unique features of ‘Polybond’ Mineralwool Resin Bonded Slabs. The properties are controlled to form slabs of predetermined density and thickness. These are quite versatile, easy to transport and easy to cut, fit and handle.",
+    technicalSpecs: {
+      "Working temperature":
+        "-200°C ~ 650°C (STEAM) / -200°C ~ 565°C (ATMOSPHERE)",
+      "Max. working pressure": "35 Mpa (static sealing)",
+      "PH value": "0-14",
+      "Linear speed": "0-2 M/S (valve)",
+      "Cross Section": '1/4" ~ 1-1/2" (6X6-38X38mm)',
+      Density: "1.10 ~ 1.20 g/cc",
+    },
+  },
+
+  // packing products
+  "Fibre Packing Sheets": {
+    name: "Fibre Packing Sheets",
+    category: "packing",
+    subCategory: "fibre",
+    image: "/fibre-packing-sheets.png",
+    introduction:
+      "We are authorized stockist for SPITMAAN industries. We stock a wide range of compressed fibre gasket sheets which can be cut as per your specifications for more details contact us.",
+  },
+
+  "Aramid Packing": {
+    name: "Aramid Packing",
+    category: "packing",
+    subCategory: "gland",
+    image: "/Aramid-Packing.jpg",
+    introduction:
+      "ANTI ABRASIVE PACKING Duplex Plaited Non-Asbestos Synthetic Fibre product which is as strong as steel, as smooth as silk, most flexible and treated with high temperature resisting lubricants, under controlled conditions. Well suited for pumping granular and viscous fluids even under high pressure conditions. This packing has a high degree of resiliency and consistency of volume and hence avoids frequent gland adjustments. Low thermal expansion characteristics under actual operating conditions reduce mechanical pressure against shaft sleeves to minimize abrasion effect.",
+    technicalSpecs: {
+      Temperature: "-200°C to 300°C",
+      Pressure: "upto 280 Bar",
+      PH: "3 -12",
+      Packaging:
+        "1. Sizes 3 mm to 5 mm in spools of 10 mtrs\n2. Sizes above 5 mm in Boxes/Kgs\n3. Also available in accurate cut rings.",
+    },
+  },
+
+  "Asbestos PTFE Packing": {
+    name: "Asbestos PTFE Packing",
+    category: "packing",
+    subCategory: "gland",
+    image: "/asbestos-ptfe-packing.jpg",
+    introduction:
+      "Asbestos PTFE packing is made of white asbestos fiber cords impregnated with PTFE dispersion. Soft in texture, this material is suitable for sealing pumps for various chemicals. However, packing impregnated with lubricants is recommended for use with reciprocating pumps or for sealing in places where high linear velocity.",
+    technicalSpecs: {
+      "Max. working temperature": "-75°C ~ 260°C",
+      "Max. working pressure":
+        "2 Mpa (rotary pump) / 10 Mpa (reciprocating pump) / 15 Mpa (valve)",
+      "PH value": "2-12",
+      "Linear speed":
+        "0–10 m/s (rotary pump) / 0–2 m/s (reciprocating pump) / 0–2 m/s (valve)",
+      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
+      Density: "1.35 ~ 1.45 g/cc",
+    },
+  },
+
+  "Carbon Fiber Packing": {
+    name: "Carbon Fiber Packing",
+    category: "packing",
+    subCategory: "gland",
+    image: "/carbon-fiber-packing.jpg",
+    introduction:
+      "Carbon fiber packing with graphite is woven of strong carbon fiber after softening treatment and impregnation with a mixture latex of fine graphite powder, PTFE dispersion and lubricant. It is chemical resistant, heat conductive and with high strength, so this item is widely used with revolving and reciprocating pumps in which chemical corrosive media and particle grains exist. The successful test result in application of high pressure ammonium and liquid ammonia pumps proved it’s the best sealing material for high pressure, high temperature and corrosion.",
+    technicalSpecs: {
+      "Max. working temperature":
+        "-200°C ~ +650°C (STEAM) / -200°C ~ +565°C (ATMOSPHERE)",
+      "Max. working pressure":
+        "5 Mpa (rotary pump) / 15 Mpa (reciprocating pump) / 25 Mpa (valve)",
+      "PH value": "0-14",
+      "Linear speed":
+        "0–20 M/S (rotary pump) / 0–2 M/S (reciprocating pump) / 0–2 M/S (valve)",
+      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
+      Density: "1.35 ~ 1.45 g/cc",
+      "Regular package": "5 or 10 kg/roll",
+    },
+  },
+
+  "Carbonized Fiber Packing": {
+    name: "Carbonized Fiber Packing",
+    category: "packing",
+    subCategory: "gland",
+    image: "/carbonized-fiber-packing.webp",
+    introduction:
+      "Carbonized fiber packing is manufactured by heating polyacrylonitrile fiber into carbonized fiber, which is then braided into packing after impregnation in PTFE dispersion. This item has good heat conduction and low corrosion rate, and the price is relatively lower, so it’s generally used in dynamic sealing in the presence of weak acid or alkaline media, or media that contains few solid particle grains.",
+    technicalSpecs: {
+      "Max. working temperature": "-100°C ~ +260°C",
+      "Max. working pressure":
+        "3.5 Mpa (rotary pump) / 12 Mpa (reciprocating pump) / 15 Mpa (valve)",
+      "PH value": "2-12",
+      "Linear speed":
+        "15 M/S (rotary pump) / 2 M/S (reciprocating pump) / 2 M/S (valve)",
+      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
+      Density: "1.20 ~ 1.35 g/cc",
+    },
+  },
+
+  "Composite Aramid Fiber Packing": {
+    name: "Composite Aramid Fiber Packing",
+    category: "packing",
+    subCategory: "gland",
+    image: "/composite-aramid-fiber-packing.webp",
+    introduction:
+      "Composite aramid fiber packing is made from imported aramid short fiber which is twisted in advanced technology and impregnated with PTFE latex and high-temperature lubricated. It’s softer than common aramid fiber packing and has more content of PTFE and lubricant to make sure its fibers closer to each other to supply high lubricant and low abrasion of shaft, especially suitable for reciprocating pumps with small grains, high pressure and high line speed.",
+    technicalSpecs: {
+      "Working temperature": "-100°C – +260°C",
+      "Max. working pressure":
+        "5 Mpa (rotary pump) / 10 Mpa (reciprocating pump) / 20 Mpa (valve)",
+      "PH value": "2-12",
+      "Linear speed":
+        "15 M/S (rotary pump) / 2 M/S (reciprocating pump) / 2 M/S (valve)",
+      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
+      Density: "1.50 ~ 1.65 g/cc",
+    },
+  },
+
+  "Expanded Graphite Packing": {
+    name: "Expanded Graphite Packing",
+    category: "packing",
+    subCategory: "gland",
+    image: "/expanded-graphite-packing.webp",
+    introduction:
+      "Expanded graphite packing is braided from high-grade low sulphur expanded graphite yarn. This item has superior resistance from high temperature and chemical corrosion, as well as other special sealing effects. It’s widely used in steam valves of power station, static sealing with high temperature, high pressure and chemical corrosion.",
+    technicalSpecs: {
+      "Max. working temperature":
+        "-200°C ~ +650°C (STEAM) / -200°C ~ +565°C (ATMOSPHERE)",
+      "Max. working pressure":
+        "25 Mpa (static) / 35 Mpa (with carbon fiber/wire) / 40 Mpa (inconel jacketed)",
+      "PH value": "0 – 14",
+      "Cross Section": '1/8" ~ 3" (3X3-75X75mm)',
+      Density:
+        "1.10 ~ 1.35 g/cc (standard) / 1.50 ~ 1.60 g/cc (inconel jacketed)",
+    },
+  },
+  "Graphite Packing With Carbon Fiber": {
+    name: "Graphite Packing With Carbon Fiber",
+    category: "packing",
+    subCategory: "gland",
+    image: "/graphite-packing-with-carbon-fiber.webp",
+    introduction:
+      "Graphite gland packing with carbon fiber corner is braided from expanded graphite yarn, which can withstand high temperature and carbon fiber with superior corrosion resistance. The carbon fiber in four corners provides higher resistance to extrusion and attrition. This packing can effectively avoid leakage, especially suitable in application of power station valve with high temperature and pressure.",
     technicalSpecs: {
       "Working temperature":
         "-200°C ~ 650°C (STEAM) / -200°C ~ 565°C (ATMOSPHERE)",
@@ -2012,6 +2150,40 @@ const products: ProductDetail[] = [
   productDetailsMap["Ceramic Fiber Blanket"],
   productDetailsMap["Acoustic Insulation Slab"],
   productDetailsMap["Thermal Insulation Slab"],
+
+  // Packing
+  productDetailsMap["Fibre Packing Sheets"],
+  productDetailsMap["Aramid Packing"],
+  productDetailsMap["Asbestos PTFE Packing"],
+  productDetailsMap["Carbon Fiber Packing"],
+  productDetailsMap["Carbonized Fiber Packing"],
+  productDetailsMap["Composite Aramid Fiber Packing"],
+  productDetailsMap["Expanded Graphite Packing"],
+  productDetailsMap["Graphite Packing With Carbon Fiber"],
+  productDetailsMap["PTFE Packing With Graphite"],
+  productDetailsMap["PTFE Pure PTFE packing"],
+  productDetailsMap["Ramie Graphite Packing"],
+  productDetailsMap["Ramie PTFE Packing"],
+  productDetailsMap["Style 165: Ceramic"],
+  productDetailsMap["Style 168: Ceramic"],
+  productDetailsMap["Style 2222 : Aqua Special"],
+  productDetailsMap["Style 374: Hydroflon"],
+  productDetailsMap["Style 376: Hydraulic Shipping"],
+  productDetailsMap["STYLE-1100 Graphite Rope"],
+  productDetailsMap["White Asbestos Rope style 1000"],
+  productDetailsMap["Cut Fiber Gaskets"],
+  productDetailsMap["Spiral Wound Gaskets"],
+  productDetailsMap["Expanded Teflon (PTFE) Gasket"],
+  productDetailsMap["Teflon (PTFE) Envelope Gasket"],
+  productDetailsMap["Teflon (PTFE) Ring Gasket"],
+  productDetailsMap["Ceramic Cloth"],
+  productDetailsMap["Ceramic Tape"],
+  productDetailsMap["Ceramic Rope"],
+  productDetailsMap["PTFE Sheets"],
+  productDetailsMap["Teflon Rods, Bushes & Tubes"],
+  productDetailsMap["Teflon Belows"],
+  productDetailsMap["Teflon Universal Rope"],
+  productDetailsMap["Teflon Diaphragms with Neoprene Rubber Pad"],
 ];
 
 function ProductsContent() {
@@ -2035,8 +2207,8 @@ function ProductsContent() {
 
   const filteredProducts = products.filter((product, index) => {
     if (!product) {
-       console.error(`Product at index ${index} is undefined in products array.`);
-       return false;
+      console.error(`Product at index ${index} is undefined in products array.`);
+      return false;
     }
 
     const matchesCategory =
@@ -2107,26 +2279,43 @@ function ProductsContent() {
           </motion.div>
 
           {/* BREADCRUMBS */}
-          <div className="max-w-md mx-auto px-4 sm:px-0 mb-12 flex items-center justify-center gap-2 text-sm text-muted-foreground overflow-x-auto whitespace-nowrap">
+          <div className="w-full mx-auto px-4 sm:px-0 mb-12 flex flex-wrap items-center justify-center gap-2 text-sm text-muted-foreground">
             <button
-              onClick={() => { setActiveCategory("all"); setActiveSubCategory("all"); }}
+              onClick={() => {
+                // If we are deep in the hierarchy, go back to just "Products" view (reset to all)
+                setActiveCategory("all");
+                setActiveSubCategory("all");
+              }}
               className="hover:text-primary transition-colors font-medium flex-shrink-0"
             >
               Home
             </button>
 
-            {(activeCategory !== "all" || activeSubCategory !== "all") && (
+            <ChevronRight className="w-4 h-4 flex-shrink-0" />
+
+            <button
+              onClick={() => {
+                setActiveCategory("all");
+                setActiveSubCategory("all");
+              }}
+              className={`hover:text-primary transition-colors font-medium flex-shrink-0 ${activeCategory === "all" ? "text-foreground font-bold" : ""}`}
+            >
+              Products
+            </button>
+
+            {activeCategory !== "all" && (
               <>
                 <ChevronRight className="w-4 h-4 flex-shrink-0" />
                 <button
                   onClick={() => {
+                    // If we are in a subcategory, clicking the category name should reset subcategory
                     if (activeSubCategory !== "all") {
                       setActiveSubCategory("all");
                     }
                   }}
                   className={`hover:text-primary transition-colors font-medium flex-shrink-0 ${activeSubCategory === "all" ? "text-foreground font-bold" : ""}`}
                 >
-                  {categories.find(c => c.id === activeCategory)?.name || "Products"}
+                  {categories.find(c => c.id === activeCategory)?.name || activeCategory}
                 </button>
               </>
             )}
@@ -2163,7 +2352,8 @@ function ProductsContent() {
             activeCategory === "flow" ||
             activeCategory === "temperature" ||
             activeCategory === "safety" ||
-            activeCategory === "valve") &&
+            activeCategory === "valve" ||
+            activeCategory === "packing") &&
             subCategoriesMap[activeCategory] && (
               <div className="flex flex-wrap justify-center gap-3 mb-12 px-4">
                 {subCategoriesMap[activeCategory].map((sub) => (
