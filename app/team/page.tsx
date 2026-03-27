@@ -3,7 +3,8 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { motion } from "framer-motion"
-import { Mail, Phone, User, CheckCircle2 } from "lucide-react"
+import Link from "next/link"
+import { Mail, Phone, User, CheckCircle2, ArrowRight } from "lucide-react"
 import { JoinTeamForm } from "@/components/join-team-form"
 
 const teamMembers = [
@@ -112,10 +113,18 @@ export default function TeamPage() {
               OUR PEOPLE
             </span>
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mt-4 mb-6">Meet Our Team</h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
               The dedicated professionals behind Kemplast&apos;s success, committed to delivering excellence in every
               project.
             </p>
+            <div className="flex justify-center">
+              <Link 
+                href="#join-team" 
+                className="inline-flex items-center gap-2 px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-full shadow-lg transition-transform hover:scale-105"
+              >
+                Want to join our team? <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </motion.div>
 
           {/* Desktop Table View */}
@@ -250,10 +259,11 @@ export default function TeamPage() {
 
           {/* Join Team Section with Form */}
           <motion.div
+            id="join-team"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-24"
+            className="mt-24 scroll-mt-24"
           >
             <div className="bg-card border border-border rounded-3xl p-8 md:p-12 max-w-6xl mx-auto shadow-2xl relative overflow-hidden">
               {/* Decorative background element */}
