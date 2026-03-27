@@ -121,6 +121,19 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Location Map */}
+        <div className="mt-12 rounded-2xl overflow-hidden border border-border shadow-sm">
+          <iframe 
+            src="https://www.google.com/maps?q=Kemplast+Process+Solutions&output=embed"
+            width="100%" 
+            height="400" 
+            style={{ border: 0 }} 
+            allowFullScreen={false} 
+            loading="lazy"
+          >
+          </iframe>
+        </div>
+
         {/* Bottom */}
         <div className="border-t border-border mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground">© 2026 Kemplast Process Solutions. All rights reserved.</p>
