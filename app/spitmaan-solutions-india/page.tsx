@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import { BrandPageLayout } from "@/components/brand-page-layout"
 
 export const metadata: Metadata = {
-  title: "Spitmaan Packing & Sealing Solutions Supplier in India",
+  title: "Spitmaan Authorized Distributor | Packing & Sealing Solutions India",
   description:
-    "Authorized supplier of Spitmaan industrial packing, sealing solutions, and gland packings in India. High-quality sealing for all applications.",
+    "Top authorized distributor of Spitmaan industrial packing, sealing solutions, and gland packings in India. Get genuine Spitmaan products from Kemplast.",
   alternates: {
     canonical: "https://kemplast.in/spitmaan-solutions-india",
   },
@@ -46,9 +46,9 @@ const products = [
 export default function SpitmaanPage() {
   const content = (
     <>
-      <h2>Your Source for Spitmaan Industrial Sealing in India</h2>
+      <h2>Top Authorized Spitmaan Distributor & Dealer in India</h2>
       <p>
-        For decades, Spitmaan has been a hallmark of quality in the field of industrial fluid sealing and insulation. Kemplast is an authorized supplier of Spitmaan products in India, ensuring that industries have access to reliable, high-performance sealing solutions that prevent leaks, reduce maintenance, and enhance plant safety.
+        For decades, Spitmaan has been a hallmark of quality in the field of industrial fluid sealing and insulation. Kemplast is an <strong>authorized distributor and top supplier</strong> of Spitmaan products in India, ensuring that industries across the country have access to reliable, high-performance sealing solutions that prevent leaks, reduce maintenance, and enhance plant safety.
       </p>
 
       <h3>Overcoming Sealing Challenges</h3>
@@ -74,8 +74,8 @@ export default function SpitmaanPage() {
   return (
     <BrandPageLayout
       brandName="Spitmaan"
-      title="Spitmaan Packing & Sealing Solutions Supplier in India"
-      description="Prevent leaks and maximize equipment life with Spitmaan's premium gland packings and jointings, distributed across India by Kemplast."
+      title="Spitmaan Authorized Distributor in India"
+      description="Prevent leaks and maximize equipment life with Spitmaan's premium gland packings and jointings. Distributed across India by Kemplast, your trusted authorized dealer."
       heroImage="/images/spitmaan-logo.png"
       products={products}
       content={content}

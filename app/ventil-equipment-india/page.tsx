@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import { BrandPageLayout } from "@/components/brand-page-layout"
 
 export const metadata: Metadata = {
-  title: "Ventil Valve Testing Equipment Supplier in India",
+  title: "Ventil Authorized Distributor & Valve Testing Equipment Dealer in India",
   description:
-    "Kemplast is an authorized supplier of Ventil valve testing equipment in India. Discover high-quality test benches for safety and control valves.",
+    "Top authorized distributor of Ventil valve testing equipment in India. Kemplast provides high-quality test benches and repair machines pan-India.",
   alternates: {
     canonical: "https://kemplast.in/ventil-equipment-india",
   },
@@ -46,9 +46,9 @@ const products = [
 export default function VentilPage() {
   const content = (
     <>
-      <h2>Premier Supplier of Ventil Valve Testing Solutions in India</h2>
+      <h2>Top Authorized Ventil Distributor & Dealer in India</h2>
       <p>
-        Kemplast is proud to be a trusted supplier of Ventil equipment in India. Ventil is globally recognized as the leading manufacturer of high-pressure test equipment for industrial valves. With our extensive network and deep technical knowledge, we bring these cutting-edge valve testing solutions to manufacturers, repair shops, and end-users across the subcontinent.
+        Kemplast is proud to be a <strong>top authorized distributor and dealer</strong> of Ventil equipment in India. Ventil is globally recognized as the leading manufacturer of high-pressure test equipment for industrial valves. With our extensive network and deep technical knowledge, we bring these cutting-edge valve testing solutions to manufacturers, repair shops, and end-users across the subcontinent, ensuring you get the best authentic equipment and support.
       </p>
 
       <h3>The Importance of Reliable Valve Testing</h3>
@@ -74,8 +74,8 @@ export default function VentilPage() {
   return (
     <BrandPageLayout
       brandName="Ventil"
-      title="Ventil Valve Testing Equipment Supplier in India"
-      description="Ensure safety and compliance with Ventil's industry-leading valve testing and repair equipment. Expertly supplied and supported by Kemplast."
+      title="Ventil Authorized Distributor in India"
+      description="Ensure safety and compliance with Ventil's industry-leading valve testing and repair equipment. Expertly supplied and supported by Kemplast, your trusted authorized dealer."
       heroImage="/images/ventil-logo.svg"
       products={products}
       content={content}

@@ -23,8 +23,46 @@ export function BrandPageLayout({
   products,
   content
 }: BrandPageLayoutProps) {
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": title,
+    "description": description,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Kemplast Process Solutions",
+      "url": "https://kemplast.in",
+      "logo": "https://kemplast.in/images/kemplast-logo-updated.png"
+    },
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": `Kemplast Process Solutions - Authorized ${brandName} Distributor in India`,
+      "description": `Authorized top distributor, dealer, and supplier of ${brandName} products in India.`,
+      "image": "https://kemplast.in/images/kemplast-logo-updated.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "4-3-83 to 85, Laxmana Business Ctr, Hill St, Ranigunj",
+        "addressLocality": "Secunderabad",
+        "addressRegion": "Telangana",
+        "postalCode": "500003",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91-40-27711000",
+      "areaServed": "India",
+      "brand": {
+        "@type": "Brand",
+        "name": brandName,
+        "logo": `https://kemplast.in${heroImage}`
+      }
+    }
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+      />
       <Navbar />
       <main className="min-h-screen pt-32 pb-16 relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 relative z-10">

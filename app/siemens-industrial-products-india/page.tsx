@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import { BrandPageLayout } from "@/components/brand-page-layout"
 
 export const metadata: Metadata = {
-  title: "Siemens Industrial Products Supplier in India",
+  title: "Siemens Authorized Distributor & Dealer in India | Kemplast",
   description:
-    "Authorized supplier of Siemens industrial automation & instrumentation products in India. Contact Kemplast today for process instrumentation.",
+    "Top Siemens authorized distributor in India. Kemplast Process Solutions provides genuine Siemens instrumentation across Hyderabad, Bangalore, Mumbai, and pan-India.",
   alternates: {
     canonical: "https://kemplast.in/siemens-industrial-products-india",
   },
@@ -46,9 +46,9 @@ const products = [
 export default function SiemensPage() {
   const content = (
     <>
-      <h2>Your Trusted Partner for Siemens Process Instrumentation in India</h2>
+      <h2>Top Siemens Authorized Distributor & Dealer in India</h2>
       <p>
-        As leading industrial automation suppliers, Kemplast brings you the complete range of Siemens process instrumentation. For decades, Siemens has been synonymous with engineering excellence, innovation, and reliability. We ensure that these world-class products reach facilities across India with the support and technical expertise required for seamless integration.
+        As leading industrial automation suppliers and a top <strong>Siemens authorized distributor in India</strong>, Kemplast brings you the complete range of Siemens process instrumentation. For decades, Siemens has been synonymous with engineering excellence, innovation, and reliability. We ensure that these world-class products reach facilities across India—including major hubs like Hyderabad, Bangalore, Mumbai, and Pune—with the support and technical expertise required for seamless integration.
       </p>
 
       <h3>Why Siemens?</h3>
@@ -77,8 +77,8 @@ export default function SiemensPage() {
   return (
     <BrandPageLayout
       brandName="Siemens"
-      title="Siemens Industrial Products Supplier in India"
-      description="Elevate your process control with world-class Siemens instrumentation. As an authorized supplier, we provide genuine Siemens products with expert support across India."
+      title="Siemens Authorized Distributor in India"
+      description="Elevate your process control with world-class Siemens instrumentation. As a top authorized distributor and dealer, we provide genuine Siemens products with expert support across India."
       heroImage="/images/siemens-logo.png"
       products={products}
       content={content}

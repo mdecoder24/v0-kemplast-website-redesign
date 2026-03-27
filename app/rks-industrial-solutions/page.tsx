@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import { BrandPageLayout } from "@/components/brand-page-layout"
 
 export const metadata: Metadata = {
-  title: "RKS Industrial Solutions Supplier in India",
+  title: "RKS Authorized Distributor | Industrial Solutions & Valves India",
   description:
-    "Authorized dealer for RKS industrial solutions in India. Access robust and reliable industrial components and valves with Kemplast.",
+    "Top authorized dealer and distributor for RKS industrial solutions in India. Access robust industrial components and valves with Kemplast Process Solutions.",
   alternates: {
     canonical: "https://kemplast.in/rks-industrial-solutions",
   },
@@ -46,9 +46,9 @@ const products = [
 export default function RKSPage() {
   const content = (
     <>
-      <h2>Authorized Dealer for RKS Industrial Solutions in India</h2>
+      <h2>Top Authorized RKS Distributor & Dealer in India</h2>
       <p>
-        Kemplast partners with RKS to deliver robust and dependable industrial solutions across India. Known for their meticulous manufacturing processes and adherence to stringent quality standards, RKS products form the backbone of reliable piping and structural systems in various industrial sectors.
+        Kemplast proudly serves as a <strong>top authorized distributor and dealer</strong> for RKS, delivering robust and dependable industrial solutions across India. Known for their meticulous manufacturing processes and adherence to stringent quality standards, authentic RKS products form the backbone of reliable piping and structural systems in various industrial sectors across the nation.
       </p>
 
       <h3>Built for Performance</h3>
@@ -74,8 +74,8 @@ export default function RKSPage() {
   return (
     <BrandPageLayout
       brandName="RKS"
-      title="RKS Industrial Solutions Supplier in India"
-      description="Source reliable valves, fittings, and industrial solutions from RKS through Kemplast, your trusted process equipment partner in India."
+      title="RKS Authorized Distributor in India"
+      description="Source reliable valves, fittings, and industrial solutions from RKS through Kemplast, your trusted authorized process equipment distributor in India."
       heroImage="/images/rks-logo.png"
       products={products}
       content={content}

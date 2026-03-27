@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import { BrandPageLayout } from "@/components/brand-page-layout"
 
 export const metadata: Metadata = {
-  title: "Scientific Devices Supplier in India",
+  title: "Scientific Devices Authorized Distributor | Precision Instruments India",
   description:
-    "Kemplast supplies high-precision scientific devices and instruments for laboratories and industrial QA/QC applications in India.",
+    "Top authorized distributor and dealer for Scientific Devices in India. Kemplast supplies high-precision laboratory and industrial QA/QC instruments.",
   alternates: {
     canonical: "https://kemplast.in/scientific-devices-india",
   },
@@ -46,9 +46,9 @@ const products = [
 export default function ScientificDevicesPage() {
   const content = (
     <>
-      <h2>Your Partner for Precision Scientific Devices in India</h2>
+      <h2>Top Authorized Scientific Devices Distributor & Dealer in India</h2>
       <p>
-        In modern manufacturing and research, precision is not just desired; it is mandatory. Kemplast is a premier supplier of advanced scientific devices and laboratory instruments in India. We cater to the exacting needs of Quality Assurance (QA), Quality Control (QC), and Research & Development (R&D) laboratories across various industries.
+        In modern manufacturing and research, precision is not just desired; it is mandatory. Kemplast is a <strong>premier authorized distributor and supplier</strong> of advanced scientific devices and laboratory instruments in India. We cater to the exacting needs of Quality Assurance (QA), Quality Control (QC), and Research & Development (R&D) laboratories across various industries, ensuring you receive authentic, world-class measurement tools.
       </p>
 
       <h3>Driving Quality and Innovation</h3>
@@ -74,8 +74,8 @@ export default function ScientificDevicesPage() {
   return (
     <BrandPageLayout
       brandName="Scientific Devices"
-      title="Scientific Devices & Instruments Supplier in India"
-      description="Equip your laboratory with high-precision scientific devices and testing instruments. Reliable measurement solutions supplied by Kemplast."
+      title="Scientific Devices Authorized Distributor in India"
+      description="Equip your laboratory with high-precision scientific devices and testing instruments. Reliable measurement solutions supplied by Kemplast, an authorized distributor."
       heroImage="/images/scientific-devices-logo.png"
       products={products}
       content={content}
