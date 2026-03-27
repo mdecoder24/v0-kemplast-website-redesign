@@ -59,27 +59,9 @@ export function BrandPageLayout({
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12 mb-24">
-          <div className="lg:col-span-2 flex flex-col gap-12">
+          <div className="lg:col-span-2">
             <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary">
               {content}
-            </div>
-            
-            <div className="glass rounded-2xl border border-white/10 shadow-xl p-8 bg-card/50">
-              <h4 className="text-xl font-bold mb-6">Why Choose Kemplast?</h4>
-              <div className="grid sm:grid-cols-2 gap-4">
-                {[
-                  "Authorized Distributor",
-                  "100% Genuine Products",
-                  "Expert Technical Support",
-                  "Fast Delivery Pan India",
-                  "Competitive Pricing"
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center text-muted-foreground transition-all hover:text-foreground">
-                    <CheckCircle2 className="w-5 h-5 text-primary mr-3 shrink-0" />
-                    {item}
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
           
@@ -95,6 +77,28 @@ export function BrandPageLayout({
           </div>
         </div>
 
+        <div className="mb-24">
+          <div className="glass rounded-3xl border border-primary/20 shadow-2xl p-8 md:p-12 relative overflow-hidden bg-gradient-to-br from-card/80 to-primary/5">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
+            <h2 className="text-3xl font-bold mb-8 text-center tracking-tight">Why Choose Kemplast for {brandName}?</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                "Authorized Distributor in India",
+                "100% Genuine Products",
+                "Expert Technical Support",
+                "Fast Delivery Pan India",
+                "Competitive Pricing",
+                "Decades of Industry Experience"
+              ].map((item, i) => (
+                <div key={i} className="flex items-center text-lg text-foreground transition-all hover:text-primary font-medium p-4 rounded-xl bg-background/50 border border-border/50 hover:border-primary/30 shadow-sm">
+                  <CheckCircle2 className="w-6 h-6 text-primary mr-3 shrink-0" />
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div className="space-y-12 mb-24 relative">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-3xl bg-primary/5 rounded-full blur-3xl -z-10" />
           <div className="text-center space-y-4">
@@ -104,7 +108,7 @@ export function BrandPageLayout({
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {products.map((product, index) => (
               <div key={index} className="h-full">
                 <ProductCard
