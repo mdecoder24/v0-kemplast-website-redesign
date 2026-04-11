@@ -410,28 +410,6 @@ const productDetailsMap: Record<string, ProductDetail> = {
     },
   },
 
-  "SITRANS LR140": {
-    name: "SITRANS LR140 ",
-    category: "level",
-    subCategory: "radar",
-    image: "/images/level%20images/SITRANS-LR140.png",
-    introduction:
-      "SITRANS LR140 is a two-wire loop-powered radar level transmitter designed for continuous level measurement of liquids and slurries in basic storage tanks, offering a cost-effective solution.",
-
-    technicalSpecs: {
-      Type: "Integral version without display",
-      "Measuring range": "0–8 m (0–26 ft)",
-      Frequency: "80 GHz nominal",
-      "Beam angle": "8°",
-      "Performance accuracy": "± 5 mm",
-      Temperature: "-40 to +60 °C",
-      "Degree of protection": "IP66 / IP67",
-      "Process connection": "NPT, BSP & Flange connections",
-      "Output / communication": "4–20 mA",
-      "Power supply": "12–35 V DC (loop powered)",
-      Approvals: "General Purpose CE, CSA, FM, RCM",
-    },
-  },
 
   "SITRANS LR150": {
     name: "SITRANS LR150 compact ",
@@ -796,47 +774,6 @@ const productDetailsMap: Record<string, ProductDetail> = {
     ],
   },
 
-  "ULTRASONIC NON-CONTACTING SWITCHES": {
-    name: "ULTRASONIC NON-CONTACTING SWITCHES",
-    category: "level",
-    subCategory: "switches",
-    image: "/images/level%20images/ULTRASONIC%20NON-CONTACTING%20SWITCH.png",
-    introduction:
-      "An ultrasonic non-contacting switch is a point level sensor that uses high-frequency sound waves to detect the presence or absence of liquids, slurries, or bulk solids without physical contact. It is ideal for harsh, corrosive, or sanitary environments where contacting sensors may suffer from contamination, buildup, or mechanical wear. The rugged, all-in-one design combines the transducer and electronics in a maintenance-free device with no moving parts.",
-
-    technicalSpecs: {
-      "Maximum measuring range":
-        "Up to 5 m for liquids and slurries, up to 3 m for bulk solids",
-      "Beam angle": "12°",
-      "Process temperature": "-40 °C to +60 °C (-40 °F to +140 °F)",
-      "Process pressure": "Up to 10 bar",
-      "Transducer material": "ETFE or PVDF copolymer",
-      Enclosure: "Polycarbonate, Type 6 / NEMA 6 / IP67",
-    },
-
-    benefits: [
-      "Non-contact measurement eliminates material buildup on the sensor",
-      "Two switch outputs for high-high, high, low, and low-low level alarms",
-      "Suitable for pump up and pump down control applications",
-      "Integral temperature compensation for reliable measurement",
-      "AC or DC power supply options available",
-      "Fail-safe electronics for increased operational safety",
-      "Threaded and sanitary clamp process connections",
-      "Rugged enclosure suitable for harsh environments",
-      "Easy configuration using simple two-button programming",
-      "Virtually maintenance-free operation with no moving parts",
-    ],
-
-    applications: [
-      "Liquids (conductive and non-conductive)",
-      "Slurries and bulk solids",
-      "Food and beverage applications such as milk, oil, and syrup tanks",
-      "Chemical industry applications involving acidic or corrosive liquids",
-      "Pharmaceutical processes with powders and solvents",
-      "Plastics industry for resin pellets and powders",
-      "Wastewater treatment including foam detection and oil-water interface level",
-    ],
-  },
 
   // flow products
   "ELECTROMAGNETIC FLOWMETER": {
@@ -2200,7 +2137,6 @@ const products: ProductDetail[] = [
   productDetailsMap["SITRANS LR100"],
   productDetailsMap["SITRANS LR110"],
   productDetailsMap["SITRANS LR120"],
-  productDetailsMap["SITRANS LR140"],
   productDetailsMap["SITRANS LR150"],
   productDetailsMap["SIEMENS LR500 SERIES"],
   productDetailsMap["SITRANS LR510"],
@@ -2212,7 +2148,6 @@ const products: ProductDetail[] = [
   productDetailsMap["CAPACITANCE SWITCHES"],
   productDetailsMap["VIBRATING SWITCHES"],
   productDetailsMap["ROTATION PADDLE SWITCHES"],
-  productDetailsMap["ULTRASONIC NON-CONTACTING SWITCHES"],
 
   // Flow
   productDetailsMap["ELECTROMAGNETIC FLOWMETER"],
