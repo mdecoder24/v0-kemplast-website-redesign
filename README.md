@@ -1,30 +1,91 @@
-# Kemplast website redesign
+# Kemplast Process Solutions - Website Redesign
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+Welcome to the new Kemplast Process Solutions official website. Kemplast has been pioneering process instrumentation and industrial solutions since 1986. This project is a complete modern redesign of the website aiming to provide a premium, dynamic, and seamless experience for users browsing products, asking for quotes, or submitting career applications.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/kush-projects/v0-kemplast-website-redesign)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/oEDAohmuqJK)
+## 🎯 Objectives
+- **Modern Upgrade:** Transition from a legacy design to a highly modern, animated UI.
+- **Engagement:** Increase user engagement with interactive elements, floating animations, and bento-grid layouts.
+- **Centralized Communications:** Unify product inquiries, quote requests, and job applications to route directly to `sales@kemplast.in`.
+- **Product Integration:** Cleanly display the massive catalog of Kemplast products including the newly added Siemens PLC catalog.
+- **SEO & Performance:** Ensure high performance, fast load times, and structured data representing the organization on Google and IndiaMART.
 
-## Overview
+## 🏗 Architecture
+This project is built on a highly scalable, modern web stack using:
+- **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Animation Framework:** Framer Motion for scroll-linked animations and page transitions.
+- **Components:** Shadcn / Radix UI primitives for robust accessibility.
+- **Backend/Forms:** Next.js Route Handlers coupled with `Resend` for sending emails programmatically.
+- **Icons:** `lucide-react`
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## 📂 Project Structure
 
-## Deployment
+```text
+kemplast-website-redesign/
+├── app/
+│   ├── api/             # Next.js API Routes (e.g., /send-application for Resend)
+│   ├── (routes)/        # Page routes including /products, /contact, /services, etc.
+│   ├── layout.tsx       # Global root layout, SEO metadata, and HTML Providers
+│   └── page.tsx         # The main landing page
+├── components/          # Reusable UI components
+│   ├── ui/              # Shadcn primitive components (buttons, dialogs, inputs)
+│   ├── hero-3d.tsx      # Main animated hero section
+│   ├── about-section.tsx# Milestone and timeline components
+│   └── ...              # Other composite sections
+├── public/              # Static assets, images, and documents
+├── styles/              # Global CSS & Tailwind configuration
+└── package.json         # Project configuration and dependency manifests
+```
 
-Your project is live at:
+## ✨ Features
+- **Dynamic Hero Section:** A highly animated landing experience featuring scattered, floating stat cards with a glassy UI.
+- **Interactive Timeline:** A scrollable, hover-responsive company milestone timeline with animated dots.
+- **Rich Product Catalog:** Extensive Siemens PLC and Process Instrumentation catalog layout.
+- **Form Integration:** Custom-built job application and quote request forms hooked up via Resend API to deliver directly to the sales team.
+- **Global Search:** IndiaMART integrations embedded contextually throughout the product journey.
 
-**[https://vercel.com/kush-projects/v0-kemplast-website-redesign](https://vercel.com/kush-projects/v0-kemplast-website-redesign)**
+## 🚀 Commands to Run the Program
 
-## Build your app
+To get this project running on your local machine, follow these steps:
 
-Continue building your app on:
+1. **Install Dependencies:**
+   Make sure you have Node installed, then run:
+   ```bash
+   npm install
+   ```
+2. **Setup Environment Variables:**
+   Create a `.env.local` file in the root directory and add your Resend API credentials (required for email forms):
+   ```env
+   RESEND_API_KEY=your_resend_api_key
+   ```
+3. **Run the Development Server:**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the running application.
 
-**[https://v0.app/chat/oEDAohmuqJK](https://v0.app/chat/oEDAohmuqJK)**
+4. **Build for Production:**
+   ```bash
+   npm run build
+   npm run start
+   ```
 
-## How It Works
+## 🐙 Cloning from Git
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+To clone this repository to your local machine, use the standard Git command:
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/kemplast-website-redesign.git
+
+# Navigate into the project folder
+cd kemplast-website-redesign
+
+# Install dependencies and start
+npm install
+npm run dev
+```
+
+---
+*Developed for Kemplast Process Solutions*
