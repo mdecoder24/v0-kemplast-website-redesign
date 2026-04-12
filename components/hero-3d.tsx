@@ -60,7 +60,7 @@ export function Hero3D() {
   }
   const item = {
     hidden: { opacity: 0, y: 32 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
   }
 
   return (
@@ -196,7 +196,7 @@ export function Hero3D() {
               {stats.map((s) => (
                 <motion.div
                   key={s.label}
-                  variants={{ hidden: { opacity: 0, x: 40 }, visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0.22,1,0.36,1] } } }}
+                  variants={{ hidden: { opacity: 0, x: 40 }, visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0.22,1,0.36,1] as [number, number, number, number] } } }}
                   whileHover={{ scale: 1.04, x: -4 }}
                   className="group relative px-6 py-5 rounded-2xl bg-card/70 backdrop-blur-md border border-border hover:border-primary/40 shadow-xl hover:shadow-primary/10 transition-all duration-300 overflow-hidden"
                 >
