@@ -175,7 +175,7 @@ export function Hero3D() {
                   LinkedIn
                 </a>
                 <a
-                  href="https://www.indiamart.com/company/21640575/"
+                  href="https://www.indiamart.com/kempflon-engineering/profile.html?srsltid=AfmBOorhMck_1YNLlpwLBBu-tYDeAEYctcqCg014e5Niue7emUsn8ZA-"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1B6085]/10 border border-[#1B6085]/20 text-[#1B6085] hover:bg-[#1B6085] hover:text-white transition-all text-sm font-semibold"

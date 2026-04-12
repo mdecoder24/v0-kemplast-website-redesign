@@ -92,7 +92,7 @@ const organizationSchema = {
   },
   sameAs: [
     "https://www.linkedin.com/company/kemplast",
-    "https://www.indiamart.com/kemplast",
+    "https://www.indiamart.com/kempflon-engineering/profile.html?srsltid=AfmBOorhMck_1YNLlpwLBBu-tYDeAEYctcqCg014e5Niue7emUsn8ZA-",
     "https://www.tradeindia.com/kemplast",
   ],
 }
