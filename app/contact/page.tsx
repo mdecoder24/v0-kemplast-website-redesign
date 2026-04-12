@@ -53,6 +53,97 @@ const contactInfo = [
   },
 ]
 
+const categoryProductsMap: Record<string, string[]> = {
+  "Pressure Instruments": [
+    "Pencil Type Pressure Transmitter",
+    "Gauge Pressure Transmitter",
+    "Absolute Pressure Transmitter",
+    "Differential Pressure Transmitter",
+    "Pressure Gauge",
+    "Differential Pressure Gauge",
+  ],
+  "Level Instruments": [
+    "ECHOMAX XPS-10, XPS-15 & XPS-30",
+    "SITRANS PROBE LU240",
+    "SITRANS LR100",
+    "SITRANS LR110",
+    "SITRANS LR120",
+    "SITRANS LR150",
+    "SITRANS LR510",
+    "SITRANS LR530",
+    "SITRANS LR550",
+    "SITRANS LR580",
+    "CAPACITANCE SWITCHES",
+    "VIBRATING SWITCHES",
+    "ROTATION PADDLE SWITCHES",
+  ],
+  "Flow Instruments": [
+    "ELECTROMAGNETIC FLOWMETER",
+    "VORTEX FLOWMETER",
+    "TURBINE FLOWMETER",
+    "ORIFICE TYPE DP FLOW METER",
+    "PITOT TUBE TYPE DP FLOW METER",
+  ],
+  "Temperature Instruments": [
+    "Bimetallic Thermometer",
+    "Glass Thermometer",
+    "RESISTANCE TEMPERATURE DETECTORS",
+    "HEAD MOUNTED TRANSMITTERS",
+    "FIELD MOUNT TEMPERATURE TRANSMITTER",
+    "RAIL MOUNT TEMPERATURE TRANSMITTER",
+  ],
+  "Safety Instruments": [
+    "Control Valve",
+    "Relief Valve",
+    "Safety Relief Valve",
+    "Inline Flame Arrestor",
+    "End of Line Flame Arrestor",
+    "Explosion Vents",
+    "Rupture Disc",
+  ],
+  "Valve Positioners": [
+    "Siemens Positioner",
+    "Smart Electro Pneumatic Valve Positioner",
+  ],
+  "Packing": [
+    "Fibre Packing Sheets",
+    "Aramid Packing",
+    "Asbestos PTFE Packing",
+    "Carbon Fiber Packing",
+    "Carbonized Fiber Packing",
+    "Composite Aramid Fiber Packing",
+    "Expanded Graphite Packing",
+    "Graphite Packing With Carbon Fiber",
+    "PTFE Packing With Graphite",
+    "PTFE Pure PTFE packing",
+    "Ramie Graphite Packing",
+    "Ramie PTFE Packing",
+    "Spiral Wound Gaskets",
+    "Cut Fiber Gaskets",
+    "Expanded Teflon (PTFE) Gasket",
+    "Teflon (PTFE) Envelope Gasket",
+    "Teflon (PTFE) Ring Gasket",
+    "PTFE Sheets",
+    "Teflon Rods, Bushes & Tubes",
+    "Teflon Belows",
+    "Teflon Universal Rope",
+    "Teflon Diaphragms with Neoprene Rubber Pad",
+  ],
+  "Insulation": [
+    "Loose Glass Wool",
+    "Polybond Mineralwool Thermal Insulation Wool",
+    "Ceramic Fiber Wool",
+    "Lightly Resin Bonded Mattress",
+    "Ceramic Fibre Board",
+    "Ceramic Fiber Blanket",
+    "Acoustic Insulation Slab",
+    "Thermal Insulation Slab",
+    "Ceramic Cloth",
+    "Ceramic Tape",
+    "Ceramic Rope",
+  ],
+}
+
 function ContactForm() {
   const searchParams = useSearchParams()
   const initialSubject = searchParams.get("subject") || ""
@@ -61,17 +152,24 @@ function ContactForm() {
     name: string
     email: string
     product: string[]
+    specificProducts: string[]
     subject: string
     message: string
   }>({
     name: "",
     email: "",
     product: [],
+    specificProducts: [],
     subject: initialSubject,
     message: "",
   })
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const availableProducts = formData.product
+    .flatMap((cat) => categoryProductsMap[cat] ?? [])
+    .filter((p, i, arr) => arr.indexOf(p) === i)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -82,7 +180,7 @@ function ContactForm() {
         {
           name: formData.name,
           email: formData.email,
-          product: formData.product,
+          product: [...formData.product, ...formData.specificProducts],
           subject: formData.subject,
           message: formData.message,
         },
@@ -99,7 +197,10 @@ function ContactForm() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify({
+            ...formData,
+            product: [...formData.product, ...formData.specificProducts],
+          }),
         })
       } catch (err) {
         console.error("Failed to send email notification:", err)
@@ -110,6 +211,7 @@ function ContactForm() {
         name: "",
         email: "",
         product: [],
+        specificProducts: [],
         subject: "",
         message: "",
       })
@@ -195,9 +297,12 @@ function ContactForm() {
                                   type="button"
                                   onClick={(e) => {
                                     e.stopPropagation()
+                                    const newCategories = formData.product.filter((p) => p !== prod)
+                                    const remainingProducts = newCategories.flatMap((cat) => categoryProductsMap[cat] ?? [])
                                     setFormData({
                                       ...formData,
-                                      product: formData.product.filter((p) => p !== prod),
+                                      product: newCategories,
+                                      specificProducts: formData.specificProducts.filter((sp) => remainingProducts.includes(sp)),
                                     })
                                   }}
                                   className="hover:text-foreground ml-1 p-0.5"
@@ -279,6 +384,120 @@ function ContactForm() {
                       )}
                     </div>
                   </div>
+
+                  {/* Specific product selection — only shown when a category is selected */}
+                  {availableProducts.length > 0 && (
+                    <div className="relative">
+                      <label className="block text-foreground font-medium mb-2">Select Specific Products</label>
+                      <div className="relative">
+                        <div
+                          onClick={() => setIsProductDropdownOpen(!isProductDropdownOpen)}
+                          className="min-h-12 w-full rounded-md border border-border bg-secondary px-3 py-2 text-sm cursor-pointer hover:border-primary/50 transition-colors"
+                        >
+                          <div className="flex flex-wrap gap-2">
+                            {formData.specificProducts.length > 0 ? (
+                              formData.specificProducts.map((prod) => (
+                                <span
+                                  key={prod}
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="bg-primary/20 text-primary px-2 py-1 rounded-md text-xs flex items-center gap-1 font-medium ring-1 ring-inset ring-primary/20"
+                                >
+                                  {prod}
+                                  <button
+                                    type="button"
+                                    onClick={(e) => {
+                                      e.stopPropagation()
+                                      setFormData({
+                                        ...formData,
+                                        specificProducts: formData.specificProducts.filter((p) => p !== prod),
+                                      })
+                                    }}
+                                    className="hover:text-foreground ml-1 p-0.5"
+                                  >
+                                    ×
+                                  </button>
+                                </span>
+                              ))
+                            ) : (
+                              <span className="text-muted-foreground py-1">Select specific products...</span>
+                            )}
+                          </div>
+                          <div className="absolute right-3 top-3 pointer-events-none">
+                            <svg
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                              className={`text-muted-foreground transition-transform duration-200 ${isProductDropdownOpen ? 'rotate-180' : ''}`}
+                            >
+                              <path
+                                d="M2.5 4.5L6 8L9.5 4.5"
+                                stroke="currentColor"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+
+                        {isProductDropdownOpen && (
+                          <div
+                            className="fixed inset-0 z-10"
+                            onClick={() => setIsProductDropdownOpen(false)}
+                          />
+                        )}
+
+                        {isProductDropdownOpen && (
+                          <div className="absolute top-full left-0 right-0 mt-2 bg-card border border-border rounded-xl shadow-xl z-20 overflow-hidden py-1 max-h-60 overflow-y-auto custom-scrollbar">
+                            {formData.product.map((cat) => {
+                              const products = categoryProductsMap[cat] ?? []
+                              if (products.length === 0) return null
+                              return (
+                                <div key={cat}>
+                                  <div className="px-4 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider bg-secondary/50 border-b border-border">
+                                    {cat}
+                                  </div>
+                                  {products.map((product) => {
+                                    const isSelected = formData.specificProducts.includes(product)
+                                    return (
+                                      <div
+                                        key={product}
+                                        onClick={() => {
+                                          if (!isSelected) {
+                                            setFormData({
+                                              ...formData,
+                                              specificProducts: [...formData.specificProducts, product],
+                                            })
+                                          } else {
+                                            setFormData({
+                                              ...formData,
+                                              specificProducts: formData.specificProducts.filter((p) => p !== product),
+                                            })
+                                          }
+                                        }}
+                                        className={`px-4 py-3 text-sm cursor-pointer transition-colors flex items-center justify-between
+                                          ${isSelected
+                                            ? 'bg-primary/10 text-primary'
+                                            : 'hover:bg-primary/10 hover:text-primary text-foreground'
+                                          }`}
+                                      >
+                                        {product}
+                                        {isSelected && (
+                                          <span className="text-xs text-primary font-medium">✓</span>
+                                        )}
+                                      </div>
+                                    )
+                                  })}
+                                </div>
+                              )
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
 
                   <div>
                     <label className="block text-foreground font-medium mb-2">Subject</label>
