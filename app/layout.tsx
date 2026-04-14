@@ -110,7 +110,10 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: "https://kemplast.in" },
   verification: {
-    google: "xWDb8MihZE6hT8QVfHxE1dT3EYC8COtG5RMeADbEh4s",
+    google: [
+      "xWDb8MihZE6hT8QVfHxE1dT3EYC8COtG5RMeADbEh4s",
+      "n-3WRDK84BNzqYujyvf6pDqBkdlGb-G-ONMr69264Ek",
+    ],
   },
   icons: {
     icon: "/kemplast-favicon.png",

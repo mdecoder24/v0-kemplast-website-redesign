@@ -8,9 +8,9 @@ import { PartnersSection } from "@/components/partners-section"
 import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
-  title: "Kemplast Process Solutions | Best Authorized Dealer for Siemens, WIKA, RKS, Spitmaan, Ventil & Scientific Devices in Hyderabad",
+  title: "Kemplast Process Solutions | #1 Authorized Dealer for Siemens, WIKA, RKS, Spitmaan, Ventil & Scientific Devices in India",
   description:
-    "Kemplast Process Solutions — South India's #1 authorized dealer & distributor for Siemens, WIKA, RKS, Spitmaan, Ventil & Scientific Devices since 1986. We supply pressure gauges, PLCs, temperature sensors, flow meters, industrial valves, packing & insulation equipment across Hyderabad, Secunderabad, Telangana & the entire South India region.",
+    "Kemplast Process Solutions — India's most trusted authorized dealer & distributor for Siemens, WIKA, RKS, Spitmaan, Ventil & Scientific Devices since 1986. We supply pressure gauges, PLCs, temperature sensors, flow meters, industrial valves, packing & insulation equipment across Hyderabad, Mumbai, Bangalore, Chennai, Delhi, Pune & pan-India.",
   alternates: { canonical: "https://kemplast.in" },
 }
 
@@ -53,8 +53,25 @@ const localBusinessSchema = {
       closes: "13:00",
     },
   ],
-  areaServed: ["Hyderabad", "Secunderabad", "Telangana", "Andhra Pradesh", "South India"],
-  servesCuisine: undefined,
+  areaServed: [
+    "India",
+    "Hyderabad",
+    "Secunderabad",
+    "Telangana",
+    "Andhra Pradesh",
+    "Mumbai",
+    "Maharashtra",
+    "Bangalore",
+    "Karnataka",
+    "Chennai",
+    "Tamil Nadu",
+    "Delhi",
+    "Pune",
+    "Kolkata",
+    "South India",
+    "North India",
+    "West India",
+  ],
   knowsAbout: [
     "Siemens industrial products",
     "WIKA pressure instruments",
@@ -64,7 +81,22 @@ const localBusinessSchema = {
     "Scientific Devices instrumentation",
     "Process instrumentation",
     "Industrial automation",
+    "Pressure transmitters",
+    "Flow meters",
+    "Temperature sensors",
+    "Level instruments",
+    "PLCs",
+    "Gland packing",
+    "PTFE products",
+    "Thermal insulation",
   ],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    reviewCount: "120",
+    bestRating: "5",
+    worstRating: "1",
+  },
 }
 
 export default function HomePage() {

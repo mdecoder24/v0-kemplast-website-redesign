@@ -2,11 +2,32 @@ import type { Metadata } from "next"
 import { BrandPageLayout } from "@/components/brand-page-layout"
 
 export const metadata: Metadata = {
-  title: "Scientific Devices Authorized Distributor | Precision Instruments India",
+  title: "Scientific Devices Authorized Distributor India | Precision Balances, Calibration | Kemplast",
   description:
-    "Top authorized distributor and dealer for Scientific Devices in India. Kemplast supplies high-precision laboratory and industrial QA/QC instruments.",
+    "Kemplast is India's top Scientific Devices authorized distributor & dealer. Buy genuine precision balances, calibration equipment, material testing instruments, analytical instruments & lab equipment. Serving Hyderabad, Mumbai, Bangalore, Chennai, Delhi, Pune & pan-India. Call +91-40-27711000.",
+  keywords: [
+    "Scientific Devices authorized distributor India",
+    "Scientific Devices authorized dealer India",
+    "precision balance dealer India",
+    "analytical instruments dealer India",
+    "calibration equipment supplier India",
+    "laboratory instruments dealer India",
+    "material testing instruments India",
+    "QA QC instruments supplier India",
+    "scientific instruments dealer Hyderabad",
+    "laboratory equipment supplier Mumbai",
+    "precision measurement instruments India",
+    "industrial calibration equipment India",
+    "buy scientific devices India",
+    "genuine scientific instruments India",
+  ],
   alternates: {
     canonical: "https://kemplast.in/scientific-devices-india",
+  },
+  openGraph: {
+    title: "Scientific Devices Authorized Distributor India | Precision Instruments | Kemplast",
+    description: "Buy genuine precision balances, calibration & analytical instruments from India's authorized Scientific Devices dealer — Kemplast Process Solutions.",
+    url: "https://kemplast.in/scientific-devices-india",
   },
 }
 
@@ -43,6 +64,37 @@ const products = [
   }
 ]
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://kemplast.in" },
+    { "@type": "ListItem", position: 2, name: "Scientific Devices India", item: "https://kemplast.in/scientific-devices-india" },
+  ],
+}
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is Kemplast an authorized Scientific Devices distributor in India?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Kemplast Process Solutions is an authorized distributor and dealer for Scientific Devices precision instruments in India, supplying genuine products with full manufacturer warranty and after-sales support." },
+    },
+    {
+      "@type": "Question",
+      name: "What Scientific Devices products does Kemplast supply?",
+      acceptedAnswer: { "@type": "Answer", text: "Kemplast supplies Scientific Devices precision balances, calibration equipment, material testing instruments, environmental testing chambers, analytical instruments (spectrometers, chromatographs), and laboratory consumables across India." },
+    },
+    {
+      "@type": "Question",
+      name: "Where can I buy Scientific Devices precision instruments in India?",
+      acceptedAnswer: { "@type": "Answer", text: "Buy genuine Scientific Devices instruments from Kemplast Process Solutions — an authorized dealer in India. We supply to Hyderabad, Mumbai, Bangalore, Chennai, Delhi, Pune and all major cities. Contact: +91-40-27711000 or sales@kemplast.in." },
+    },
+  ],
+}
+
 export default function ScientificDevicesPage() {
   const content = (
     <>
@@ -72,13 +124,17 @@ export default function ScientificDevicesPage() {
   )
 
   return (
-    <BrandPageLayout
-      brandName="Scientific Devices"
-      title="Scientific Devices Authorized Distributor in India"
-      description="Equip your laboratory with high-precision scientific devices and testing instruments. Reliable measurement solutions supplied by Kemplast, an authorized distributor."
-      heroImage="/images/scientific-devices-logo.png"
-      products={products}
-      content={content}
-    />
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <BrandPageLayout
+        brandName="Scientific Devices"
+        title="Scientific Devices Authorized Distributor in India"
+        description="Equip your laboratory with high-precision scientific devices and testing instruments. Reliable measurement solutions supplied by Kemplast, an authorized distributor."
+        heroImage="/images/scientific-devices-logo.png"
+        products={products}
+        content={content}
+      />
+    </>
   )
 }
