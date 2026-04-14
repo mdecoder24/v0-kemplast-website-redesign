@@ -29,8 +29,8 @@ export async function POST(req: NextRequest) {
         // Only send email if RESEND_API_KEY is present, otherwise just log (dev mode)
         if (process.env.RESEND_API_KEY) {
             await resend.emails.send({
-                from: "Kemplast Careers <onboarding@resend.dev>",
-                to: ["sales@kemplast.in"],
+                from: "Kemplast Careers <noreply@kemplast.in>",
+                to: ["sales@kemplast.in", "gpejavar@gmail.com"],
                 replyTo: email,
                 subject: `New Job Application: ${name} - ${position}`,
                 html: `
