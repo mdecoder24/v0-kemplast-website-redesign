@@ -121,17 +121,38 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Location Map */}
-        <div className="mt-12 rounded-2xl overflow-hidden border border-border shadow-sm">
-          <iframe 
-            src="https://www.google.com/maps?q=Kemplast+Process+Solutions&output=embed"
-            width="100%" 
-            height="220" 
-            style={{ border: 0 }} 
-            allowFullScreen={false} 
-            loading="lazy"
-          >
-          </iframe>
+        {/* Location Maps */}
+        <div className="mt-12 grid sm:grid-cols-2 gap-6">
+          <div className="rounded-2xl overflow-hidden border border-border shadow-sm flex flex-col h-full bg-card">
+            <div className="p-3 bg-secondary/50 border-b border-border text-sm font-semibold text-foreground text-center">
+              Secunderabad Office (Headquarters)
+            </div>
+            <iframe 
+              src="https://www.google.com/maps?q=Kemplast+Process+Solutions&output=embed"
+              width="100%" 
+              height="220" 
+              style={{ border: 0 }} 
+              allowFullScreen={false} 
+              loading="lazy"
+              className="flex-grow"
+            >
+            </iframe>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-border shadow-sm flex flex-col h-full bg-card">
+            <div className="p-3 bg-secondary/50 border-b border-border text-sm font-semibold text-foreground text-center">
+              Bangalore Office
+            </div>
+            <iframe 
+              src="https://www.google.com/maps?q=No+41,+15th+Cross,+MTS+Layout,+Kengeri+Satellite+Town,+Bangalore+-+560060&output=embed"
+              width="100%" 
+              height="220" 
+              style={{ border: 0 }} 
+              allowFullScreen={false} 
+              loading="lazy"
+              className="flex-grow"
+            >
+            </iframe>
+          </div>
         </div>
 
         {/* Bottom */}

@@ -98,7 +98,7 @@ export function BrandPageLayout({
 
         <div className="grid lg:grid-cols-3 gap-12 mb-24">
           <div className="lg:col-span-2">
-            <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary">
+            <div className="text-lg space-y-6 text-muted-foreground [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:text-foreground [&_h2]:mb-6 [&_h3]:text-2xl [&_h3]:font-bold [&_h3]:text-foreground [&_h3]:mt-10 [&_h3]:mb-4 [&_p]:leading-relaxed [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_li]:leading-relaxed [&_strong]:text-foreground">
               {content}
             </div>
           </div>

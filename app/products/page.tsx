@@ -2383,7 +2383,7 @@ function ProductsContent() {
               Industrial Excellence
             </h1>
 
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
               Discover our comprehensive range of high-quality instrumentation,
               packing, insulation, and valve products.
             </p>
