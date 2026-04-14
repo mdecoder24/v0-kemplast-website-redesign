@@ -207,12 +207,90 @@ const organizationSchema = {
     "@type": "OfferCatalog",
     name: "Industrial Instrumentation & Process Equipment",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Siemens PLC & Automation Systems", brand: { "@type": "Brand", name: "Siemens" } } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "WIKA Pressure Gauges & Temperature Instruments", brand: { "@type": "Brand", name: "WIKA" } } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "RKS Industrial Valves & Fittings", brand: { "@type": "Brand", name: "RKS" } } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Spitmaan Packing & Sealing Materials", brand: { "@type": "Brand", name: "Spitmaan" } } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Ventil Process Equipment", brand: { "@type": "Brand", name: "Ventil" } } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Scientific Devices Measurement Instruments", brand: { "@type": "Brand", name: "Scientific Devices" } } },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Product",
+          name: "Siemens PLC & Automation Systems",
+          brand: { "@type": "Brand", name: "Siemens" },
+          offers: {
+            "@type": "Offer",
+            availability: "https://schema.org/InStock",
+            seller: { "@type": "Organization", name: "Kemplast Process Solutions" },
+            areaServed: "IN",
+          },
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Product",
+          name: "WIKA Pressure Gauges & Temperature Instruments",
+          brand: { "@type": "Brand", name: "WIKA" },
+          offers: {
+            "@type": "Offer",
+            availability: "https://schema.org/InStock",
+            seller: { "@type": "Organization", name: "Kemplast Process Solutions" },
+            areaServed: "IN",
+          },
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Product",
+          name: "RKS Industrial Valves & Fittings",
+          brand: { "@type": "Brand", name: "RKS" },
+          offers: {
+            "@type": "Offer",
+            availability: "https://schema.org/InStock",
+            seller: { "@type": "Organization", name: "Kemplast Process Solutions" },
+            areaServed: "IN",
+          },
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Product",
+          name: "Spitmaan Packing & Sealing Materials",
+          brand: { "@type": "Brand", name: "Spitmaan" },
+          offers: {
+            "@type": "Offer",
+            availability: "https://schema.org/InStock",
+            seller: { "@type": "Organization", name: "Kemplast Process Solutions" },
+            areaServed: "IN",
+          },
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Product",
+          name: "Ventil Process Equipment",
+          brand: { "@type": "Brand", name: "Ventil" },
+          offers: {
+            "@type": "Offer",
+            availability: "https://schema.org/InStock",
+            seller: { "@type": "Organization", name: "Kemplast Process Solutions" },
+            areaServed: "IN",
+          },
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Product",
+          name: "Scientific Devices Measurement Instruments",
+          brand: { "@type": "Brand", name: "Scientific Devices" },
+          offers: {
+            "@type": "Offer",
+            availability: "https://schema.org/InStock",
+            seller: { "@type": "Organization", name: "Kemplast Process Solutions" },
+            areaServed: "IN",
+          },
+        },
+      },
     ]
   }
 }

@@ -4,11 +4,27 @@ import { ArrowRight, Calendar, User, FolderOpen } from "lucide-react"
 import { blogPosts } from "@/lib/blog-data"
 
 export const metadata: Metadata = {
-  title: "Industrial Equipment & Processes Blog",
+  title: "Industrial Instrumentation & Process Equipment Blog | Kemplast India",
   description:
-    "Read the latest insights, guides, and news about industrial equipment, process instrumentation, and valve testing from Kemplast.",
+    "Expert insights, product guides, and industry news on industrial instrumentation, process equipment, Siemens, WIKA, valves, calibration, and automation from Kemplast Process Solutions — India's authorized dealer.",
+  keywords: [
+    "industrial instrumentation blog India",
+    "process instrumentation guides India",
+    "Siemens instrumentation articles",
+    "WIKA pressure gauge guide",
+    "industrial automation blog India",
+    "calibration services guide India",
+    "valve testing guide India",
+    "Kemplast blog",
+  ],
   alternates: {
     canonical: "https://kemplast.in/blog",
+  },
+  openGraph: {
+    title: "Industrial Instrumentation Blog | Kemplast India",
+    description: "Expert guides and insights on industrial instrumentation, automation, valves, and calibration from Kemplast — India's authorized dealer.",
+    url: "https://kemplast.in/blog",
+    type: "website",
   },
 }
 
