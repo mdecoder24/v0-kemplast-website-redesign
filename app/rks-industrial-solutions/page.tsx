@@ -2,11 +2,34 @@ import type { Metadata } from "next"
 import { BrandPageLayout } from "@/components/brand-page-layout"
 
 export const metadata: Metadata = {
-  title: "RKS Authorized Distributor | Industrial Solutions & Valves India",
+  title: "RKS Authorized Distributor India | Industrial Valves, Fittings & Flanges | Kemplast",
   description:
-    "Top authorized dealer and distributor for RKS industrial solutions in India. Access robust industrial components and valves with Kemplast Process Solutions.",
+    "Kemplast is India's top RKS authorized distributor & dealer. Buy genuine RKS industrial valves (gate, globe, ball, check), pipe fittings, flanges, strainers & steam traps. Supplying Hyderabad, Mumbai, Bangalore, Chennai, Delhi, Pune & pan-India. Call +91-40-27711000.",
+  keywords: [
+    "RKS authorized distributor India",
+    "RKS authorized dealer India",
+    "RKS industrial valves dealer India",
+    "RKS gate valve dealer India",
+    "RKS ball valve dealer India",
+    "RKS pipe fittings supplier India",
+    "RKS flanges dealer India",
+    "RKS steam trap dealer India",
+    "industrial valves supplier India",
+    "industrial valves dealer Hyderabad",
+    "pipe fittings supplier India",
+    "flanges manufacturer dealer India",
+    "steam trap supplier India",
+    "strainer supplier India",
+    "valve actuator supplier India",
+    "buy RKS valves India",
+  ],
   alternates: {
     canonical: "https://kemplast.in/rks-industrial-solutions",
+  },
+  openGraph: {
+    title: "RKS Authorized Distributor India | Industrial Valves & Fittings | Kemplast",
+    description: "Buy genuine RKS industrial valves, pipe fittings, flanges & steam traps from India's authorized dealer — Kemplast Process Solutions.",
+    url: "https://kemplast.in/rks-industrial-solutions",
   },
 }
 
@@ -43,6 +66,37 @@ const products = [
   }
 ]
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://kemplast.in" },
+    { "@type": "ListItem", position: 2, name: "RKS Industrial Solutions India", item: "https://kemplast.in/rks-industrial-solutions" },
+  ],
+}
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is Kemplast an authorized RKS distributor in India?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Kemplast Process Solutions is an authorized distributor and dealer for RKS industrial solutions in India, supplying genuine RKS valves, pipe fittings, flanges, strainers, and actuation systems with full manufacturer warranty." },
+    },
+    {
+      "@type": "Question",
+      name: "What RKS products does Kemplast supply?",
+      acceptedAnswer: { "@type": "Answer", text: "Kemplast supplies RKS gate valves, globe valves, check valves, ball valves, pipe fittings, flanges, Y-type and basket strainers, steam traps, and pneumatic/electric actuation systems across India." },
+    },
+    {
+      "@type": "Question",
+      name: "Where can I buy RKS industrial valves in India?",
+      acceptedAnswer: { "@type": "Answer", text: "You can buy genuine RKS industrial valves from Kemplast Process Solutions — an authorized RKS dealer in India. We supply to all major cities including Hyderabad, Mumbai, Bangalore, Chennai, Delhi, Pune. Contact us at +91-40-27711000 or sales@kemplast.in." },
+    },
+  ],
+}
+
 export default function RKSPage() {
   const content = (
     <>
@@ -72,13 +126,17 @@ export default function RKSPage() {
   )
 
   return (
-    <BrandPageLayout
-      brandName="RKS"
-      title="RKS Authorized Distributor in India"
-      description="Source reliable valves, fittings, and industrial solutions from RKS through Kemplast, your trusted authorized process equipment distributor in India."
-      heroImage="/images/rks-logo.png"
-      products={products}
-      content={content}
-    />
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <BrandPageLayout
+        brandName="RKS"
+        title="RKS Authorized Distributor in India"
+        description="Source reliable valves, fittings, and industrial solutions from RKS through Kemplast, your trusted authorized process equipment distributor in India."
+        heroImage="/images/rks-logo.png"
+        products={products}
+        content={content}
+      />
+    </>
   )
 }

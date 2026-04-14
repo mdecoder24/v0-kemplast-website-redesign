@@ -2,11 +2,34 @@ import type { Metadata } from "next"
 import { BrandPageLayout } from "@/components/brand-page-layout"
 
 export const metadata: Metadata = {
-  title: "Spitmaan Authorized Distributor | Packing & Sealing Solutions India",
+  title: "Spitmaan Authorized Distributor India | Gland Packing, PTFE, Graphite Seals | Kemplast",
   description:
-    "Top authorized distributor of Spitmaan industrial packing, sealing solutions, and gland packings in India. Get genuine Spitmaan products from Kemplast.",
+    "Kemplast is India's top Spitmaan authorized distributor & dealer. Buy genuine Spitmaan PTFE gland packings, graphite packings, Aramid packings, non-asbestos gasket sheets & ceramic fibre products. Supplying Hyderabad, Mumbai, Bangalore, Chennai, Delhi, Pune & pan-India. Call +91-40-27711000.",
+  keywords: [
+    "Spitmaan authorized distributor India",
+    "Spitmaan authorized dealer India",
+    "Spitmaan gland packing dealer India",
+    "Spitmaan PTFE packing dealer India",
+    "Spitmaan graphite packing India",
+    "gland packing supplier India",
+    "PTFE gland packing dealer India",
+    "graphite packing supplier India",
+    "aramid packing dealer India",
+    "non-asbestos gasket sheet India",
+    "industrial packing dealer Hyderabad",
+    "sealing solutions supplier India",
+    "ceramic fibre packing India",
+    "pump packing dealer India",
+    "valve packing supplier India",
+    "buy Spitmaan packing India",
+  ],
   alternates: {
     canonical: "https://kemplast.in/spitmaan-solutions-india",
+  },
+  openGraph: {
+    title: "Spitmaan Authorized Distributor India | Gland Packing & Sealing | Kemplast",
+    description: "Buy genuine Spitmaan PTFE, graphite & aramid gland packings from India's authorized dealer — Kemplast Process Solutions.",
+    url: "https://kemplast.in/spitmaan-solutions-india",
   },
 }
 
@@ -43,6 +66,37 @@ const products = [
   }
 ]
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://kemplast.in" },
+    { "@type": "ListItem", position: 2, name: "Spitmaan Solutions India", item: "https://kemplast.in/spitmaan-solutions-india" },
+  ],
+}
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is Kemplast an authorized Spitmaan distributor in India?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Kemplast Process Solutions is an authorized distributor and dealer for Spitmaan industrial packing and sealing products in India, supplying genuine items with full manufacturer warranty." },
+    },
+    {
+      "@type": "Question",
+      name: "What Spitmaan products does Kemplast supply?",
+      acceptedAnswer: { "@type": "Answer", text: "Kemplast supplies Spitmaan PTFE gland packings, expanded graphite packings, Aramid/Kevlar packings, non-asbestos compressed fibre jointing sheets, ceramic fibre ropes and tapes, and specialty sealing solutions across India." },
+    },
+    {
+      "@type": "Question",
+      name: "Where can I buy Spitmaan gland packing in India?",
+      acceptedAnswer: { "@type": "Answer", text: "You can buy genuine Spitmaan gland packings from Kemplast Process Solutions — an authorized Spitmaan dealer in India. We supply to Hyderabad, Mumbai, Bangalore, Chennai, Delhi, Pune and all major cities. Contact: +91-40-27711000 or sales@kemplast.in." },
+    },
+  ],
+}
+
 export default function SpitmaanPage() {
   const content = (
     <>
@@ -72,13 +126,17 @@ export default function SpitmaanPage() {
   )
 
   return (
-    <BrandPageLayout
-      brandName="Spitmaan"
-      title="Spitmaan Authorized Distributor in India"
-      description="Prevent leaks and maximize equipment life with Spitmaan's premium gland packings and jointings. Distributed across India by Kemplast, your trusted authorized dealer."
-      heroImage="/images/spitmaan-logo.png"
-      products={products}
-      content={content}
-    />
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <BrandPageLayout
+        brandName="Spitmaan"
+        title="Spitmaan Authorized Distributor in India"
+        description="Prevent leaks and maximize equipment life with Spitmaan's premium gland packings and jointings. Distributed across India by Kemplast, your trusted authorized dealer."
+        heroImage="/images/spitmaan-logo.png"
+        products={products}
+        content={content}
+      />
+    </>
   )
 }

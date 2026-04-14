@@ -2,11 +2,36 @@ import type { Metadata } from "next"
 import { BrandPageLayout } from "@/components/brand-page-layout"
 
 export const metadata: Metadata = {
-  title: "WIKA Authorized Distributor | Pressure, Temperature & Level Instruments India",
+  title: "WIKA Authorized Distributor India | Pressure Gauges, Thermometers, Calibration | Kemplast",
   description:
-    "Kemplast is an authorized distributor of WIKA instruments in India. Source precision pressure gauges, thermometers, level instruments and calibration equipment for industrial applications.",
+    "Kemplast is India's top WIKA authorized distributor & dealer. Buy genuine WIKA pressure gauges, bimetallic thermometers, differential pressure instruments, level transmitters & calibration equipment. Supplying Hyderabad, Mumbai, Bangalore, Chennai, Delhi, Pune & pan-India. Call +91-40-27711000.",
+  keywords: [
+    "WIKA authorized distributor India",
+    "WIKA authorized dealer India",
+    "WIKA pressure gauge dealer India",
+    "WIKA pressure gauge Hyderabad",
+    "WIKA thermometer dealer India",
+    "WIKA bimetallic thermometer India",
+    "WIKA differential pressure gauge India",
+    "WIKA level transmitter India",
+    "WIKA calibration equipment India",
+    "WIKA instruments dealer Hyderabad",
+    "WIKA instruments dealer Mumbai",
+    "WIKA instruments dealer Bangalore",
+    "WIKA instruments dealer Chennai",
+    "buy WIKA pressure gauge India",
+    "genuine WIKA instruments India",
+    "industrial pressure gauge supplier India",
+    "process thermometer dealer India",
+  ],
   alternates: {
     canonical: "https://kemplast.in/wika-instruments-india",
+  },
+  openGraph: {
+    title: "WIKA Authorized Distributor India | Pressure Gauges & Instruments | Kemplast",
+    description: "Buy genuine WIKA pressure gauges, thermometers & calibration instruments from India's authorized dealer — Kemplast Process Solutions. Pan-India supply.",
+    url: "https://kemplast.in/wika-instruments-india",
+    images: [{ url: "/industrial-pressure-gauge.jpg", alt: "WIKA Authorized Dealer India – Kemplast" }],
   },
 }
 
@@ -43,6 +68,37 @@ const products = [
   }
 ]
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://kemplast.in" },
+    { "@type": "ListItem", position: 2, name: "WIKA Instruments India", item: "https://kemplast.in/wika-instruments-india" },
+  ],
+}
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is Kemplast an authorized WIKA distributor in India?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Kemplast Process Solutions is an authorized distributor and dealer for WIKA instruments in India, supplying genuine WIKA pressure gauges, thermometers, level instruments, and calibration equipment with full manufacturer warranty." },
+    },
+    {
+      "@type": "Question",
+      name: "Which WIKA products does Kemplast supply?",
+      acceptedAnswer: { "@type": "Answer", text: "Kemplast supplies WIKA Bourdon tube pressure gauges, diaphragm gauges, bimetallic thermometers, RTD temperature instruments, differential pressure gauges, level transmitters, process transmitters, and calibration equipment across India." },
+    },
+    {
+      "@type": "Question",
+      name: "Where can I buy WIKA pressure gauges in India?",
+      acceptedAnswer: { "@type": "Answer", text: "You can buy genuine WIKA pressure gauges from Kemplast Process Solutions — an authorized WIKA dealer in India. We supply to Hyderabad, Mumbai, Bangalore, Chennai, Delhi, Pune and all major cities. Contact us at +91-40-27711000 or sales@kemplast.in." },
+    },
+  ],
+}
+
 export default function WIKAPage() {
   const content = (
     <>
@@ -72,13 +128,17 @@ export default function WIKAPage() {
   )
 
   return (
-    <BrandPageLayout
-      brandName="WIKA"
-      title="WIKA Authorized Distributor in India"
-      description="Source precision pressure gauges, temperature instruments, level sensors and calibration equipment from WIKA through Kemplast — your trusted authorized distributor in India."
-      heroImage="/images/WIKA.webp"
-      products={products}
-      content={content}
-    />
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <BrandPageLayout
+        brandName="WIKA"
+        title="WIKA Authorized Distributor in India"
+        description="Source precision pressure gauges, temperature instruments, level sensors and calibration equipment from WIKA through Kemplast — your trusted authorized distributor in India."
+        heroImage="/images/WIKA.webp"
+        products={products}
+        content={content}
+      />
+    </>
   )
 }
