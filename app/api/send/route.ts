@@ -10,20 +10,51 @@ export async function POST(req: NextRequest) {
 
     const data = await resend.emails.send({
       from: "Kemplast Website <noreply@kemplast.in>",
-      to: ["sales@kemplast.in", "gpejavar@gmail.com"],
+      to: ["sales@kemplast.in"],
       replyTo: email,
       subject: `New Enquiry / Quote Request: ${subject}`,
       html: `
-        <h2>New Enquiry / Quote Request from Website</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ""}
-        ${company ? `<p><strong>Company:</strong> ${company}</p>` : ""}
-        <p><strong>Subject:</strong> ${subject}</p>
-        ${product && product.length ? `<p><strong>Products of Interest:</strong> ${product.join(", ")}</p>` : ""}
-        <hr />
-        <p><strong>Message:</strong></p>
-        <p style="white-space: pre-wrap;">${message}</p>
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <div style="background: linear-gradient(135deg, #f97316, #ea580c); padding: 24px; border-radius: 12px 12px 0 0;">
+            <h2 style="color: white; margin: 0;">📩 New Enquiry / Quote Request</h2>
+          </div>
+          <div style="border: 1px solid #e5e7eb; border-top: none; padding: 24px; border-radius: 0 0 12px 12px;">
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr>
+                <td style="padding: 8px 0; font-weight: bold; color: #374151; width: 140px;">Name:</td>
+                <td style="padding: 8px 0; color: #1f2937;">${name}</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; font-weight: bold; color: #374151;">Email:</td>
+                <td style="padding: 8px 0;"><a href="mailto:${email}" style="color: #f97316;">${email}</a></td>
+              </tr>
+              ${phone ? `
+              <tr>
+                <td style="padding: 8px 0; font-weight: bold; color: #374151;">Phone:</td>
+                <td style="padding: 8px 0;"><a href="tel:${phone}" style="color: #f97316;">${phone}</a></td>
+              </tr>` : ""}
+              ${company ? `
+              <tr>
+                <td style="padding: 8px 0; font-weight: bold; color: #374151;">Company:</td>
+                <td style="padding: 8px 0; color: #1f2937;">${company}</td>
+              </tr>` : ""}
+              <tr>
+                <td style="padding: 8px 0; font-weight: bold; color: #374151;">Subject:</td>
+                <td style="padding: 8px 0; color: #1f2937;">${subject}</td>
+              </tr>
+              ${product && product.length ? `
+              <tr>
+                <td style="padding: 8px 0; font-weight: bold; color: #374151;">Products:</td>
+                <td style="padding: 8px 0; color: #1f2937;">${product.join(", ")}</td>
+              </tr>` : ""}
+            </table>
+            <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 16px 0;" />
+            <p style="font-weight: bold; color: #374151; margin-bottom: 8px;">Message:</p>
+            <p style="color: #1f2937; white-space: pre-wrap; background: #f9fafb; padding: 12px; border-radius: 8px;">${message}</p>
+            <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 16px 0;" />
+            <p style="font-size: 12px; color: #9ca3af;">This enquiry was submitted from the Kemplast website.</p>
+          </div>
+        </div>
       `,
     });
 

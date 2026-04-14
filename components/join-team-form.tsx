@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Send } from "lucide-react"
-import { supabase } from "@/lib/supabase"
 import { toast } from "sonner"
 
 export function JoinTeamForm() {
@@ -26,59 +25,63 @@ export function JoinTeamForm() {
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
-            setResumeFile(e.target.files[0])
+            const file = e.target.files[0]
+            // Validate file size (5MB max)
+            if (file.size > 5 * 1024 * 1024) {
+                toast.error("File size must be under 5MB")
+                e.target.value = ""
+                return
+            }
+            setResumeFile(file)
         }
+    }
+
+    // Convert file to base64 for sending via API
+    const fileToBase64 = (file: File): Promise<string> => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader()
+            reader.readAsDataURL(file)
+            reader.onload = () => {
+                // Remove the data:application/pdf;base64, prefix
+                const base64 = (reader.result as string).split(",")[1]
+                resolve(base64)
+            }
+            reader.onerror = reject
+        })
     }
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         setIsSubmitting(true)
-        console.log("Submitting application...", formData)
 
         try {
-            let uploadedResumeUrl = ""
+            let resumeBase64 = ""
+            let resumeFileName = ""
 
-            // 1. Upload Resume to Supabase Storage if file exists
+            // Convert resume to base64 if attached
             if (resumeFile) {
-                console.log("Uploading file:", resumeFile.name)
-                const fileExt = resumeFile.name.split('.').pop()
-                const fileName = `${Date.now()}_${formData.name.replace(/\s+/g, '_')}.${fileExt}`
-
-                const { data: uploadData, error: uploadError } = await supabase.storage
-                    .from('resumes')
-                    .upload(fileName, resumeFile)
-
-                if (uploadError) {
-                    console.error("Upload error:", uploadError)
-                    throw new Error(`Resume upload failed: ${uploadError.message}`)
-                }
-
-                // Get Public URL
-                const { data: { publicUrl } } = supabase.storage
-                    .from('resumes')
-                    .getPublicUrl(fileName)
-
-                uploadedResumeUrl = publicUrl
-                console.log("File uploaded, URL:", publicUrl)
+                resumeBase64 = await fileToBase64(resumeFile)
+                resumeFileName = resumeFile.name
             }
 
-            // 2. Send Application Data to API (Database Insert + Email)
-            console.log("Sending application data to server...")
-
+            // Send everything to the API in one request
             const response = await fetch("/api/send-application", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ ...formData, portfolio: uploadedResumeUrl }),
+                body: JSON.stringify({
+                    ...formData,
+                    resumeBase64,
+                    resumeFileName,
+                }),
             })
 
             if (!response.ok) {
                 const errorData = await response.json()
-                throw new Error(errorData.error || "Failed to submit application to server")
+                throw new Error(errorData.error || "Failed to submit application")
             }
 
-            console.log("Application processing completed!")
             toast.success("Application submitted successfully! Good luck!")
 
             // Reset form
@@ -90,7 +93,6 @@ export function JoinTeamForm() {
                 message: ""
             })
             setResumeFile(null)
-            // Reset file input visually if needed
             const fileInput = document.getElementById('resume') as HTMLInputElement
             if (fileInput) fileInput.value = ''
 
