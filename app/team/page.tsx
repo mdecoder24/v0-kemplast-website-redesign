@@ -99,22 +99,16 @@ const teamMembers = [
     phone: "8977754033",
     email: "ops@kemplast.in",
   },
+
   {
     id: 14,
-    position: "Sales Engineer",
-    name: "Raghu",
-    phone: "8977754032",
-    email: "ops@kemplast.in",
-  },
-  {
-    id: 15,
     position: "Sales Engineer",
     name: "Keerthi",
     phone: "8977644036",
     email: "chn@kemplast.in",
   },
   {
-    id: 16,
+    id: 15,
     position: "Sales Engineer",
     name: "Vinay",
     phone: "8977754034",
