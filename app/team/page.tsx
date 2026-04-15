@@ -13,7 +13,7 @@ const teamMembers = [
     position: "Founder",
     name: "Vikram",
     phone: "-",
-    email: "-",
+    email: "sales@kemplast.in",
   },
   {
     id: 2,
