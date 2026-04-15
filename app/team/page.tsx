@@ -99,6 +99,20 @@ const teamMembers = [
     phone: "8977754033",
     email: "ops@kemplast.in",
   },
+  {
+    id: 14,
+    position: "-",
+    name: "Raghu",
+    phone: "-",
+    email: "support@kemplast.in",
+  },
+  {
+    id: 15,
+    position: "-",
+    name: "Keerthi",
+    phone: "-",
+    email: "support@kemplast.in",
+  },
 ]
 
 export default function TeamPage() {

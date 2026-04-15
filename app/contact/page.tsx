@@ -19,6 +19,7 @@ const contactInfo = [
     title: "Secunderabad Office",
     details: [
       "Kemplast Inc",
+      "Kemplast Process Solutions",
       "4-3-83 to 85 Laxmana Business Ctr",
       "Hill Street, Ranigunj",
       "Secunderabad – 500003",
@@ -48,7 +49,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Addresses",
-    details: ["sales@kemplast.in", "chaitanya@kemplast.in"],
+    details: ["sales@kemplast.in", "support@kemplast.in"],
   },
 ]
 
