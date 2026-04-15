@@ -103,14 +103,14 @@ const teamMembers = [
     id: 14,
     position: "-",
     name: "Raghu",
-    phone: "-",
+    phone: "8977754032",
     email: "support@kemplast.in",
   },
   {
     id: 15,
     position: "-",
     name: "Keerthi",
-    phone: "-",
+    phone: "8977644036",
     email: "support@kemplast.in",
   },
 ]
