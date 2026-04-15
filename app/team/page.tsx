@@ -101,17 +101,24 @@ const teamMembers = [
   },
   {
     id: 14,
-    position: "-",
+    position: "Sales Engineer",
     name: "Raghu",
     phone: "8977754032",
-    email: "support@kemplast.in",
+    email: "ops@kemplast.in",
   },
   {
     id: 15,
-    position: "-",
+    position: "Sales Engineer",
     name: "Keerthi",
     phone: "8977644036",
-    email: "support@kemplast.in",
+    email: "chn@kemplast.in",
+  },
+  {
+    id: 16,
+    position: "Sales Engineer",
+    name: "Vinay",
+    phone: "8977754034",
+    email: "ops@kemplast.in",
   },
 ]
 
