@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Send } from "lucide-react"
 import { toast } from "sonner"
+import { supabase } from "@/lib/supabase"
 
 export function JoinTeamForm() {
     const [isSubmitting, setIsSubmitting] = useState(false)
@@ -64,23 +65,23 @@ export function JoinTeamForm() {
                 resumeFileName = resumeFile.name
             }
 
-            // Send everything to the API in one request
-            const response = await fetch("/api/send-application", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    ...formData,
-                    resumeBase64,
-                    resumeFileName,
-                }),
-            })
+            // Save to database
+            const { error: dbError } = await supabase.from("applications").insert([{
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                position: formData.position,
+                message: formData.message,
+                resume_file_name: resumeFileName || null,
+            }])
+            if (dbError) throw dbError
 
-            if (!response.ok) {
-                const errorData = await response.json()
-                throw new Error(errorData.error || "Failed to submit application")
-            }
+            // Send email with resume attachment (best-effort)
+            fetch("/api/send-application", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ ...formData, resumeBase64, resumeFileName }),
+            }).catch(() => {})
 
             toast.success("Application submitted successfully! Good luck!")
 

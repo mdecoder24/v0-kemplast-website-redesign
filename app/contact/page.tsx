@@ -175,46 +175,28 @@ function ContactForm() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    try {
-      const { error } = await supabase.from("quotes").insert([
-        {
-          name: formData.name,
-          email: formData.email,
-          product: [...formData.product, ...formData.specificProducts],
-          subject: formData.subject,
-          message: formData.message,
-        },
-      ])
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      product: [...formData.product, ...formData.specificProducts],
+    }
 
+    try {
+      // Save to database
+      const { error } = await supabase.from("quotes").insert([payload])
       if (error) throw error
 
+      // Send email notification (best-effort — don't block on failure)
+      fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }).catch(() => {})
+
       toast.success("Request sent successfully! We will get back to you soon.")
-
-      // Send email notification
-      try {
-        await fetch("/api/send", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            ...formData,
-            product: [...formData.product, ...formData.specificProducts],
-          }),
-        })
-      } catch (err) {
-        console.error("Failed to send email notification:", err)
-        // Don't show error to user if only email fails but db succeeds
-      }
-
-      setFormData({
-        name: "",
-        email: "",
-        product: [],
-        specificProducts: [],
-        subject: "",
-        message: "",
-      })
+      setFormData({ name: "", email: "", product: [], specificProducts: [], subject: "", message: "" })
     } catch (error) {
       console.error("Error submitting form:", error)
       toast.error("Failed to send request. Please try again.")
