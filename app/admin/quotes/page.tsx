@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { supabaseAdmin } from "@/lib/supabase-admin"
+import { getSupabaseAdmin } from "@/lib/supabase-admin"
 import { ArrowLeft } from "lucide-react"
 
 export const dynamic = "force-dynamic"
@@ -17,7 +17,7 @@ type Quote = {
 }
 
 export default async function QuotesPage() {
-  const { data, error } = await supabaseAdmin
+  const { data, error } = await getSupabaseAdmin()
     .from("quotes")
     .select("*")
     .order("created_at", { ascending: false })

@@ -1,13 +1,14 @@
 import Link from "next/link"
-import { supabaseAdmin } from "@/lib/supabase-admin"
+import { getSupabaseAdmin } from "@/lib/supabase-admin"
 import { MessageSquare, Users } from "lucide-react"
 
 export const dynamic = "force-dynamic"
 
 export default async function AdminPage() {
+  const db = getSupabaseAdmin()
   const [{ count: quotesCount }, { count: appsCount }] = await Promise.all([
-    supabaseAdmin.from("quotes").select("*", { count: "exact", head: true }),
-    supabaseAdmin.from("applications").select("*", { count: "exact", head: true }),
+    db.from("quotes").select("*", { count: "exact", head: true }),
+    db.from("applications").select("*", { count: "exact", head: true }),
   ])
 
   const cards = [

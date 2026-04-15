@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { supabaseAdmin } from "@/lib/supabase-admin"
+import { getSupabaseAdmin } from "@/lib/supabase-admin"
 import { ArrowLeft } from "lucide-react"
 
 export const dynamic = "force-dynamic"
@@ -16,7 +16,7 @@ type Application = {
 }
 
 export default async function ApplicationsPage() {
-  const { data, error } = await supabaseAdmin
+  const { data, error } = await getSupabaseAdmin()
     .from("applications")
     .select("*")
     .order("created_at", { ascending: false })
